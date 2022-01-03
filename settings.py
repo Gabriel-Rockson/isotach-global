@@ -51,6 +51,7 @@ INSTALLED_APPS.extend([
     'django_extensions',
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
+    "apartments.apps.ApartmentsConfig",
 ])
 
 MIDDLEWARE.extend([
