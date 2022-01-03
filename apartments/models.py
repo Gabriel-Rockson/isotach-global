@@ -3,8 +3,21 @@ from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
 
 
+class ApartmentImage(models.Model):
+    image = models.ImageField(upload_to="apartment/image/",
+                              null=False,
+                              blank=False)
+    apartment = models.ForeignKey("apartments.Apartment",
+                                  on_delete=models.CASCADE,
+                                  blank=False,
+                                  null=False,
+                                  related_name="images")
+
+    def __str__(self):
+        return f"{self.image}"
+
+
 class Apartment(models.Model):
-    # images - foreign key
     # agent - foreign key
     upload_time = models.DateTimeField(verbose_name=_("Date Uploaded"),
                                        auto_now_add=True)
