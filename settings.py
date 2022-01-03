@@ -1,14 +1,13 @@
 # This is a fairly standard Django settings file, with some special additions
-# that allow addon applications to auto-configure themselves. If it looks 
+# that allow addon applications to auto-configure themselves. If it looks
 # unfamiliar, please see our documentation:
 #
 #   http://docs.divio.com/en/latest/reference/configuration-settings-file.html
 #
 # and comments below.
 
-
 # INSTALLED_ADDONS is a list of self-configuring Divio Cloud addons - see the
-# Addons view in your project's dashboard. See also the addons directory in 
+# Addons view in your project's dashboard. See also the addons directory in
 # this project, and the INSTALLED_ADDONS section in requirements.in.
 
 INSTALLED_ADDONS = [
@@ -32,6 +31,7 @@ INSTALLED_ADDONS = [
 # overwritten, so they should be placed *after* this section.
 
 import aldryn_addons.settings
+
 aldryn_addons.settings.load(locals())
 
 # Your own Django settings can be applied from here on. Key settings like
@@ -44,12 +44,18 @@ aldryn_addons.settings.load(locals())
 
 INSTALLED_APPS.extend([
     # Extend the INSTALLED_APPS setting by listing additional applications here
+    'livereload',
+    'django_extensions',
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
 ])
 
-# To see the settings that have been applied, use the Django diffsettings 
-# management command. 
+MIDDLEWARE.extend([
+    'livereload.middleware.LiveReloadScript',
+])
+
+# To see the settings that have been applied, use the Django diffsettings
+# management command.
 # See https://docs.divio.com/en/latest/how-to/configure-settings.html#list
 
 AUTH_USER_MODEL = "users.User"

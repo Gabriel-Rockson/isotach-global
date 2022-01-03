@@ -11,3 +11,5 @@ pytest-cov==3.0.0
 coverage==6.2 
 factory-boy==3.2.1 
 Faker==11.1.0 
+django-livereload-server==0.4 
+Werkzeug==2.0.2 
