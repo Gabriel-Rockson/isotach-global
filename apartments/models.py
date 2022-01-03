@@ -60,8 +60,10 @@ class Apartment(models.Model):
         null=False)
     description = models.TextField(
         verbose_name=_("Extra Description"),
-        help_text="Enter any extra details the potential occupant needs to know"
-    )
+        help_text=
+        "Enter any extra details the potential occupant needs to know",
+        blank=True,
+        null=True)
     total_rent_payment = models.PositiveIntegerField(
         verbose_name=_("Total Rent Payment"),
         help_text=
@@ -73,9 +75,11 @@ class Apartment(models.Model):
         default=5)
     agent_fee = models.PositiveSmallIntegerField(
         verbose_name="Agent's Fee ( amount )",
-        help_text="Amount to pay to the agent.")
+        help_text="Amount to pay to the agent.",
+        blank=True,
+        null=True)
     inspection_fee = models.PositiveSmallIntegerField(
-        verbose_name=_("Inspectoion Fee"),
+        verbose_name=_("Inspection Fee"),
         help_text=
         "How much is this agent charging potential clients to go show them the place?",
         default=50)
@@ -84,8 +88,11 @@ class Apartment(models.Model):
         help_text="Has this apartment been verified? Tick if Yes",
         default=False)
 
+    def __str__(self):
+        return f"{self.title}"
+
     def save(self, *args, **kwargs):
-        _total_rent_amount = self.monthly_rent_payment * self.advance_years
+        _total_rent_amount = self.monthly_rent_payment * self.advance_years * 12
 
         self.agent_fee = self.agent_commission * 0.01 * _total_rent_amount
         self.total_rent_payment = _total_rent_amount
