@@ -1,4 +1,6 @@
 .divio
+/data
+data/
 .vscode/
 
 node_modules/

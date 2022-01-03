@@ -30,7 +30,10 @@ INSTALLED_ADDONS = [
 # Note that any settings you provide before the next two lines are liable to be
 # overwritten, so they should be placed *after* this section.
 
+import os
+
 import aldryn_addons.settings
+from django_storage_url import dsn_configured_storage_class
 
 aldryn_addons.settings.load(locals())
 
@@ -59,3 +62,18 @@ MIDDLEWARE.extend([
 # See https://docs.divio.com/en/latest/how-to/configure-settings.html#list
 
 AUTH_USER_MODEL = "users.User"
+
+# Media files
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join('/data/media/')
+
+# DEFAULT_FILE_STORAGE is configured using DEFAULT_STORAGE_DSN
+
+# read the setting value from the environment variable
+DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN')
+
+# dsn_configured_storage_class() requires the name of the setting
+DefaultStorageClass = dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
+
+# Django's DEFAULT_FILE_STORAGE requires the class name
+DEFAULT_FILE_STORAGE = 'isotachglobal.settings.DefaultStorageClass'
