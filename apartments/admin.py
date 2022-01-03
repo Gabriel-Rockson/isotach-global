@@ -1,6 +1,13 @@
 from django.contrib import admin
-from .models import Apartment
+from .models import Apartment, ApartmentImage
 
+
+class ApartmentImageInline(admin.StackedInline):
+    model = ApartmentImage
+    list_display = ("image", )
+    extra = 1
+    min_num = 1
+    max_num = 15
 
 @admin.register(Apartment)
 class ApartmentModel(admin.ModelAdmin):
@@ -28,4 +35,5 @@ class ApartmentModel(admin.ModelAdmin):
         "total_rent_payment",
         "agent_fee",
     )
+    inlines = [ApartmentImageInline]
     save_on_top = True

@@ -71,10 +71,11 @@ MEDIA_ROOT = os.path.join('/data/media/')
 # DEFAULT_FILE_STORAGE is configured using DEFAULT_STORAGE_DSN
 
 # read the setting value from the environment variable
-DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN')
+# DEFAULT_STORAGE_DSN = os.environ.get('DEFAULT_STORAGE_DSN')
 
-# dsn_configured_storage_class() requires the name of the setting
-DefaultStorageClass = dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
+# # dsn_configured_storage_class() requires the name of the setting
+# DefaultStorageClass = dsn_configured_storage_class('DEFAULT_STORAGE_DSN')
 
-# Django's DEFAULT_FILE_STORAGE requires the class name
-DEFAULT_FILE_STORAGE = 'isotachglobal.settings.DefaultStorageClass'
+# # Django's DEFAULT_FILE_STORAGE requires the class name
+# # DEFAULT_FILE_STORAGE = 'isotachglobal.settings.DefaultStorageClass'
+# DEFAULT_FILE_STORAGE = DefaultStorageClass
