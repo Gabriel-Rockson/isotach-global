@@ -4,7 +4,7 @@
 #
 # See our Developer Handbook for more information:
 # http://docs.divio.com/en/latest/reference/docker-docker-compose.html
-version: "2"
+version: "3"
 
 services:
   # The web container is an instance of exactly the same Docker image as your
@@ -32,9 +32,13 @@ services:
   # On the Cloud, your database runs on a dedicated cluster. Locally, we
   # replicate it in a Docker container called "db".
   db:
-    image: postgres:9.6-alpine
+    image: postgres
     environment:
       POSTGRES_DB: "db"
       POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
       - ".:/app:rw"
+      - db_data:/var/lib/postgresql/data/
+
+volumes:
+  db_data:

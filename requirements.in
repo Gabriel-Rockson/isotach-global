@@ -3,3 +3,11 @@ https://divio-addons.s3-eu-central-1.amazonaws.com/aldryn-addons/2.0.1/75074b5c-
 https://divio-addons.s3-eu-central-1.amazonaws.com/aldryn-django/3.2.10.0/3ccb3a51-5c2b-4b33-93ac-a8baeba3ce84/aldryn-django-3.2.10.0.tar.gz#egg=aldryn-django==3.2.10.0
 https://divio-addons.s3-eu-central-1.amazonaws.com/aldryn-sso/2.0.1/fc74bf76-5ef7-485e-b645-75b747d78ebf/aldryn-sso-2.0.1.tar.gz#egg=aldryn-sso==2.0.1
 # </INSTALLED_ADDONS>
+Pillow==9.0.0 
+django-extensions==3.1.5 
+ipython==7.30.1 
+pytest-django==4.5.2 
+pytest-cov==3.0.0 
+coverage==6.2 
+factory-boy==3.2.1 
+Faker==11.1.0 
