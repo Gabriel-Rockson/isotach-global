@@ -103,8 +103,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "tailwind:dev": "postcss css/global.css -w -d static/css/tailwind/tailwind.css --verbose",
-    "tailwind:build": "NODE_ENV=production postcss css/global.css -d static/css/tailwind/tailwind.css --verbose"
+    "tailwind:dev": "postcss css/global.css -w -d ../static/css/tailwind/ --verbose",
+    "tailwind:build": "NODE_ENV=production postcss css/global.css -d ../static/css/tailwind/ --verbose"
   },
   "keywords": [],
   "author": "",
