@@ -18,12 +18,14 @@ class ApartmentImage(models.Model):
 
 
 class Apartment(models.Model):
-    # agent = models.ForeignKey(
-    #     "agents.Agent",
-    #     verbose_name=_("Agent"),
-    #     help_text="Which agent is in charge of this apartment?",
-    #     related_name="apartments",
-    #     on_delete=models.CASCADE)
+    agent = models.ForeignKey(
+        "agents.Agent",
+        verbose_name=_("Agent"),
+        help_text="Which agent is in charge of this apartment?",
+        related_name="apartments",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=False)
     upload_time = models.DateTimeField(verbose_name=_("Date Uploaded"),
                                        auto_now_add=True)
     title = models.CharField(
