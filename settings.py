@@ -47,8 +47,13 @@ aldryn_addons.settings.load(locals())
 
 INSTALLED_APPS.extend([
     # Extend the INSTALLED_APPS setting by listing additional applications here
+
+    # 3rd party apps
+    'phonenumber_field',
     'livereload',
     'django_extensions',
+
+    # Developer created apps
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
     "apartments.apps.ApartmentsConfig",

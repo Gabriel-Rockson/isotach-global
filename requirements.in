@@ -13,4 +13,5 @@ factory-boy==3.2.1
 Faker==11.1.0 
 django-livereload-server==0.4 
 Werkzeug==2.0.2 
+phonenumbers==8.12.40 
 django-phonenumber-field[phonenumberslite]==6.0.0 

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class Agent(models.Model):
@@ -17,11 +18,7 @@ class Agent(models.Model):
                               max_length=300,
                               blank=False,
                               null=False)
-    phone = models.PositiveIntegerField(
-        verbose_name=_("Phone of Agent"),
-        help_text="Phone number of this agent",
-        blank=False,
-        null=False)
+    phone_number = PhoneNumberField()
     date_joined = models.DateField(
         help_text="What date this this Agent join the agency?")
     verified = models.BooleanField(
