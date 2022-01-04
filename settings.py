@@ -52,6 +52,7 @@ INSTALLED_APPS.extend([
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
     "apartments.apps.ApartmentsConfig",
+    "agents.apps.AgentsConfig",
 ])
 
 MIDDLEWARE.extend([
@@ -79,3 +80,7 @@ MEDIA_ROOT = os.path.join('/data/media/')
 # # Django's DEFAULT_FILE_STORAGE requires the class name
 # # DEFAULT_FILE_STORAGE = 'isotachglobal.settings.DefaultStorageClass'
 # DEFAULT_FILE_STORAGE = DefaultStorageClass
+
+SHELL_PLUS = 'ipython'
+
+TIME_ZONE = "Africa/Accra"
