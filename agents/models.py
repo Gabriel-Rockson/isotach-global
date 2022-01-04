@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.html import mark_safe
 from django.utils.translation import gettext_lazy as _
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -23,6 +24,16 @@ class Agent(models.Model):
         help_text="What date this this Agent join the agency?")
     verified = models.BooleanField(
         default=False, help_text="Is this agent verified? Tick if yes.")
+
+    def image_tag(self):
+        if self.picture:
+            return mark_safe(
+                '<img src="%s" style="width: 200px; height:200px;" />' %
+                self.picture.url)
+        else:
+            return 'No Image Found'
+
+    image_tag.short_description = "Agent's Picture"
 
     def __str__(self):
         return f"{self.full_name}"

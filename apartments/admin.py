@@ -9,10 +9,12 @@ class ApartmentImageInline(admin.StackedInline):
     min_num = 1
     max_num = 15
 
+
 @admin.register(Apartment)
 class ApartmentModel(admin.ModelAdmin):
     list_display = (
         "title",
+        "image_tag",
         "for_sale",
         "for_rent",
         "bedrooms",
@@ -34,6 +36,7 @@ class ApartmentModel(admin.ModelAdmin):
     readonly_fields = (
         "total_rent_payment",
         "agent_fee",
+        "image_tag",
     )
     inlines = [ApartmentImageInline]
     save_on_top = True

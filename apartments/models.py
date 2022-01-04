@@ -1,6 +1,8 @@
 from django.db import models
+from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
+from django.utils.html import mark_safe
 
 
 class ApartmentImage(models.Model):
@@ -110,6 +112,16 @@ class Apartment(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+    def image_tag(self):
+        if self.images:
+            return mark_safe(
+                f'<img src="{self.images.first().image.url}" style="width: 200px; height:200px;" />'
+            )
+        else:
+            return 'No Image Found'
+
+    image_tag.short_description = "Apartment's Image"
 
     def save(self, *args, **kwargs):
         _total_rent_amount = self.monthly_rent_payment * self.advance_years * 12
