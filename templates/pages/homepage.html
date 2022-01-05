@@ -40,30 +40,95 @@
 
 </div>
 
-<section class="px-5 md:px-14 lg:px-20">
+<section class="px-5 md:px-14 lg:px-20 mb-20">
+
+  <!-- Featured Listings -->
+  <div>
+    <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Top Featured Apartment Listings</h1>
+    <a href="#" class="text-blue-500"><i class="fa-solid fa-eye"></i> View all listings</a>
+
+    <div class="flex justify-evenly flex-wrap">
+      {% for apartment in "12345678" %}
+      <div class="bg-slate-100 shadow-sm shadow-slate-500 w-full sm:w-80 mt-8 md:mt-10 rounded-md">
+        <!-- The apartment image -->
+        <img class="w-full rounded-md" src="{% static 'img/apt2.jpg' %}" alt="Apartment Image">
+
+        <!-- The apartment info -->
+        <div class="px-2 py-3">
+          <!-- location -->
+          <address class="py-2 text-gray-900 font-semibold"><i
+              class="fa-solid fa-map-marker-alt text-cyan-600 mr-2"></i>Dzowulu, Accra</address>
+
+          <!-- Price, monthly -->
+          <p class="text-xl font-serif font-black pt-1 pb-0 mb-0"><i
+              class="fa-solid fa-money-bill-wave text-green-800"></i> <span
+              class="mr-1 text-emerald-700">Ghc</span><span>1088.00</span><span class="ml-2">monthly</span></p>
+          <p class="pt-1 text-sm text-red-600">3 years advance</p>
+
+          <!-- Baths, beds and verified -->
+          <div class="flex justify-between py-1">
+            <div class="self-center">
+              <span class="font-bold text-lg">5</span>
+              <span class="text-gray-700">beds</span> <i class="fa-solid fa-bed text-fuchsia-600"></i>
+            </div>
+            <div class="self-center">
+              <span class="font-bold text-lg">3</span>
+              <span class="text-gray-700">baths</span> <i class="fa-solid fa-bath text-sky-500"></i>
+            </div>
+            <div class="self-center">verified <i class="fa-solid fa-check-double text-green-600"></i></div>
+          </div>
+
+          <!-- Agent -->
+          <p class="text-slate-800 py-1"><span class="font-bold">Agent</span> <i
+              class="fa-solid fa-user-tie text-black"></i>: Mr. Amoah Ansah</p>
+        </div>
+      </div>
+      {% empty %}
+      <h1>There are no apartments</h1>
+      {% endfor %}
+    </div>
+
+  </div>
 
   <!-- Latest Listings -->
   <div>
     <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Latest Apartment Listings</h1>
+    <a href="#" class="text-blue-500"><i class="fa-solid fa-eye"></i> View all listings</a>
 
     <div class="flex justify-evenly flex-wrap">
       {% for apartment in "12345678" %}
-      <div class="bg-slate-50 shadow-sm shadow-black w-full sm:w-80 mt-8 md:mt-10 rounded-md">
+      <div class="bg-slate-100 shadow-sm shadow-slate-500 w-full sm:w-80 mt-8 md:mt-10 rounded-md">
         <!-- The apartment image -->
         <img class="w-full rounded-md" src="{% static 'img/apt1.jpg' %}" alt="Apartment Image">
 
         <!-- The apartment info -->
         <div class="px-2 py-3">
+          <!-- location -->
+          <address class="py-2 text-gray-900 font-semibold"><i
+              class="fa-solid fa-map-marker-alt text-cyan-600 mr-2"></i>Behind Kotei Market, Kumasi</address>
 
           <!-- Price, monthly -->
-          <p class="text-xl font-serif font-black py-1"><i class="fa-solid fa-money-bill-wave text-green-800"></i> <span class="mr-1 text-emerald-700">Ghc</span><span>650.00</span><span class="ml-2">monthly</span></p>
+          <p class="text-xl font-serif font-black pt-1 pb-0 mb-0"><i
+              class="fa-solid fa-money-bill-wave text-green-800"></i> <span
+              class="mr-1 text-emerald-700">Ghc</span><span>650.00</span><span class="ml-2">monthly</span></p>
+          <p class="pt-1 text-sm text-red-600">2 years advance</p>
 
           <!-- Baths, beds and verified -->
-          <div class="flex justify-between">
-            <div>beds  <i class="fa-solid fa-bed text-fuchsia-600"></i></div>
-            <div>baths <i class="fa-solid fa-bath text-sky-500"></i></div>
-            <div>verified <i class="fa-solid fa-check-double text-green-600"></i></div>
+          <div class="flex justify-between py-1">
+            <div class="self-center">
+              <span class="font-bold text-lg">3</span>
+              <span class="text-gray-700">beds</span> <i class="fa-solid fa-bed text-fuchsia-600"></i>
+            </div>
+            <div class="self-center">
+              <span class="font-bold text-lg">2</span>
+              <span class="text-gray-700">baths</span> <i class="fa-solid fa-bath text-sky-500"></i>
+            </div>
+            <div class="self-center">verified <i class="fa-solid fa-check-double text-green-600"></i></div>
           </div>
+
+          <!-- Agent -->
+          <p class="text-slate-800 py-1"><span class="font-bold">Agent</span> <i
+              class="fa-solid fa-user-tie text-black"></i>: Kojo Ntow</p>
         </div>
       </div>
       {% empty %}
