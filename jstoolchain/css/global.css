@@ -3,3 +3,14 @@
 @tailwind utilities;
 
 /* custom classes */
+.mobile-menu {
+  @apply flex flex-col absolute top-16 left-0 z-50 bg-black text-white py-5 space-y-5 text-center w-full text-base;
+}
+
+.tablet-menu {
+  @apply flex flex-col absolute top-16 right-0 z-50 bg-black text-white p-3 space-y-5 text-left text-base mr-5;
+}
+
+.menu-icon {
+  @apply text-lg text-gray-600;
+}
