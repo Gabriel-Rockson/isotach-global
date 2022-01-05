@@ -402,6 +402,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: -0.5rem;
   margin-bottom: -0.5rem;
 }
+.my-20 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+.my-5 {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.my-16 {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -431,6 +443,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mb-0 {
   margin-bottom: 0px;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
 }
 .block {
   display: block;
@@ -557,6 +572,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-top: 0px;
   padding-bottom: 0px;
 }
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+.py-5 {
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+}
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -606,6 +629,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -620,6 +647,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .uppercase {
   text-transform: uppercase;
+}
+.leading-6 {
+  line-height: 1.5rem;
+}
+.leading-8 {
+  line-height: 2rem;
+}
+.leading-7 {
+  line-height: 1.75rem;
 }
 .text-blue-700 {
   --tw-text-opacity: 1;
@@ -892,6 +928,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1.5rem;
     line-height: 2rem;
   }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -904,8 +945,28 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
+  .lg\:w-1\/5 {
+    width: 20%;
+  }
+
+  .lg\:w-1\/2 {
+    width: 50%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:flex-row-reverse {
+    flex-direction: row-reverse;
   }
 
   .lg\:space-x-5 > :not([hidden]) ~ :not([hidden]) {
@@ -925,6 +986,16 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 5rem;
   }
 
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .lg\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -932,6 +1003,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:text-2xl {
     font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .lg\:leading-8 {
     line-height: 2rem;
   }
 }
