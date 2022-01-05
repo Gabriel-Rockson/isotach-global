@@ -180,15 +180,58 @@
   </div>
 </section>
 
-<!-- Google Map -->
-<section class="my-16">
-  <h1 class="px-5 md:px-14 lg:px-20 my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">Where are We
-    Located?</h1>
 
-  <div class="mt-5 w-full h-screen">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15851.631430239197!2d-1.5656912720886256!3d6.658341372969383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb93642c30f037%3A0x7dcf1933bac0899c!2sKotei%2C%20Kumasi!5e0!3m2!1sen!2sgh!4v1641421911100!5m2!1sen!2sgh"
-      width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+<section class="my-16 flex flex-col-reverse lg:flex-row">
+
+  <!-- Google Maps -->
+  <div class="lg:w-1/2">
+    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-4xl font-black text-gray-700 lg:text-center">
+      Where are we
+      Located?</h1>
+
+    <div class="w-full h-screen lg:h-4/5">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15851.631430239197!2d-1.5656912720886256!3d6.658341372969383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb93642c30f037%3A0x7dcf1933bac0899c!2sKotei%2C%20Kumasi!5e0!3m2!1sen!2sgh!4v1641421911100!5m2!1sen!2sgh"
+        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="lg:w-1/2">
+    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-4xl font-black text-gray-700 lg:text-center">
+      Talk to Us</h1>
+
+    <div class="h-3/5 w-full px-5 md:px-14 lg:px-20">
+      <form action="#" method="post" class="space-y-5">
+
+        <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
+          <div class="md:w-1/2">
+            <input class="contact-form-input" type="text" name="full_name" id="full_name"
+              placeholder="Your Full Name" />
+          </div>
+
+          <div class="md:w-1/2">
+            <input class="contact-form-input" type="text" name="city" id="city" placeholder="Your City, or Town" />
+          </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
+          <div class="md:w-1/2">
+            <input class="contact-form-input" type="text" name="phone" id="phone" placeholder="Your Phone" />
+          </div>
+          <div class="md:w-1/2">
+            <input class="contact-form-input" type="text" name="email" id="email" placeholder="Your Email Address">
+          </div>
+        </div>
+
+        <div>
+          <textarea class="contact-form-input" name="message" id="message" cols="25" rows="10"
+            placeholder="Type your message here"></textarea>
+        </div>
+
+      </form>
+    </div>
+
   </div>
 </section>
 

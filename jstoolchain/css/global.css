@@ -14,3 +14,7 @@
 .menu-icon {
   @apply text-lg text-gray-600;
 }
+
+.contact-form-input {
+  @apply border-2 border-gray-600 py-3 focus:border-orange-600 focus:outline-none w-full px-4 text-black;
+}
