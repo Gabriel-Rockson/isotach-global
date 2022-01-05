@@ -459,8 +459,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-16 {
   height: 4rem;
 }
+.h-screen {
+  height: 100vh;
+}
+.h-full {
+  height: 100%;
+}
 .w-full {
   width: 100%;
+}
+.w-screen {
+  width: 100vw;
 }
 .cursor-pointer {
   cursor: pointer;
