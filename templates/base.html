@@ -40,6 +40,7 @@
             <div class="cursor-pointer"><a href="#contact"><i class="menu-icon fa-solid fa-phone"></i> contact us</a>
             </div>
             <div class="cursor-pointer"><a href="#faq"><i class="menu-icon fa-solid fa-question"></i> faq</a></div>
+
             <div id="tablet-menu-items"
               class="flex flex-col md:hidden lg:flex lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
               <div class="cursor-pointer"><a href="#agents"><i class="menu-icon fa-solid fa-people-arrows"></i>
@@ -86,28 +87,28 @@
       window.addEventListener("resize", handleResizeMobile);
 
       // HANDLE TABLET MENU ----------------------------------------------------------------
-      // const tablet_menu_icon = document.getElementById("tablet-menu-icon");
-      // const tablet_menu_items = document.getElementById("tablet-menu-items");
+      const tablet_menu_icon = document.getElementById("tablet-menu-icon");
+      const tablet_menu_items = document.getElementById("tablet-menu-items");
 
-      // function showTabletMenuItems(e) {
-      //   tablet_menu_items.classList.toggle("md:hidden");
-      //   tablet_menu_items.classList.toggle("tablet-menu");
-      // }
+      function showTabletMenuItems(e) {
+        tablet_menu_items.classList.toggle("md:hidden");
+        tablet_menu_items.classList.toggle("tablet-menu");
+      }
 
-      // function handleResizeTablet(e) {
-      //   const window_width = window.innerWidth;
+      function handleResizeTablet(e) {
+        const window_width = window.innerWidth;
 
-      //   if (window_width <= 767) {
-      //     mobile_menu_items.classList.add("md:hidden");
-      //     mobile_menu_items.classList.remove("tablet-menu");
-      //   } else if (window_width >= 1024) {
-      //     // mobile_menu_items.classList.add("md:hidden");
-      //     mobile_menu_items.classList.remove("tablet-menu");
-      //   }
-      // }
+        if (window_width <= 767) {
+          tablet_menu_items.classList.remove("tablet-menu");
+          tablet_menu_items.classList.add("md:hidden");
+        } else if (window_width >= 1024) {
+          // mobile_menu_items.classList.add("md:hidden");
+          tablet_menu_items.classList.remove("tablet-menu");
+        }
+      }
 
-      // tablet_menu_icon.addEventListener("click", showTabletMenuItems);
-      // window.addEventListener("resize", handleResizeTablet);
+      tablet_menu_icon.addEventListener("click", showTabletMenuItems);
+      window.addEventListener("resize", handleResizeTablet);
     </script>
 
   </body>
