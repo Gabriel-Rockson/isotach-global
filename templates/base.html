@@ -98,11 +98,8 @@
       function handleResizeTablet(e) {
         const window_width = window.innerWidth;
 
-        if (window_width <= 767) {
-          tablet_menu_items.classList.remove("tablet-menu");
+        if (window_width <= 767 || window_width >= 1024) {
           tablet_menu_items.classList.add("md:hidden");
-        } else if (window_width >= 1024) {
-          // mobile_menu_items.classList.add("md:hidden");
           tablet_menu_items.classList.remove("tablet-menu");
         }
       }
