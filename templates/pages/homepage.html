@@ -16,19 +16,26 @@
         rent.</p>
     </div>
 
-    <div class="mt-10 px-20">
-      <div class="flex space-x-16 text-base uppercase font-bold text-white">
+    <div class="mt-10 px-5 md:px-20 font-mono">
+      <div class="flex text-base uppercase font-bold text-white justify-evenly">
+        <!-- Add filters here -->
         <div>beds</div>
         <div>baths</div>
         <div>price</div>
         <div>location</div>
       </div>
 
-      <form action="#" method="get" class="flex mt-5">
-        <input type="text" name="search" id="search" class=" w-4/5 border py-2 px-2 border-black" />
-        <button type="submit"
-          class="w-1/5 py-2 px-2 bg-red-600 font-bold text-center text-white text-sm md:text-lg"><span
-            class="md:mr-2">search</span><i class="fa-solid fa-search hidden md:inline"></i>
+      <form action="#" method="get" class="flex flex-col md:flex-row mt-5">
+        <input 
+          type="text" 
+          name="search" 
+          id="search" 
+          class="w-full md:w-4/5 rounded-lg md:rounded-r-none py-4 px-2 focus:outline:none focus:outline-purple-600"
+          placeholder="Address, location, city, neighborhood..." />
+        <button 
+          type="submit"
+          class="md:w-1/5 py-3 px-2 bg-red-600 font-bold text-center text-white text-base mt-2 md:mt-0 md:rounded-r-lg">
+          <span class="mr-2">search</span><i class="fa-solid fa-search text-xl text-gray-300"></i>
         </button>
       </form>
 
