@@ -496,6 +496,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .self-center {
   align-self: center;
 }
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
 .rounded-md {
   border-radius: 0.375rem;
 }
