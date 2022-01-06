@@ -3,6 +3,34 @@ from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
 
 
+class HomePage(models.Model):
+    banner_image = models.ImageField(
+        upload_to="featured_images/homepage/",
+        verbose_name=_("Banner Image"),
+        help_text=
+        "Choose an image that will be featured on the banner of the homepage",
+        null=False,
+        blank=False,
+    )
+    banner_heading_text = models.CharField(
+        verbose_name=_("Banner Heading Text"),
+        help_text=
+        "Enter the text that will be displayed boldly on the banner on the homepage",
+        null=False,
+        blank=False,
+        default="Discover Your Perfect Home",
+        max_length=100)
+    banner_sub_heading_text = models.CharField(
+        verbose_name=_("Banner Sub Heading Text"),
+        help_text=
+        "Enter the text that will be displayed below the bold text on the banner",
+        null=False,
+        blank=False,
+        default="Search nearby for apartments, and homes for rent.",
+        max_length=130
+    )
+
+
 class AboutSection(models.Model):
     name = models.CharField(verbose_name=_("Name of Section"),
                             max_length=10,
