@@ -16,23 +16,75 @@
         rent.</p>
     </div>
 
-    <div class="mt-10 px-5 md:px-20 font-mono">
-      <div class="flex text-base uppercase font-bold text-white justify-evenly">
-        <!-- Add filters here -->
-        <div>beds</div>
-        <div>baths</div>
-        <div>price</div>
-        <div>location</div>
-      </div>
+    <div class="mt-10 px-5 lg:px-20 font-mono">
 
-      <form action="#" method="get" class="flex flex-col md:flex-row mt-5">
-        <input type="text" name="search" id="search"
-          class="w-full md:w-4/5 rounded-lg md:rounded-r-none py-4 px-2 focus:outline:none focus:outline-purple-600 shadow-md shadow-gray-800"
-          placeholder="Address, location, city, neighborhood..." />
-        <button type="submit"
-          class="md:w-1/5 py-3 px-2 bg-red-600 font-bold text-center text-white text-base mt-2 md:mt-0 md:rounded-r-lg">
-          <span class="mr-2">search</span><i class="fa-solid fa-search text-xl text-gray-300"></i>
-        </button>
+      <form action="#" method="get" class="mt-5">
+        <div
+          class="flex flex-col md:flex-row space-y-3 md:space-y-0 text-base uppercase font-bold justify-around md:px-10">
+          <!-- Add filters here -->
+
+          <!-- Beds -->
+          <div class="flex">
+            <span class="mr-2 self-center text-white">Beds <i class="fa-solid fa-bed text-fuchsia-600"></i></span>
+            <select name="beds" id="beds" class="banner-select-field">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <!-- Baths -->
+          <div class="flex">
+            <span class="mr-2 self-center text-white">Baths <i class="fa-solid fa-bath text-sky-500"></i></span>
+            <select name="beds" id="Baths" class="banner-select-field">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+
+          <!-- Price -->
+          <div class="flex">
+            <span class="mr-2 self-center text-white">Price <i
+                class="fa-solid fa-money-bill-wave text-green-800"></i></span>
+            <select name="price" id="price" class="banner-select-field">
+              <option value="200">Ghc 200.00+</option>
+              <option value="500">Ghc 500.00+</option>
+              <option value="700">Ghc 700.00+</option>
+              <option value="1000">Ghc 1000.00+</option>
+              <option value="1500">Ghc 1500.00+</option>
+              <option value="2000">Ghc 2000.00+</option>
+              <option value="2500">Ghc 2500.00+</option>
+            </select>
+          </div>
+
+          <!-- <div>
+            <input type="text" name="location" id="location" list="locations" placeholder="" class="px-2 py-1 rounded-md outline-none">
+            <datalist id="locations">
+              <option value="Accra">Accra</option>
+              <option value="Kasoa">Kasoa</option>
+              <option value="Kumasi">Kumasi</option>
+              <option value="Takoradi">Takoradi</option>
+              <option value="Cape Coast">Cape Coast</option>
+              <option value="Ho">Ho</option>
+              <option value="Tema">Tema</option>
+            </datalist>
+          </div> -->
+        </div>
+
+        <div class="flex flex-col md:flex-row mt-5">
+          <input type="text" name="search" id="search"
+            class="w-full md:w-4/5 rounded-lg md:rounded-r-none py-4 px-2 appearance-none focus:outline:none focus:outline-purple-600 shadow-md shadow-gray-800"
+            placeholder="Address, location, city, neighborhood..." />
+          <button type="submit"
+            class="md:w-1/5 py-3 px-2 bg-red-600 font-bold text-center text-white text-base mt-2 md:mt-0 md:rounded-r-lg">
+            <span class="mr-2">search</span><i class="fa-solid fa-search text-xl text-gray-300"></i>
+          </button>
+        </div>
       </form>
 
     </div>
@@ -213,7 +265,8 @@
           </div>
 
           <div class="md:w-1/2">
-            <input class="contact-form-input" list="cities" type="text" name="city" id="city" placeholder="Your City, or Town" />
+            <input class="contact-form-input" list="cities" type="text" name="city" id="city"
+              placeholder="Your City, or Town" />
             <datalist id="cities">
               <option value="Accra">Accra</option>
               <option value="Kasoa">Kasoa</option>
@@ -255,8 +308,7 @@
   <div class="">
     {% for question in "123456" %}
     <details class="mt-5" {% if forloop.counter0 == 0 %}open{% endif %}>
-      <summary
-        class="faq-summary">
+      <summary class="faq-summary">
         Lorem ipsum, dolor sit amet consectetur adipisicing elit.?</summary>
       <p class="text-sm md:text-base lg:text-lg px-5 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
         Distinctio odio quas sint voluptas cum quam doloribus

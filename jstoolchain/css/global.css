@@ -26,3 +26,7 @@
 .footer-heading {
   @apply text-lg font-bold text-neutral-900 md:text-xl lg:text-2xl mb-5 lg:mb-5;
 }
+
+.banner-select-field {
+  @apply appearance-none px-4 py-2 rounded-md text-center focus:outline-none w-full focus:outline-purple-600 bg-white text-base md:text-lg;
+}
