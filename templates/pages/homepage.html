@@ -27,7 +27,7 @@
 
       <form action="#" method="get" class="flex flex-col md:flex-row mt-5">
         <input type="text" name="search" id="search"
-          class="w-full md:w-4/5 rounded-lg md:rounded-r-none py-4 px-2 focus:outline:none focus:outline-purple-600"
+          class="w-full md:w-4/5 rounded-lg md:rounded-r-none py-4 px-2 focus:outline:none focus:outline-purple-600 shadow-md shadow-gray-800"
           placeholder="Address, location, city, neighborhood..." />
         <button type="submit"
           class="md:w-1/5 py-3 px-2 bg-red-600 font-bold text-center text-white text-base mt-2 md:mt-0 md:rounded-r-lg">
@@ -147,7 +147,8 @@
     <div class="lg:w-1/2">
       <img src="{% static 'img/about-img.jpg' %}" alt="About us featured image" />
     </div>
-    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10">Lorem ipsum dolor sit amet,
+    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">Lorem ipsum
+      dolor sit amet,
       consectetur adipisicing elit. Necessitatibus nulla quisquam doloremque eum corrupti assumenda illo iste eaque, ex
       in! Tempore qui ex ipsam error? Repellat iusto consectetur sapiente velit!
       Eveniet, cumque itaque quis adipisci iste reprehenderit ea incidunt perferendis repudiandae temporibus distinctio
@@ -167,7 +168,8 @@
     <div class="lg:w-1/2">
       <img src="{% static 'img/service-img.jpg' %}" alt="About us featured image" />
     </div>
-    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10">Lorem ipsum dolor sit amet,
+    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">Lorem ipsum
+      dolor sit amet,
       consectetur adipisicing elit. Necessitatibus nulla quisquam doloremque eum corrupti assumenda illo iste eaque, ex
       in! Tempore qui ex ipsam error? Repellat iusto consectetur sapiente velit!
       Eveniet, cumque itaque quis adipisci iste reprehenderit ea incidunt perferendis repudiandae temporibus distinctio
@@ -185,7 +187,7 @@
 
   <!-- Google Maps -->
   <div class="lg:w-1/2">
-    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-4xl font-black text-gray-700 lg:text-center">
+    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700 lg:text-center">
       Where are we
       Located?</h1>
 
@@ -198,7 +200,7 @@
 
   <!-- Contact Form -->
   <div class="lg:w-1/2">
-    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-4xl font-black text-gray-700 lg:text-center">
+    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700 lg:text-center">
       Talk to Us</h1>
 
     <div class="h-3/5 w-full px-5 md:px-14 lg:px-20">
@@ -229,11 +231,31 @@
             placeholder="Type your message here"></textarea>
         </div>
 
-        <button type="submit" class="bg-red-600 text-white py-2 w-full">Send Message <i class="fa-solid fa-location-arrow"></i></button>
+        <button type="submit" class="bg-red-600 text-white py-2 w-full">Send Message <i
+            class="fa-solid fa-location-arrow"></i></button>
       </form>
     </div>
 
   </div>
+</section>
+
+<!-- Freqeuntly Asked Questions -->
+<section class="px-5 md:px-14 lg:px-20 my-16">
+  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">Frequently Asked Questions</h1>
+
+  <div class="">
+    {% for question in "123456" %}
+    <details class="mt-5" {% if forloop.counter0 == 0 %}open{% endif %}>
+      <summary
+        class="faq-summary">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.?</summary>
+      <p class="text-sm md:text-base lg:text-lg px-5 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Distinctio odio quas sint voluptas cum quam doloribus
+        dicta quisquam, reiciendis, unde aliquid magnam? Itaque hic ab tenetur enim et a sunt.</p>
+    </details>
+  </div>
+
+  {% endfor %}
 </section>
 
 {% endblock content %}
