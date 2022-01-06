@@ -22,3 +22,7 @@
 .faq-summary {
   @apply text-base md:text-lg lg:text-xl cursor-pointer text-gray-100 py-2 md:py-3 lg:py-4 px-2 md:px-4 lg:px-6 shadow-sm bg-slate-800 shadow-slate-600;
 }
+
+.footer-heading {
+  @apply text-lg font-bold text-neutral-900 md:text-xl lg:text-2xl mb-5 lg:mb-5;
+}
