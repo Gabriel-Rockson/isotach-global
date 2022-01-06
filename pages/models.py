@@ -8,6 +8,15 @@ class AboutSection(models.Model):
                                        upload_to="featured_images/about/",
                                        null=False,
                                        blank=False)
+    heading = models.CharField(
+        verbose_name=_("Heading of About"),
+        max_length=200,
+        help_text=
+        "Heading to display on the about section, this can be the name of the company. e.g Isotach Global",
+        blank=False, 
+        null=False,
+        default=""
+    )
     about_company = models.TextField(
         verbose_name=_("About Company"),
         null=False,
