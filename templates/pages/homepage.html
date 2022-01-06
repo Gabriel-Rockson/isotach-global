@@ -213,7 +213,16 @@
           </div>
 
           <div class="md:w-1/2">
-            <input class="contact-form-input" type="text" name="city" id="city" placeholder="Your City, or Town" />
+            <input class="contact-form-input" list="cities" type="text" name="city" id="city" placeholder="Your City, or Town" />
+            <datalist id="cities">
+              <option value="Accra">Accra</option>
+              <option value="Kasoa">Kasoa</option>
+              <option value="Kumasi">Kumasi</option>
+              <option value="Takoradi">Takoradi</option>
+              <option value="Cape Coast">Cape Coast</option>
+              <option value="Ho">Ho</option>
+              <option value="Tema">Tema</option>
+            </datalist>
           </div>
         </div>
 
@@ -222,7 +231,7 @@
             <input class="contact-form-input" type="text" name="phone" id="phone" placeholder="Your Phone" />
           </div>
           <div class="md:w-1/2">
-            <input class="contact-form-input" type="text" name="email" id="email" placeholder="Your Email Address">
+            <input class="contact-form-input" type="email" name="email" id="email" placeholder="Your Email Address">
           </div>
         </div>
 
