@@ -4,6 +4,11 @@ from django_extensions.db.fields import AutoSlugField
 
 
 class AboutSection(models.Model):
+    name = models.CharField(verbose_name=_("Name of Section"),
+                            max_length=10,
+                            blank=False,
+                            null=False,
+                            default="")
     featured_image = models.ImageField(verbose_name=_("Featured Image"),
                                        upload_to="featured_images/about/",
                                        null=False,
@@ -47,6 +52,12 @@ class Service(models.Model):
 
 
 class ServicesSection(models.Model):
+    name = models.CharField(verbose_name=_("Name of Section"),
+                            max_length=10,
+                            blank=False,
+                            null=False,
+                            default="")
+
     featured_image = models.ImageField(verbose_name=_("Featured Image"),
                                        upload_to="featured_images/services/",
                                        null=False,
