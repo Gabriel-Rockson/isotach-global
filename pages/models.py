@@ -13,10 +13,9 @@ class AboutSection(models.Model):
         max_length=200,
         help_text=
         "Heading to display on the about section, this can be the name of the company. e.g Isotach Global",
-        blank=False, 
+        blank=False,
         null=False,
-        default=""
-    )
+        default="")
     about_company = models.TextField(
         verbose_name=_("About Company"),
         null=False,
