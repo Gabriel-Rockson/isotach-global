@@ -30,3 +30,11 @@
 .banner-select-field {
   @apply appearance-none px-4 py-2 rounded-md text-center focus:outline-none w-full focus:outline-purple-600 bg-white text-base md:text-lg;
 }
+
+.listing-container {
+  @apply grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 mt-10;
+}
+
+.apartment-card {
+  @apply bg-slate-100 shadow-sm shadow-slate-500 w-full rounded-md;
+}
