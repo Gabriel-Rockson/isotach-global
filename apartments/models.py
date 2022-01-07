@@ -48,6 +48,11 @@ class Apartment(models.Model):
         verbose_name=("Available"),
         help_text="Check this box if the apartment has NOT been rented out.",
         default=True)
+    featured = models.BooleanField(
+        verbose_name=_("Featured Listing"),
+        help_text=
+        "If this apartment is featured, it is going to be displayed on the homepage and also will be at the top of apartment listings",
+        default=False)
     location = models.CharField(verbose_name=_("Location"),
                                 help_text="Where is this apartment located?",
                                 max_length=50,
@@ -132,6 +137,6 @@ class Apartment(models.Model):
         return super(Apartment, self).save(*args, **kwargs)
 
     class Meta:
-        ordering = ("upload_time", )
+        ordering = ("-upload_time", )
         verbose_name = "Apartment"
         verbose_name_plural = "Apartments"
