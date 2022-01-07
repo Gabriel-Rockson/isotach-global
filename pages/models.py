@@ -121,3 +121,20 @@ class ServicesSection(models.Model):
 
     def __str__(self):
         return f"{self.description[:30]}"
+
+
+class FrequentlyAskedQuestion(models.Model):
+    page = models.ForeignKey("pages.HomePage",
+                             related_name="frequently_asked_questions",
+                             on_delete=models.CASCADE)
+    question = models.CharField(
+        verbose_name=_("Question"),
+        max_length=300,
+        help_text="Enter the question",
+        blank=False,
+        null=False,
+    )
+    answer = models.TextField(verbose_name=_("Answer"),
+                              help_text="Enter the answer to this question",
+                              blank=False,
+                              null=False)
