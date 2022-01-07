@@ -7,13 +7,12 @@
 
 <!-- HomePage banner -->
 <div class="flex bg-gray-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
-  style="background-image: url({% static 'img/bg-img.jpg' %}); height: 540px">
+  style="background-image: url({{ homepage.banner_image.url }}); height: 540px">
 
   <div class="self-center flex flex-col">
     <div class="text-white text-center">
-      <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl">Discover Your Perfect Home</h1>
-      <p class="text-base md:text-lg lg:text-2xl font-thin">Search nearby for apartments, and homes for
-        rent.</p>
+      <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{{ homepage.banner_heading_text }}</h1>
+      <p class="text-base md:text-lg lg:text-2xl font-thin">{{ homepage.banner_sub_heading_text }}</p>
     </div>
 
     <div class="mt-10 px-5 lg:px-20 font-mono">
@@ -62,18 +61,6 @@
             </select>
           </div>
 
-          <!-- <div>
-            <input type="text" name="location" id="location" list="locations" placeholder="" class="px-2 py-1 rounded-md outline-none">
-            <datalist id="locations">
-              <option value="Accra">Accra</option>
-              <option value="Kasoa">Kasoa</option>
-              <option value="Kumasi">Kumasi</option>
-              <option value="Takoradi">Takoradi</option>
-              <option value="Cape Coast">Cape Coast</option>
-              <option value="Ho">Ho</option>
-              <option value="Tema">Tema</option>
-            </datalist>
-          </div> -->
         </div>
 
         <div class="flex flex-col md:flex-row mt-5">
@@ -194,43 +181,23 @@
 
 <!-- The About Us Message -->
 <section class="px-5 md:px-14 lg:px-20 my-16" id="about-us">
-  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">Who Are We?</h1>
+  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{homepage.about_section.first.name}}</h1>
   <div class="flex flex-col lg:flex-row">
     <div class="lg:w-1/2">
-      <img src="{% static 'img/about-img.jpg' %}" alt="About us featured image" />
+      <img src="{{homepage.about_section.first.featured_image.url}}" alt="About us featured image" />
     </div>
-    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">Lorem ipsum
-      dolor sit amet,
-      consectetur adipisicing elit. Necessitatibus nulla quisquam doloremque eum corrupti assumenda illo iste eaque, ex
-      in! Tempore qui ex ipsam error? Repellat iusto consectetur sapiente velit!
-      Eveniet, cumque itaque quis adipisci iste reprehenderit ea incidunt perferendis repudiandae temporibus distinctio
-      ipsum tenetur rem vitae similique unde delectus explicabo. Ut possimus optio ea, in commodi itaque nam odio?
-      Tempore libero ea expedita eum nam aspernatur quam voluptatum corrupti ullam provident doloremque earum
-      repudiandae, obcaecati rerum? Sequi, non quod. Exercitationem iure blanditiis iusto unde omnis maxime ut
-      cupiditate qui!
-      Accusamus quo similique odio molestiae ipsam voluptatibus nam ut beatae aut ullam suscipit fuga eum doloribus at
-      hic nobis, sequi amet, perspiciatis quas. Veniam qui dignissimos voluptatum modi velit! Eius?</div>
+    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">{{ homepage.about_section.first.about_company }}</div>
   </div>
 </section>
 
 <!-- Our Services Section -->
 <section class="px-5 md:px-14 lg:px-20 my-16" id="services">
-  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">What We Do?</h1>
+  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{ homepage.services_section.first.name }}</h1>
   <div class="flex flex-col lg:flex-row-reverse">
     <div class="lg:w-1/2">
-      <img src="{% static 'img/service-img.jpg' %}" alt="About us featured image" />
+      <img src="{{homepage.services_section.first.featured_image.url}}" alt="About us featured image" />
     </div>
-    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">Lorem ipsum
-      dolor sit amet,
-      consectetur adipisicing elit. Necessitatibus nulla quisquam doloremque eum corrupti assumenda illo iste eaque, ex
-      in! Tempore qui ex ipsam error? Repellat iusto consectetur sapiente velit!
-      Eveniet, cumque itaque quis adipisci iste reprehenderit ea incidunt perferendis repudiandae temporibus distinctio
-      ipsum tenetur rem vitae similique unde delectus explicabo. Ut possimus optio ea, in commodi itaque nam odio?
-      Tempore libero ea expedita eum nam aspernatur quam voluptatum corrupti ullam provident doloremque earum
-      repudiandae, obcaecati rerum? Sequi, non quod. Exercitationem iure blanditiis iusto unde omnis maxime ut
-      cupiditate qui!
-      Accusamus quo similique odio molestiae ipsam voluptatibus nam ut beatae aut ullam suscipit fuga eum doloribus at
-      hic nobis, sequi amet, perspiciatis quas. Veniam qui dignissimos voluptatum modi velit! Eius?</div>
+    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">{{ homepage.services_section.first.description }}</div>
   </div>
 </section>
 
@@ -306,13 +273,11 @@
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">Frequently Asked Questions</h1>
 
   <div class="">
-    {% for question in "123456" %}
+    {% for faq in homepage.frequently_asked_questions.all %}
     <details class="mt-5" {% if forloop.counter0 == 0 %}open{% endif %}>
       <summary class="faq-summary">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.?</summary>
-      <p class="text-sm md:text-base lg:text-lg px-5 mt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Distinctio odio quas sint voluptas cum quam doloribus
-        dicta quisquam, reiciendis, unde aliquid magnam? Itaque hic ab tenetur enim et a sunt.</p>
+        {{ faq.question }}</summary>
+      <p class="text-sm md:text-base lg:text-lg px-5 mt-1">{{faq.answer}}</p>
     </details>
   </div>
 
