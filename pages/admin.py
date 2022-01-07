@@ -1,5 +1,15 @@
 from django.contrib import admin
-from .models import AboutSection, ServicesSection, Service
+from django.core.exceptions import ValidationError
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from .models import AboutSection, HomePage, ServicesSection, Service
+
+
+class AboutSectionInline(admin.StackedInline):
+    model = AboutSection
+    extra = 0
+    min_num = 1
+    max_num = 1
 
 
 class ServiceInline(admin.StackedInline):
@@ -8,9 +18,23 @@ class ServiceInline(admin.StackedInline):
     min_num = 1
     max_num = 4
 
-@admin.register(ServicesSection)
-class ServicesSectionAdmin(admin.ModelAdmin):
-    list_display = ["name"]
-    inlines = [
-        ServiceInline,
-    ]
+
+class ServicesSectionInline(admin.StackedInline):
+    model = ServicesSection
+    extra = 0
+    min_num = 1
+    max_num = 1
+    # TODO find a way to add inlines to this inline
+
+
+@admin.register(HomePage)
+class HomePageAdmin(admin.ModelAdmin):
+    list_display = ("name", )
+    inlines = [AboutSectionInline, ServicesSectionInline]
+
+    def add_view(self, request, *args, **kwargs):
+        if request.method == "POST":
+            if HomePage.objects.count() > 0:
+                # TODO redirect the user to a page that shows them they can't create a new homepage
+                return HttpResponseRedirect(reverse("admin:index"))
+        return super(HomePageAdmin, self).add_view(request, *args, **kwargs)
