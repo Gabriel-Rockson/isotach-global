@@ -4,6 +4,13 @@ from django_extensions.db.fields import AutoSlugField
 
 
 class HomePage(models.Model):
+    name = models.CharField(
+        verbose_name=_("Name of Page"),
+        help_text="Enter the name of this page, e.g HomePage",
+        max_length=20,
+        null=False,
+        blank=False,
+        default="")
     banner_image = models.ImageField(
         upload_to="featured_images/homepage/",
         verbose_name=_("Banner Image"),
@@ -27,11 +34,21 @@ class HomePage(models.Model):
         null=False,
         blank=False,
         default="Search nearby for apartments, and homes for rent.",
-        max_length=130
-    )
+        max_length=130)
+
+    def __str__(self):
+        return self.name
+
+
+# TODO add FAQ model and register all these as inlines under the homepage on the admin
+# TODO find a way to limit the number of homepages can be created
 
 
 class AboutSection(models.Model):
+    page = models.ForeignKey("pages.HomePage",
+                             on_delete=models.CASCADE,
+                             related_name="about_section",
+                             default="")
     name = models.CharField(verbose_name=_("Name of Section"),
                             max_length=10,
                             blank=False,
@@ -80,6 +97,10 @@ class Service(models.Model):
 
 
 class ServicesSection(models.Model):
+    page = models.ForeignKey("pages.HomePage",
+                             on_delete=models.CASCADE,
+                             related_name="services_section",
+                             default="")
     name = models.CharField(verbose_name=_("Name of Section"),
                             max_length=10,
                             blank=False,
