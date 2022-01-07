@@ -2,8 +2,15 @@ from django.contrib import admin
 from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import AboutSection, HomePage, ServicesSection, Service
 
+from .models import (AboutSection, FrequentlyAskedQuestion, HomePage, Service,
+                     ServicesSection)
+
+
+class FrequentlyAskedQuestionInline(admin.StackedInline):
+    model = FrequentlyAskedQuestion
+    extra = 1
+    min_num = 1
 
 class AboutSectionInline(admin.StackedInline):
     model = AboutSection
@@ -30,7 +37,7 @@ class ServicesSectionInline(admin.StackedInline):
 @admin.register(HomePage)
 class HomePageAdmin(admin.ModelAdmin):
     list_display = ("name", )
-    inlines = [AboutSectionInline, ServicesSectionInline]
+    inlines = [AboutSectionInline, ServicesSectionInline, FrequentlyAskedQuestionInline]
 
     def add_view(self, request, *args, **kwargs):
         if request.method == "POST":
