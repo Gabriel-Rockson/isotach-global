@@ -28,7 +28,7 @@
 }
 
 .banner-select-field {
-  @apply appearance-none px-4 py-2 rounded-md text-center focus:outline-none w-full focus:outline-purple-600 bg-white text-base md:text-lg;
+  @apply appearance-none px-4 py-2 rounded-md text-center focus:outline-none w-full focus:outline-purple-600 bg-white text-sm sm:text-base;
 }
 
 .listing-container {
@@ -36,5 +36,13 @@
 }
 
 .apartment-card {
-  @apply bg-slate-100 shadow-sm shadow-slate-500 w-full rounded-md;
+  @apply bg-slate-50 shadow-sm shadow-slate-300 w-full  border border-slate-300 rounded-md;
+}
+
+.lg__filter_select {
+  @apply appearance-none w-full border border-black text-center text-base;
+}
+
+.lg__filter_label {
+  @apply self-center px-1;
 }

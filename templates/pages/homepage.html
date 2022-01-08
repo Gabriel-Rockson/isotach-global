@@ -51,13 +51,14 @@
             <span class="mr-2 self-center text-white">Price <i
                 class="fa-solid fa-money-bill-wave text-green-800"></i></span>
             <select name="price" id="price" class="banner-select-field">
-              <option value="200">Ghc 200.00+</option>
-              <option value="500">Ghc 500.00+</option>
-              <option value="700">Ghc 700.00+</option>
-              <option value="1000">Ghc 1000.00+</option>
-              <option value="1500">Ghc 1500.00+</option>
-              <option value="2000">Ghc 2000.00+</option>
-              <option value="2500">Ghc 2500.00+</option>
+              <option value="200">Ghc 200.00 - Ghc 500.00</option>
+              <option value="500">Ghc 500.00 - Ghc 700.00</option>
+              <option value="700">Ghc 700.00 - Ghc 1000.00</option>
+              <option value="1000">Ghc 1000.00 - Ghc 1500.00</option>
+              <option value="1500">Ghc 1500.00 - Ghc 2000.00</option>
+              <option value="2000">Ghc 2000.00 - Ghc 3000.00</option>
+              <option value="3000">Ghc 3000.00 - Ghc 4000.00</option>
+              <option value="4000">Ghc 4000.00 - Ghc 5000.00</option>
             </select>
           </div>
 
@@ -86,7 +87,7 @@
   <!-- Featured Listings -->
   <div>
     <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Top Featured Apartment Listings</h1>
-    <a href="#" class="text-blue-500"><i class="fa-solid fa-eye"></i> View all listings</a>
+    <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
 
     {% include "apartments/apartment-listings.html" with apartments=featured_apartments %}
 
@@ -96,7 +97,7 @@
   <!-- Latest Listings -->
   <div class="mt-5">
     <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Latest Apartment Listings</h1>
-    <a href="#" class="text-blue-500"><i class="fa-solid fa-eye"></i> View all listings</a>
+    <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
 
     {% include "apartments/apartment-listings.html" with apartments=latest_apartments %}
 

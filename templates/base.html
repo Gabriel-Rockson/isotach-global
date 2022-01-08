@@ -3,68 +3,70 @@
 <html lang="en" class="scroll-smooth">
 
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="{% static 'css/tailwind/global.css' %}">
-    <link rel="stylesheet" href="{% static 'icons/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tailwind/global.css' %}" />
+    <link rel="stylesheet" href="{% static 'icons/all.min.css' %}" />
 
     <title>{% block title %}{% endblock title %}</title>
   </head>
 
   <body>
-
     {% comment %} Top Navbar {% endcomment %}
     <nav class="bg-gray-50 shadow-lg">
-
       <!-- The label -->
       <div class="flex justify-between px-5 h-16">
-        <div class="self-center"><label class="text-2xl font-bold"><a href="#">IsotachGlobal<i
-                class="fa-solid fa-globe"></i></a></label></div>
+        <div class="self-center">
+          <label class="text-2xl font-bold"><a href="{% url 'pages:homepage' %}">IsotachGlobal<i class="fa-solid fa-globe"></i></a></label>
+        </div>
 
         <div class="flex md:space-x-5">
           <!-- The menu items -->
           <div id="mobile-menu-items" class="hidden md:flex md:space-x-5 self-center text-lg">
             <!-- TODO On hover, show the the nested div on media and large screens -->
             <!-- TODO On click, show the nested div -->
-            <div class="cursor-pointer"><i class="menu-icon fa-solid fa-home"></i> apartments
-              <div class="flex flex-col md:hidden">
-                <a href="#">rent</a>
-                <a href="#">buy</a>
-              </div>
+            <div class="cursor-pointer">
+              <i class="menu-icon fa-solid fa-home"></i>
+              <a href="{% url 'apartments:list-apartments' %}">apartments</a>
             </div>
 
-            <div class="cursor-pointer"><a href="#advertize"><i class="menu-icon fa-solid fa-money-bill"></i>
-                advertise</a></div>
-            <div class="cursor-pointer"><a href="#contact-us"><i class="menu-icon fa-solid fa-phone"></i> contact us</a>
+            <div class="cursor-pointer">
+              <a href="#advertize"><i class="menu-icon fa-solid fa-money-bill"></i> advertise</a>
             </div>
-            <div class="cursor-pointer"><a href="#faq"><i class="menu-icon fa-solid fa-question"></i> faq</a></div>
+            <div class="cursor-pointer">
+              <a href="{% url 'pages:homepage' %}#contact-us"><i class="menu-icon fa-solid fa-phone"></i> contact us</a>
+            </div>
+            <div class="cursor-pointer">
+              <a href="{% url 'pages:homepage' %}#faq"><i class="menu-icon fa-solid fa-question"></i> faq</a>
+            </div>
 
             <div id="tablet-menu-items"
               class="flex flex-col md:hidden lg:flex lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
-              <div class="cursor-pointer"><a href="#agents"><i class="menu-icon fa-solid fa-people-arrows"></i>
-                  agents</a></div>
-              <div class="cursor-pointer"><a href="#become-an-agent"><i class="menu-icon fa-solid fa-user-tie"></i>
-                  become an
-                  agent</a></div>
+              <div class="cursor-pointer">
+                <a href="#agents"><i class="menu-icon fa-solid fa-people-arrows"></i> agents</a>
+              </div>
+              <div class="cursor-pointer">
+                <a href="#become-an-agent"><i class="menu-icon fa-solid fa-user-tie"></i> become an
+                  agent</a>
+              </div>
             </div>
 
-            <div class="lg:hidden hidden md:flex self-center md:text-lg cursor-pointer"><i id="tablet-menu-icon"
-                class="fa-solid fa-bars"></i></div>
+            <div class="lg:hidden hidden md:flex self-center md:text-lg cursor-pointer">
+              <i id="tablet-menu-icon" class="fa-solid fa-bars"></i>
+            </div>
           </div>
 
           <!-- The menu icon -->
-          <div class="md:hidden self-center text-2xl cursor-pointer"><i id="mobile-menu-icon"
-              class="fa-solid fa-bars"></i></div>
+          <div class="md:hidden self-center text-2xl cursor-pointer">
+            <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
+          </div>
         </div>
       </div>
     </nav>
 
-    <main class="">
-      {% block content %}{% endblock content %}
-    </main>
-
+    <main class="">{% block content %}{% endblock content %}</main>
 
     <!-- Footer -->
     <footer class="bg-gray-300">
@@ -74,7 +76,9 @@
             <h2 class="footer-heading">Address</h2>
             <div class="flex flex-col space-y-5 text-gray-900">
               <address>
-                <p><i class="fa-solid fa-map-marker-alt"></i> Kotei Rd, Kumasi,</p>
+                <p>
+                  <i class="fa-solid fa-map-marker-alt"></i> Kotei Rd, Kumasi,
+                </p>
                 <p>Ghana, West Africa</p>
               </address>
               <a href="tel:+23355155155"><i class="fa-solid fa-phone"></i> +23355155155</a>
@@ -85,8 +89,8 @@
             <h2 class="footer-heading">Socials</h2>
             <div class="flex flex-col space-y-5 text-gray-900 text-lg">
               <a href="#facebook"><i class="fa-brands fa-facebook text-sky-700"></i> Facebook</a>
-              <a href=#twitter><i class="fa-brands fa-twitter text-sky-700"></i> Twitter</a>
-              <a href=#linkedin><i class="fa-brands fa-linkedin text-sky-700"></i> LinkedIn</a>
+              <a href="#twitter"><i class="fa-brands fa-twitter text-sky-700"></i> Twitter</a>
+              <a href="#linkedin"><i class="fa-brands fa-linkedin text-sky-700"></i> LinkedIn</a>
             </div>
           </div>
         </div>
@@ -94,13 +98,21 @@
           <h2 class="footer-heading">Join Our Newsletter</h2>
           <form action="post">
             <!-- TODO customize the input fields on the newletter -->
-            <div class="mt-2"><input class="contact-form-input" placeholder="Enter your full name" type="text"
-                name="full_name_1" id="full_name_1" /></div>
-            <div class="mt-2"><input class="contact-form-input" type="email" placeholder="Enter your email address"
-                name="email_1" id="email_1" /></div>
-            <button type="submit" class="bg-red-600 text-white py-2 w-full mt-5">Register</button>
+            <div class="mt-2">
+              <input class="contact-form-input" placeholder="Enter your full name" type="text" name="full_name_1"
+                id="full_name_1" />
+            </div>
+            <div class="mt-2">
+              <input class="contact-form-input" type="email" placeholder="Enter your email address" name="email_1"
+                id="email_1" />
+            </div>
+            <button type="submit" class="bg-red-600 text-white py-2 w-full mt-5">
+              Register
+            </button>
           </form>
-          <p class="text-blue-700 font-thin">Get notified whenever we upload new apartments</p>
+          <p class="text-blue-700 font-thin">
+            Get notified whenever we upload new apartments
+          </p>
         </div>
       </div>
       <div class="text-sm md:text-base flex justify-around bg-gray-900 text-white">
@@ -113,7 +125,7 @@
     </footer>
 
     <script>
-      // HANDLE MOBILE MENU ----------------------------------------------------------------------- 
+      // HANDLE MOBILE MENU -----------------------------------------------------------------------
       const mobile_menu_icon = document.getElementById("mobile-menu-icon");
       const mobile_menu_items = document.getElementById("mobile-menu-items");
 
@@ -155,8 +167,6 @@
       tablet_menu_icon.addEventListener("click", showTabletMenuItems);
       window.addEventListener("resize", handleResizeTablet);
     </script>
-
   </body>
-
 
 </html>

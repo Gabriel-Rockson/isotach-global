@@ -5,11 +5,13 @@
   <div class="apartment-card">
     <!-- The apartment image -->
     <!-- TODO display a default image if there is no image -->
-    <img class="w-full rounded-md" src="{{ apartment.images.first.image.url }}" alt="Apartment Image" />
+    <img class="w-full rounded-md h-60" src="{{ apartment.images.first.image.url }}" alt="Apartment Image" />
 
     <!-- The apartment info -->
     <div class="px-2 py-3">
       <!-- TODO add the title of the post under the image -->
+      <p class="text-sm text-gray-700"><i class="fa-solid fa-clock"></i> {{ apartment.upload_time|naturaltime }}</p>
+
       <!-- location -->
       <address class="py-2 text-gray-900 font-semibold">
         <i class="fa-solid fa-map-marker-alt text-cyan-600 mr-2"></i>{{apartment.location}}
@@ -21,7 +23,7 @@
         <span class="mr-1 text-emerald-700">Ghc</span><span>{{ apartment.monthly_rent_payment|intcomma }}</span><span
           class="ml-2">monthly</span>
       </p>
-      <p class="pt-1 text-sm text-red-600">
+      <p class="-pt-1 text-sm text-sky-700 text-semi-bold">
         {{ apartment.advance_years }} year{{ apartment.advance_years|pluralize }} advance
       </p>
 

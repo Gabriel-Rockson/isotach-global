@@ -5,8 +5,84 @@
 
 {% block content %}
 
-<div>
-  <h1 class="text-center text-7xl font-bold text-blue-700">All Apartments</h1>
+<div class="mb-20">
+  <section class="px-2 md:px-4 lg:px-6 xl:px-8 mb-10">
+
+    {% comment %} Filtering system {% endcomment %}
+    <!-- Filtering system on large devices -->
+    <div class="mt-2 hidden lg:block">
+      <form class="Post" class="flex justify-between text-lg">
+
+        <div class="w-3/12 bg-yellow-600 mx-1">
+          <input type="text" name="location" id="location" placeholder="Enter Location"
+            class="w-full border borer-gray-800 p-2" />
+        </div>
+
+        <div class="w-2/12 bg-green-600 flex mx-1">
+          <label for="price" class="lg__filter_label flex"><span class="mr-2">Price</span><span class="font-bold italic">Ghc</span></label>
+          <select name="price" id="price" class="lg__filter_select">
+            <option value="200">200 - 500</option>
+            <option value="500">500 - 700</option>
+            <option value="700">700 - 1000</option>
+            <option value="1000">1000 - 1500</option>
+            <option value="2000">2000 - 3000</option>
+            <option value="1500">1500 - 2000</option>
+            <option value="3000">3000 - 4000</option>
+            <option value="4000">4000 - 5000</option>
+            <option value="4000">6000 - 7000</option>
+          </select>
+        </div>
+
+        <div class="w-1/12 bg-blue-600 flex mx-1">
+          <label for="bed" class="lg__filter_label">Beds</label>
+          <select name="bed" id="bed" class="lg__filter_select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="6">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
+        <div class="w-1/12 w- bg-pink-600 flex mx-1">
+          <label for="bath" class="lg__filter_label">Baths</label>
+          <select name="bath" id="bath" class="lg__filter_select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="6">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <!-- <div class="self-center"><i class="fa-solid fa-chevron-down"></i></div> -->
+        </div>
+
+        <div class="w-2/12 bg-orange-600 flex mx-1">
+          <label for="featured" class="lg__filter_label">Featured</label>
+          <input type="checkbox" name="featured" id="featured">
+        </div>
+
+        <div class="w-2/12 bg-purple-600 flex mx-1">
+          <label for="verified" class="lg__filter_label">Verified</label>
+          <input type="checkbox" name="verified" id="verified">
+        </div>
+      </form>
+    </div>
+
+    <div class="mt-5">
+
+      {% include "apartments/apartment-listings.html" with apartments=apartments %}
+
+    </div>
+
+  </section>
+
 </div>
 
 {% endblock content %}
