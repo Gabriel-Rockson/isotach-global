@@ -9,7 +9,7 @@
   <section class="px-2 md:px-4 lg:px-6 xl:px-8 mb-10">
 
     <!-- Filtering system on large devices -->
-    <form method="post" class="flex flex-col mt-5">
+    <form method="post" class="hidden lg:flex flex-col mt-5">
       <div class="flex">
         <!-- Cities -->
         <div class="filter-item-box w-2/12">
@@ -33,7 +33,7 @@
           <span class="flex">
             <span class="self-center font-bold mr-1">Ghc</span>
             <select name="price" id="price" class="filter-item-select w-full">
-              <option value="all">All</option>
+              <option value="any">Any</option>
               <option value="200">200 - 500</option>
               <option value="500">500 - 700</option>
               <option value="700">700 - 1000</option>
@@ -50,6 +50,7 @@
         <div class="filter-item-box w-1/12">
           <label for="beds" class="filter-item-label">Beds</label>
           <select name="beds" id="beds" class="filter-item-select">
+            <option value="any">Any</option>
             <option value="1">1+</option>
             <option value="2">2+</option>
             <option value="3">3+</option>
@@ -62,6 +63,7 @@
         <div class="filter-item-box w-1/12">
           <label for="baths" class="filter-item-label">Baths</label>
           <select name="baths" id="baths" class="filter-item-select">
+            <option value="any">Any</option>
             <option value="1">1+</option>
             <option value="2">2+</option>
             <option value="3">3+</option>
@@ -74,6 +76,7 @@
         <div class="filter-item-box w-1/12">
           <label for="advance-payment" class="filter-item-label">Years</label>
           <select name="advance-payment" id="advance-payment" class="filter-item-select">
+            <option value="any">Any</option>
             <option value="1">1+</option>
             <option value="2">2+</option>
             <option value="3">3+</option>
@@ -86,7 +89,7 @@
         <div class="filter-item-box w-1/12">
           <label for="verified" class="filter-item-label">Verified</label>
           <select name="verified" id="verified" class="filter-item-select">
-            <option value="all">All</option>
+            <option value="any">Any</option>
             <option value="1">Yes</option>
             <option value="0">No</option>
           </select>
@@ -101,7 +104,16 @@
 
 
     <div class="mt-10">
-      <h2 class="text-xl font-bold text-gray-700">All Apartment Listings</h2>
+
+      <div class="flex justify-around md:justify-between">
+        <div class="text-sm text-gray-700">3 apartments</div>
+        <div class="text-gray-800 text-lg font-semi-bold hidden md:flex">Apartments</div>
+        <div class="hidden md:flex">
+          <i class="fa-solid fa-chevron-left self-center bg-gray-300 px-2 py-1 cursor-pointer"></i>
+          <p class="px-5 text-sm self-center">Page 1 of 3</p>
+          <i class="fa-solid fa-chevron-right self-center bg-gray-300 px-2 py-1 cursor-pointer"></i>
+        </div>
+      </div>
 
       {% include "apartments/apartment-listings.html" with apartments=apartments %}
 
