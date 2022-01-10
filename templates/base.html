@@ -32,36 +32,67 @@
         <div class="flex md:space-x-5">
           <!-- The menu items -->
           <div id="mobile-menu-items" class="hidden md:flex md:space-x-5 self-center text-lg">
-            <!-- TODO On hover, show the the nested div on media and large screens -->
-            <!-- TODO On click, show the nested div -->
-            <div class="cursor-pointer nav-link-item">
-              <span class="md:hidden"><i class="menu-icon fa-solid fa-home"></i></span>
-              <a href="{% url 'apartments:list-apartments' %}">apartments</a>
+            <div class="md:hidden h-20 flex border-b border-b-gray-300">
+              <a href="{% url 'pages:homepage' %}" class="self-center text-2xl font-bold">IsotachGlobal</a>
             </div>
 
-            <div class="cursor-pointer nav-link-item">
-              <a href="#advertize"><span class="md:hidden"><i class="menu-icon fa-solid fa-money-bill"></i></span>
-                advertise</a>
-            </div>
-            <div class="cursor-pointer nav-link-item">
-              <a href="{% url 'pages:homepage' %}#contact-us"><span class="md:hidden"><i
-                    class="menu-icon fa-solid fa-phone"></i></span> contact us</a>
-            </div>
-            <div class="cursor-pointer nav-link-item">
-              <a href="{% url 'pages:homepage' %}#faq"><span class="md:hidden"><i
-                    class="menu-icon fa-solid fa-question"></i></span> faq</a>
-            </div>
+            <a href="{% url 'apartments:list-apartments' %}">
+              <div class="nav-link-item">
+                <div class="mobile-menu-icon-box">
+                  <i class="menu-icon fa-solid fa-home"></i>
+                </div>
+                <span class="nav-link-label">apartments</span>
+              </div>
+            </a>
+
+            <a href="#advertize">
+              <div class="nav-link-item">
+                <div class="mobile-menu-icon-box">
+                  <i class="menu-icon fa-solid fa-money-bill"></i>
+                </div>
+                <span class="nav-link-label">advertise</span>
+              </div>
+            </a>
+
+            <a href="{% url 'pages:homepage' %}#contact-us">
+              <div class="nav-link-item">
+                <div class="mobile-menu-icon-box">
+                  <i class="menu-icon fa-solid fa-phone"></i>
+                </div>
+                <span class="nav-link-label">contact us</span>
+              </div>
+            </a>
+
+            <a href="{% url 'pages:homepage' %}#faq">
+              <div class="nav-link-item">
+                <div class="mobile-menu-icon-box">
+                  <i class="menu-icon fa-solid fa-question"></i>
+                </div>
+                <span class="nav-link-label">faq</span>
+              </div>
+            </a>
 
             <div id="tablet-menu-items"
               class="flex flex-col md:hidden lg:flex lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
-              <div class="cursor-pointer nav-link-item">
-                <a href="#agents"><span class="md:hidden"><i class="menu-icon fa-solid fa-people-arrows"></i></span>
-                  agents</a>
-              </div>
-              <div class="cursor-pointer nav-link-item">
-                <a href="#become-an-agent"><span class="md:hidden"><i class="menu-icon fa-solid fa-user-tie"></i></span></i> become an
-                  agent</a>
-              </div>
+
+              <a href="#agents">
+                <div class="nav-link-item">
+                  <div class="mobile-menu-icon-box">
+                    <i class="menu-icon fa-solid  fa-people-arrows"></i>
+                  </div>
+                  <span class="nav-link-label">agents</span>
+                </div>
+              </a>
+
+              <a href="#become-an-agent">
+                <div class="nav-link-item">
+                  <div class="mobile-menu-icon-box">
+                    <i class="menu-icon fa-solid  fa-user-tie"></i>
+                  </div>
+                  <span class="nav-link-label">become an agent</span>
+                </div>
+              </a>
+
             </div>
 
             <div class="lg:hidden hidden md:flex self-center md:text-lg cursor-pointer">
@@ -141,6 +172,13 @@
       const mobile_menu_items = document.getElementById("mobile-menu-items");
 
       function showMobileMenuItems(e) {
+        // Change the mobile menu icon to a times or bars
+        mobile_menu_icon.classList.toggle("fa-bars");
+        mobile_menu_icon.classList.toggle("fa-times");
+        mobile_menu_icon.classList.toggle("text-3xl");
+        mobile_menu_icon.classList.toggle("text-red-600")
+
+        // Handle the hiding and showing of the menu items
         mobile_menu_items.classList.toggle("hidden");
         mobile_menu_items.classList.toggle("mobile-menu");
       }
