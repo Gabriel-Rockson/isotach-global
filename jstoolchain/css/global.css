@@ -44,35 +44,22 @@
 }
 
 .filter-item-box {
-  @apply flex flex-col;
+  @apply flex lg:flex-col;
 }
 
+/* TODO fix the text aligning to the middle for the location label on mobile */
 .filter-item-label {
-  @apply text-center font-mono lg:text-base;
+  @apply lg:text-center text-left self-center lg:self-start font-mono lg:text-base lg:text-gray-900 text-lg font-bold text-white w-1/2 lg:w-full;
 }
 
 .filter-item-select {
-  @apply py-2.5 px-1
-  bg-white text-gray-800
-  border border-gray-700 shadow-sm shadow-white 
-  focus:outline-none;
+  @apply py-2.5 px-1 w-1/2 lg:w-full bg-white text-gray-800 border lg:border-gray-500 shadow-sm shadow-white focus:outline-none focus:outline-pink-600;
 }
 
 .filter-item-input {
-  @apply py-2
-  appearance-none lg:px-2 xl:px-4
-  border-gray-700 border shadow-sm shadow-white
-  focus:outline-none focus:border-purple-600;
+  @apply appearance-none px-2 py-2.5 lg:py-2 w-full focus:outline-none border border-gray-500 focus:border focus:border-pink-600 focus:outline-pink-600;
 }
 
-.filter-item-box-mobile {
-  @apply flex;
-}
-
-.filter-label-mobile {
-  @apply text-lg font-bold text-white w-1/2;
-}
-
-.filter-select-mobile {
-  @apply w-1/2;
+.filter-form-container {
+  @apply hidden bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 right-0 px-4;
 }
