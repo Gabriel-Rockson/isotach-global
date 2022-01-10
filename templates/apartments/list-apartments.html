@@ -5,119 +5,26 @@
 
 {% block content %}
 
-<div class="mb-20 overflow-y-hidden">
+<div class="mb-20">
   <section class="px-2 md:px-4 lg:px-6 xl:px-8 mb-10">
 
-    <!-- Filtering system on large devices -->
-    <form method="post" class="hidden lg:flex flex-col mt-5">
-      <div class="flex space-x-2">
-        <!-- Cities -->
-        <div class="filter-item-box w-2/12">
-          <label for="major-city" class="filter-item-label">Major City</label>
-          <select name="major-city" id="majory-city" class="filter-item-select">
-            <option value="Anywhere">Everywhere</option>
-            <option value="Accra" selected>Accra</option>
-            <option value="Kumasi">Kumasi</option>
-          </select>
-        </div>
-
-        <!-- Location -->
-        <div class="filter-item-box w-3/12">
-          <label for="location" class="filter-item-label">Location</label>
-          <input type="text" name="location" id="location" placeholder="Area in city" class="filter-item-input">
-        </div>
-
-        <!-- Price -->
-        <div class="filter-item-box w-3/12">
-          <label for="price" class="filter-item-label">Price</label>
-          <span class="flex">
-            <span class="self-center font-bold mr-1">Ghc</span>
-            <select name="price" id="price" class="filter-item-select w-full">
-              <option value="any">Any</option>
-              <option value="200">200 - 500</option>
-              <option value="500">500 - 700</option>
-              <option value="700">700 - 1000</option>
-              <option value="1000">1000 - 1500</option>
-              <option value="1500">1500 - 2000</option>
-              <option value="2000">2000 - 3000</option>
-              <option value="3000">3000 - 4000</option>
-              <option value="4000">4000 - 5000</option>
-            </select>
-          </span>
-        </div>
-
-        <!-- Beds -->
-        <div class="filter-item-box w-1/12">
-          <label for="beds" class="filter-item-label">Beds</label>
-          <select name="beds" id="beds" class="filter-item-select">
-            <option value="any">Any</option>
-            <option value="1">1+</option>
-            <option value="2">2+</option>
-            <option value="3">3+</option>
-            <option value="4">4+</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-
-        <!-- Baths -->
-        <div class="filter-item-box w-1/12">
-          <label for="baths" class="filter-item-label">Baths</label>
-          <select name="baths" id="baths" class="filter-item-select">
-            <option value="any">Any</option>
-            <option value="1">1+</option>
-            <option value="2">2+</option>
-            <option value="3">3+</option>
-            <option value="4">4+</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-
-        <!-- Years of Advanced Payment -->
-        <div class="filter-item-box w-1/12">
-          <label for="advance-payment" class="filter-item-label">Years</label>
-          <select name="advance-payment" id="advance-payment" class="filter-item-select">
-            <option value="any">Any</option>
-            <option value="1">1+</option>
-            <option value="2">2+</option>
-            <option value="3">3+</option>
-            <option value="4">4+</option>
-            <option value="5">5+</option>
-          </select>
-        </div>
-
-        <!-- Verified -->
-        <div class="filter-item-box w-1/12">
-          <label for="verified" class="filter-item-label">Verified</label>
-          <select name="verified" id="verified" class="filter-item-select">
-            <option value="any">Any</option>
-            <option value="1">Yes</option>
-            <option value="0">No</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="mt-2">
-        <button type="submit" class="bg-red-600 text-white py-2 px-2">Apply Filter</button>
-      </div>
-
-    </form>
-
-    <!-- Filtering System on small devices phones to tablets -->
-    <div id="filter-box" class="lg:hidden">
+    <!-- Mobile responsive filtering system -->
+    <div id="filter-box" class="">
       <div id="filter-form-container"
-        class="hidden bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 right-0 px-4">
-        <div class="flex justify-between py-4 mb-5 border-b-2 border-gray-200">
+        class="hidden lg:block bg-gray-900 lg:bg-white h-screen lg:h-full w-4/5 sm:w-3/5 md:w-2/5 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0">
+        <div class="flex lg:hidden justify-between py-4 mb-5 border-b-2 border-gray-200">
           <h3 class="text-gray-100 text-2xl self-center font-bold">Filters</h3>
           <h4 id="close-btn" class="text-red-600 self-center cursor-pointer font-bold">close <i
               class="fa-solid fa-times text-sm"></i>
           </h4>
         </div>
-        <form method="post" action="#">
-          <div class="space-y-4 flex flex-col">
+        
+        <form method="post" action="#" class="lg:flex lg:flex-col lg:mt-5">
+          <div class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row">
             <!-- Cities -->
-            <div class="filter-item-box-mobile">
-              <label for="major-city" class="filter-label-mobile">Major City</label>
-              <select name="major-city" id="majory-city" class="filter-select-mobile">
+            <div class="filter-item-box lg:w-2/12">
+              <label for="major-city" class="filter-item-label">Major City</label>
+              <select name="major-city" id="majory-city" class="filter-item-select">
                 <option value="Anywhere">Everywhere</option>
                 <option value="Accra" selected>Accra</option>
                 <option value="Kumasi">Kumasi</option>
@@ -125,18 +32,18 @@
             </div>
 
             <!-- Location -->
-            <div class="filter-item-box-mobile flex flex-col">
-              <label for="location" class="filter-label-mobile w-full">Location</label>
+            <div class="filter-item-box flex-col lg:w-3/12">
+              <label for="location" class="filter-item-label w-full">Location</label>
               <input type="text" name="location" id="location" placeholder="Area in city"
-                class="py-1 px-2 w-full focus:outline-none focus:border-2 focus:border-pink-600">
+                class="filter-item-input">
             </div>
 
             <!-- Price -->
-            <div class="filter-item-box-mobile">
-              <label for="price" class="filter-label-mobile">Price (<span
-                  class="text-gray-300 mr-1 self-center font-bold text-sm">Ghc</span>)</label>
+            <div class="filter-item-box lg:w-3/12">
+              <label for="price" class="filter-item-label">Price (<span
+                  class="text-gray-300 lg:text-gray-700 mr-1 self-center font-bold text-sm">Ghc</span>)</label>
 
-              <select name="price" id="price" class="filter-select-mobile">
+              <select name="price" id="price" class="filter-item-select lg:w-full lg:text-center">
                 <option value="any">Any</option>
                 <option value="200">200 - 500</option>
                 <option value="500">500 - 700</option>
@@ -150,9 +57,9 @@
             </div>
 
             <!-- Beds -->
-            <div class="filter-item-box-mobile">
-              <label for="beds" class="filter-label-mobile">Beds</label>
-              <select name="beds" id="beds" class="filter-select-mobile">
+            <div class="filter-item-box lg:w-1/12">
+              <label for="beds" class="filter-item-label">Beds</label>
+              <select name="beds" id="beds" class="filter-item-select">
                 <option value="any">Any</option>
                 <option value="1">1+</option>
                 <option value="2">2+</option>
@@ -163,9 +70,9 @@
             </div>
 
             <!-- Baths -->
-            <div class="filter-item-box-mobile">
-              <label for="baths" class="filter-label-mobile">Baths</label>
-              <select name="baths" id="baths" class="filter-select-mobile">
+            <div class="filter-item-box lg:w-1/12">
+              <label for="baths" class="filter-item-label">Baths</label>
+              <select name="baths" id="baths" class="filter-item-select">
                 <option value="any">Any</option>
                 <option value="1">1+</option>
                 <option value="2">2+</option>
@@ -176,9 +83,9 @@
             </div>
 
             <!-- Years of Advanced Payment -->
-            <div class="filter-item-box-mobile">
-              <label for="advance-payment" class="filter-label-mobile">Years</label>
-              <select name="advance-payment" id="advance-payment" class="filter-select-mobile">
+            <div class="filter-item-box lg:w-1/12">
+              <label for="advance-payment" class="filter-item-label">Years</label>
+              <select name="advance-payment" id="advance-payment" class="filter-item-select">
                 <option value="any">Any</option>
                 <option value="1">1+</option>
                 <option value="2">2+</option>
@@ -189,9 +96,9 @@
             </div>
 
             <!-- Verified -->
-            <div class="filter-item-box-mobile">
-              <label for="verified" class="filter-label-mobile">Verified</label>
-              <select name="verified" id="verified" class="filter-select-mobile">
+            <div class="filter-item-box lg:w-1/12">
+              <label for="verified" class="filter-item-label">Verified</label>
+              <select name="verified" id="verified" class="filter-item-select">
                 <option value="any">Any</option>
                 <option value="1">Yes</option>
                 <option value="0">No</option>
@@ -200,14 +107,14 @@
           </div>
 
           <!-- Button -->
-          <div class="flex justify-around mt-5">
+          <div class="flex justify-around mt-5 lg:mt-2 lg:justify-start">
             <button type="submit" class="py-2 px-4 bg-red-600 hover:bg-red-500 text-white">Apply Filters</button>
           </div>
         </form>
       </div>
 
       <!-- The buttons to show the filters -->
-      <div class="flex space-x-5 py-2">
+      <div class="flex space-x-5 py-2 lg:hidden">
         <button id="filter-btn"
           class="bg-gray-800 hover:bg-gray-700 rounded-md w-1/2 py-4 text-center text-gray-200 cursor-pointer">
           <i class="fa-solid fa-search"></i> Filters
@@ -252,8 +159,7 @@
   }
 
   function showFilter() {
-    filter_form_container.classList.remove("hidden");
-    filter_form_container.classList.add("block");
+    filter_form_container.classList.toggle("hidden");
   }
 
   filter_show_button.addEventListener("click", showFilter);
