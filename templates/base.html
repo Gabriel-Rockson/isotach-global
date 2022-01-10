@@ -95,12 +95,13 @@
 
             </div>
 
-            <div class="lg:hidden hidden md:flex self-center md:text-lg cursor-pointer">
+            <!-- Tablet menu icon -->
+            <div class="lg:hidden hidden md:flex self-center md:text-2xl cursor-pointer">
               <i id="tablet-menu-icon" class="fa-solid fa-bars"></i>
             </div>
           </div>
 
-          <!-- The menu icon -->
+          <!-- The mobile menu icon -->
           <div class="md:hidden self-center text-2xl cursor-pointer">
             <i id="mobile-menu-icon" class="fa-solid fa-bars"></i>
           </div>
@@ -176,7 +177,7 @@
         mobile_menu_icon.classList.toggle("fa-bars");
         mobile_menu_icon.classList.toggle("fa-times");
         mobile_menu_icon.classList.toggle("text-3xl");
-        mobile_menu_icon.classList.toggle("text-red-600")
+        mobile_menu_icon.classList.toggle("text-red-600");
 
         // Handle the hiding and showing of the menu items
         mobile_menu_items.classList.toggle("hidden");
@@ -200,6 +201,12 @@
       const tablet_menu_items = document.getElementById("tablet-menu-items");
 
       function showTabletMenuItems(e) {
+        tablet_menu_icon.classList.toggle("fa-bars");
+        tablet_menu_icon.classList.toggle("fa-times");
+        tablet_menu_icon.classList.toggle("text-3xl");
+        tablet_menu_icon.classList.toggle("text-red-600");
+
+        // Hide or show the mobile menu items
         tablet_menu_items.classList.toggle("md:hidden");
         tablet_menu_items.classList.toggle("tablet-menu");
       }

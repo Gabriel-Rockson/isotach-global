@@ -20,7 +20,11 @@
 }
 
 .tablet-menu {
-  @apply flex flex-col absolute top-16 right-0 z-50 bg-black text-white p-3 space-y-5 text-left text-base mr-5;
+  @apply flex flex-col 
+  absolute top-20 right-4
+  z-50 bg-black shadow-md shadow-gray-200
+  text-white py-4 px-6 space-y-5 text-left 
+  text-base mr-5;
 }
 
 .menu-icon {
@@ -32,7 +36,7 @@
 }
 
 .nav-link-label {
-  @apply self-center text-gray-200 md:text-gray-800 first-letter:capitalize md:hover:text-pink-600 ;
+  @apply self-center first-letter:capitalize md:hover:text-pink-600 ;
 }
 
 
