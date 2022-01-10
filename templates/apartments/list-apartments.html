@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<div class="mb-20">
+<div class="mb-20 overflow-y-hidden">
   <section class="px-2 md:px-4 lg:px-6 xl:px-8 mb-10">
 
     <!-- Filtering system on large devices -->
@@ -28,7 +28,7 @@
         </div>
 
         <!-- Price -->
-        <div class="filter-item-box w-2/12">
+        <div class="filter-item-box w-3/12">
           <label for="price" class="filter-item-label">Price</label>
           <span class="flex">
             <span class="self-center font-bold mr-1">Ghc</span>
@@ -104,10 +104,12 @@
 
     <!-- Filtering System on small devices phones to tablets -->
     <div id="filter-box" class="lg:hidden">
-      <div id="filter-form-container" class="hidden bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 left-0 px-4">
+      <div id="filter-form-container"
+        class="hidden bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 right-0 px-4">
         <div class="flex justify-between py-4 mb-5 border-b-2 border-gray-200">
           <h3 class="text-gray-100 text-2xl self-center font-bold">Filters</h3>
-          <h4 id="close-btn" class="text-red-600 self-center cursor-pointer font-bold">close <i class="fa-solid fa-times text-sm"></i>
+          <h4 id="close-btn" class="text-red-600 self-center cursor-pointer font-bold">close <i
+              class="fa-solid fa-times text-sm"></i>
           </h4>
         </div>
         <form method="post" action="#">
@@ -199,14 +201,15 @@
 
           <!-- Button -->
           <div class="flex justify-around mt-5">
-            <button type="submit" class="py-2 px-4 bg-red-600 text-white">Apply Filters</button>
+            <button type="submit" class="py-2 px-4 bg-red-600 hover:bg-red-500 text-white">Apply Filters</button>
           </div>
         </form>
       </div>
 
       <!-- The buttons to show the filters -->
       <div class="flex space-x-5 py-2">
-        <button id="filter-btn" class="bg-gray-800 hover:bg-gray-700 rounded-md w-1/2 py-4 text-center text-gray-200 cursor-pointer">
+        <button id="filter-btn"
+          class="bg-gray-800 hover:bg-gray-700 rounded-md w-1/2 py-4 text-center text-gray-200 cursor-pointer">
           <i class="fa-solid fa-search"></i> Filters
         </button>
         <div class="w-1/2 bg-gray-800 rounded-md py-4 text-center text-gray-200 cursor-pointer">
@@ -243,6 +246,7 @@
   const filter_show_button = document.getElementById("filter-btn");
   const filter_close_button = document.getElementById("close-btn");
 
+
   function hideFilter() {
     filter_form_container.classList.add("hidden");
   }
@@ -250,16 +254,9 @@
   function showFilter() {
     filter_form_container.classList.remove("hidden");
     filter_form_container.classList.add("block");
-
-    stopScrolling();
-  }
-
-  function stopScrolling() {
-    document.classList.add("overflow-y-hidden");
   }
 
   filter_show_button.addEventListener("click", showFilter);
   filter_close_button.addEventListener("click", hideFilter);
-
 </script>
 {% endblock javascript %}
