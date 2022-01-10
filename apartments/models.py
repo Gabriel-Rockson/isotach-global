@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
 from django.utils.html import mark_safe
+from django.urls import reverse
 
 
 class ApartmentImage(models.Model):
@@ -114,6 +115,10 @@ class Apartment(models.Model):
         verbose_name=_("Verified"),
         help_text="Has this apartment been verified? Tick if Yes",
         default=False)
+
+    def get_absolute_url(self):
+        return reverse("apartments:apartment-detail", kwargs={"slug": self.slug})
+    
 
     def __str__(self):
         return f"{self.title}"
