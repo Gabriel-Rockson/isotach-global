@@ -386,6 +386,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-ring-shadow: 0 0 #0000;
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: var(--tw-empty,/*!*/ /*!*/);
+  --tw-brightness: var(--tw-empty,/*!*/ /*!*/);
+  --tw-contrast: var(--tw-empty,/*!*/ /*!*/);
+  --tw-grayscale: var(--tw-empty,/*!*/ /*!*/);
+  --tw-hue-rotate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-invert: var(--tw-empty,/*!*/ /*!*/);
+  --tw-saturate: var(--tw-empty,/*!*/ /*!*/);
+  --tw-sepia: var(--tw-empty,/*!*/ /*!*/);
+  --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
+  --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 .static {
   position: static;
@@ -537,6 +547,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .self-center {
   align-self: center;
+}
+.overflow-y-hidden {
+  overflow-y: hidden;
 }
 .scroll-smooth {
   scroll-behavior: smooth;
@@ -783,6 +796,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .shadow-gray-800 {
   --tw-shadow-color: #1f2937;
   --tw-shadow: var(--tw-shadow-colored);
+}
+.filter {
+  filter: var(--tw-filter);
 }
 
 /* custom classes */
@@ -1151,6 +1167,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .filter-select-mobile {
   width: 50%;
+}
+
+.hover\:bg-gray-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
 .hover\:text-blue-600:hover {
