@@ -10,7 +10,7 @@
 
     <!-- Filtering system on large devices -->
     <form method="post" class="hidden lg:flex flex-col mt-5">
-      <div class="flex">
+      <div class="flex space-x-2">
         <!-- Cities -->
         <div class="filter-item-box w-2/12">
           <label for="major-city" class="filter-item-label">Major City</label>
@@ -96,12 +96,124 @@
         </div>
       </div>
 
-      <div class="mx-2 mt-2">
+      <div class="mt-2">
         <button type="submit" class="bg-red-600 text-white py-2 px-2">Apply Filter</button>
       </div>
 
     </form>
 
+    <!-- Filtering System on small devices phones to tablets -->
+    <div class="">
+      <div id="filter-form-container" class="bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 left-0 px-4">
+        <div class="flex justify-between py-4 mb-5 border-b-2 border-gray-200">
+          <h3 class="text-gray-100 text-2xl self-center font-bold">Filters</h3>
+          <h4 class="text-red-600 self-center cursor-pointer font-bold">close <i class="fa-solid fa-times text-sm"></i>
+          </h4>
+        </div>
+        <form method="post" action="#">
+          <div class="space-y-4 flex flex-col">
+            <!-- Cities -->
+            <div class="filter-item-box-mobile">
+              <label for="major-city" class="filter-label-mobile">Major City</label>
+              <select name="major-city" id="majory-city" class="filter-select-mobile">
+                <option value="Anywhere">Everywhere</option>
+                <option value="Accra" selected>Accra</option>
+                <option value="Kumasi">Kumasi</option>
+              </select>
+            </div>
+
+            <!-- Location -->
+            <div class="filter-item-box-mobile flex flex-col">
+              <label for="location" class="filter-label-mobile w-full">Location</label>
+              <input type="text" name="location" id="location" placeholder="Area in city"
+                class="py-1 px-2 w-full focus:outline-none focus:border-2 focus:border-pink-600">
+            </div>
+
+            <!-- Price -->
+            <div class="filter-item-box-mobile">
+              <label for="price" class="filter-label-mobile">Price (<span
+                  class="text-gray-300 mr-1 self-center font-bold text-sm">Ghc</span>)</label>
+
+              <select name="price" id="price" class="filter-select-mobile">
+                <option value="any">Any</option>
+                <option value="200">200 - 500</option>
+                <option value="500">500 - 700</option>
+                <option value="700">700 - 1000</option>
+                <option value="1000">1000 - 1500</option>
+                <option value="1500">1500 - 2000</option>
+                <option value="2000">2000 - 3000</option>
+                <option value="3000">3000 - 4000</option>
+                <option value="4000">4000 - 5000</option>
+              </select>
+            </div>
+
+            <!-- Beds -->
+            <div class="filter-item-box-mobile">
+              <label for="beds" class="filter-label-mobile">Beds</label>
+              <select name="beds" id="beds" class="filter-select-mobile">
+                <option value="any">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+
+            <!-- Baths -->
+            <div class="filter-item-box-mobile">
+              <label for="baths" class="filter-label-mobile">Baths</label>
+              <select name="baths" id="baths" class="filter-select-mobile">
+                <option value="any">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+
+            <!-- Years of Advanced Payment -->
+            <div class="filter-item-box-mobile">
+              <label for="advance-payment" class="filter-label-mobile">Years</label>
+              <select name="advance-payment" id="advance-payment" class="filter-select-mobile">
+                <option value="any">Any</option>
+                <option value="1">1+</option>
+                <option value="2">2+</option>
+                <option value="3">3+</option>
+                <option value="4">4+</option>
+                <option value="5">5+</option>
+              </select>
+            </div>
+
+            <!-- Verified -->
+            <div class="filter-item-box-mobile">
+              <label for="verified" class="filter-label-mobile">Verified</label>
+              <select name="verified" id="verified" class="filter-select-mobile">
+                <option value="any">Any</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Button -->
+          <div class="flex justify-around mt-5">
+            <button type="submit" class="py-2 px-4 bg-red-600 text-white">Apply Filters</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- The buttons to show the filters -->
+      <div class="flex space-x-5 py-2">
+        <div class="bg-gray-800 rounded-md w-1/2 py-4 text-center text-gray-200 cursor-pointer">
+          <i class="fa-solid fa-search"></i> Filters
+        </div>
+        <div class="w-1/2 bg-gray-800 rounded-md py-4 text-center text-gray-200 cursor-pointer">
+          sort
+        </div>
+      </div>
+    </div>
 
     <div class="mt-10">
 
@@ -124,3 +236,9 @@
 </div>
 
 {% endblock content %}
+
+{% block javascript %}
+<script>
+
+</script>
+{% endblock javascript %}

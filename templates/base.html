@@ -15,11 +15,18 @@
 
   <body>
     {% comment %} Top Navbar {% endcomment %}
-    <nav class="bg-gray-50 shadow-lg">
+    <nav class="bg-gray-50  lg:border-b-0 lg:shadow-lg">
       <!-- The label -->
-      <div class="flex justify-between px-5 h-16">
+      <div class="flex justify-between px-5 h-20">
         <div class="self-center">
-          <label class="text-2xl font-bold"><a href="{% url 'pages:homepage' %}">IsotachGlobal<i class="fa-solid fa-globe"></i></a></label>
+          <label class="text-xl font-bold"><a href="{% url 'pages:homepage' %}">
+              <div class="flex flex-col">
+                <span class="text-gray-700">Isotach</span>
+                <hr>
+                <span class="text-gray-900">Global</span>
+              </div>
+            </a>
+          </label>
         </div>
 
         <div class="flex md:space-x-5">
@@ -27,28 +34,32 @@
           <div id="mobile-menu-items" class="hidden md:flex md:space-x-5 self-center text-lg">
             <!-- TODO On hover, show the the nested div on media and large screens -->
             <!-- TODO On click, show the nested div -->
-            <div class="cursor-pointer">
-              <i class="menu-icon fa-solid fa-home"></i>
+            <div class="cursor-pointer nav-link-item">
+              <span class="md:hidden"><i class="menu-icon fa-solid fa-home"></i></span>
               <a href="{% url 'apartments:list-apartments' %}">apartments</a>
             </div>
 
-            <div class="cursor-pointer">
-              <a href="#advertize"><i class="menu-icon fa-solid fa-money-bill"></i> advertise</a>
+            <div class="cursor-pointer nav-link-item">
+              <a href="#advertize"><span class="md:hidden"><i class="menu-icon fa-solid fa-money-bill"></i></span>
+                advertise</a>
             </div>
-            <div class="cursor-pointer">
-              <a href="{% url 'pages:homepage' %}#contact-us"><i class="menu-icon fa-solid fa-phone"></i> contact us</a>
+            <div class="cursor-pointer nav-link-item">
+              <a href="{% url 'pages:homepage' %}#contact-us"><span class="md:hidden"><i
+                    class="menu-icon fa-solid fa-phone"></i></span> contact us</a>
             </div>
-            <div class="cursor-pointer">
-              <a href="{% url 'pages:homepage' %}#faq"><i class="menu-icon fa-solid fa-question"></i> faq</a>
+            <div class="cursor-pointer nav-link-item">
+              <a href="{% url 'pages:homepage' %}#faq"><span class="md:hidden"><i
+                    class="menu-icon fa-solid fa-question"></i></span> faq</a>
             </div>
 
             <div id="tablet-menu-items"
               class="flex flex-col md:hidden lg:flex lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0">
-              <div class="cursor-pointer">
-                <a href="#agents"><i class="menu-icon fa-solid fa-people-arrows"></i> agents</a>
+              <div class="cursor-pointer nav-link-item">
+                <a href="#agents"><span class="md:hidden"><i class="menu-icon fa-solid fa-people-arrows"></i></span>
+                  agents</a>
               </div>
-              <div class="cursor-pointer">
-                <a href="#become-an-agent"><i class="menu-icon fa-solid fa-user-tie"></i> become an
+              <div class="cursor-pointer nav-link-item">
+                <a href="#become-an-agent"><span class="md:hidden"><i class="menu-icon fa-solid fa-user-tie"></i></span></i> become an
                   agent</a>
               </div>
             </div>
@@ -66,15 +77,15 @@
       </div>
     </nav>
 
-    <main class="">{% block content %}{% endblock content %}</main>
+    <main>{% block content %}{% endblock content %}</main>
 
     <!-- Footer -->
-    <footer class="bg-gray-300">
+    <footer class="bg-gray-800 text-white">
       <div class="flex flex-col-reverse lg:flex-row px-5 lg:px-60 py-10">
         <div class="flex flex-col md:flex-row lg:w-2/3 md:px-16">
           <div class="md:w-1/2 mt-10 lg:mt-0">
             <h2 class="footer-heading">Address</h2>
-            <div class="flex flex-col space-y-5 text-gray-900">
+            <div class="flex flex-col space-y-5">
               <address>
                 <p>
                   <i class="fa-solid fa-map-marker-alt"></i> Kotei Rd, Kumasi,
@@ -87,7 +98,7 @@
           </div>
           <div class="md:w-1/2 mt-10 lg:mt-0">
             <h2 class="footer-heading">Socials</h2>
-            <div class="flex flex-col space-y-5 text-gray-900 text-lg">
+            <div class="flex flex-col space-y-5 text-lg">
               <a href="#facebook"><i class="fa-brands fa-facebook text-sky-700"></i> Facebook</a>
               <a href="#twitter"><i class="fa-brands fa-twitter text-sky-700"></i> Twitter</a>
               <a href="#linkedin"><i class="fa-brands fa-linkedin text-sky-700"></i> LinkedIn</a>
@@ -110,13 +121,13 @@
               Register
             </button>
           </form>
-          <p class="text-blue-700 font-thin">
+          <p class="text-white text-sm py-1">
             Get notified whenever we upload new apartments
           </p>
         </div>
       </div>
-      <div class="text-sm md:text-base flex justify-around bg-gray-900 text-white">
-        <div class="py-5">
+      <div class="text-sm md:text-base flex justify-around bg-black text-white">
+        <div class="py-3">
           <!-- TODO change the 2022 and use a scipt to insert the year -->
           <i class="fa-solid fa-copyright"></i> copyright, 2022 - Isotach Global
           <p class="text-center text-base text-gray-300">All Rights Reserved</p>
@@ -167,6 +178,8 @@
       tablet_menu_icon.addEventListener("click", showTabletMenuItems);
       window.addEventListener("resize", handleResizeTablet);
     </script>
+
+    {% block javascript %}{% endblock javascript %}
   </body>
 
 </html>
