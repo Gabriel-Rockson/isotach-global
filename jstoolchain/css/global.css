@@ -84,3 +84,16 @@
 .filter-form-container {
   @apply hidden bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 right-0 px-4;
 }
+
+/* Apartment detail page */
+.apt__info-box {
+  @apply flex py-2 border-b border-gray-400 px-3;
+}
+
+.apt__info-label-1 {
+  @apply text-lg text-gray-700 font-semibold;
+}
+
+.apt__info-text-1 {
+  @apply text-xl text-gray-800 font-bold;
+}

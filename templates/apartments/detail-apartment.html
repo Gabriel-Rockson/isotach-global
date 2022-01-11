@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static humanize %}
+
+{% block title %}{{ apartment.title }}{% endblock title %}
+
+
+{% block content %}
+
+<div class="border-t-2 border-t-gray-400">
+  <!-- Title -->
+  <div class="py-2 px-2">
+    <p class="text-gray-800 text-center text-lg font-bold">{{ apartment.title }}</p>
+    <p class="text-sm text-center py-1 text-gray-700">Posted <i class="fa-solid fa-clock"></i> {{ apartment.upload_time|naturaltime }}</p>
+  </div>
+
+  <!-- Create a carousel of the images, on click, user can view the full image -->
+  <div class="w-full h-72">
+    <img class="h-72 w-full" src="{{ apartment.first_image_url }}" alt="{{ apartment.title }} Image">
+  </div>
+
+  <div class="">
+    <!-- Title, Location, Price Info -->
+    <div class="apt__info-box">
+      <div class="w-1/2 self-center flex">
+        <i class="fa-solid fa-map-marker-alt text-cyan-600 mr-2"></i>
+        <address class="text-gray-500 font-bold">{{ apartment.location }}</address>
+      </div>
+
+      <div class="w-1/2 text-right text-gray-600 font-bold text-xl self-center">
+        <!-- Add tooltips so people can click and know what each amount is for -->
+        <p class="">Ghc {{ apartment.monthly_rent_payment|intcomma }}0</p>
+        <p>Ghc {{ apartment.total_rent_payment|intcomma }}0</p>
+      </div>
+    </div>
+
+    <!-- Baths, Beds and Verified -->
+    <div class="apt__info-box justify-between">
+      <div class="text-center">
+        <p class="apt__info-label-1">Beds <i class="fa-solid fa-bed text-fuchsia-600"></i></p>
+        <p class="apt__info-text-1">{{ apartment.bedrooms }}</p>
+      </div>
+
+      <div class="text-center">
+        <p class="apt__info-label-1">Baths <i class="fa-solid fa-bath text-sky-500"></i></p>
+        <p class="apt__info-text-1">{{ apartment.baths }}</p>
+      </div>
+
+      <div class="text-center">
+        <p class="apt__info-label-1">Verified</p>
+        <p>
+          {% if apartment.verified %}
+          <i class="fa-solid fa-check-double text-green-600 text-xl"></i>
+          {% else %}
+          <i class="fa-solid fa-times text-red-600 text-xl"></i>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="apt__info-box">
+      <div class="w-1/2 self-center text-lg text-gray-700 font-bold">
+        <p>IsotachGlobal</p>
+      </div>
+      <div class="flex flex-col w-1/2 space-y-2">
+        <a href="#"
+          class="px-2 w-full text-center py-2 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">Schedule
+          Meeting</a>
+
+        <a href="#"
+          class="px-2 w-full text-center py-2 rounded-md bg-slate-900 hover:bg-slate-800 text-white font-bold">Ask a
+          Question</a>
+      </div>
+    </div>
+
+    <div>detailed info</div>
+    <div>agent info, commissions</div>
+    <div>other listings</div>
+  </div>
+</div>
+
+{% endblock content %}
+
+
+{% block javascript %}
+
+{% endblock javascript %}
