@@ -80,7 +80,7 @@ class Apartment(models.Model):
         help_text=
         "If this place is being rented out, how many years of advance payment is required?",
         default=1)
-    monthly_rent_payment = models.PositiveSmallIntegerField(
+    monthly_rent_payment = models.FloatField(
         verbose_name=_("Monthly Rent Payment"),
         help_text=
         "How much is a tenant going to pay for the place every month?",
@@ -92,7 +92,7 @@ class Apartment(models.Model):
         "Enter any extra details the potential occupant needs to know",
         blank=True,
         null=True)
-    total_rent_payment = models.PositiveIntegerField(
+    total_rent_payment = models.FloatField(
         verbose_name=_("Total Rent Payment"),
         help_text=
         "Amount tenant will pay over years of residency, monthly_payment * advance_years"
@@ -101,7 +101,7 @@ class Apartment(models.Model):
         verbose_name=_("Agent's Commission ( percentage )"),
         help_text="What is the commission the agent will take, in percentage.",
         default=5)
-    agent_fee = models.PositiveSmallIntegerField(
+    agent_fee = models.FloatField(
         verbose_name="Agent's Fee ( amount )",
         help_text="Amount to pay to the agent.",
         blank=True,
@@ -119,6 +119,13 @@ class Apartment(models.Model):
     def get_absolute_url(self):
         return reverse("apartments:apartment-detail", kwargs={"slug": self.slug})
     
+    def first_image_url(self):
+        if self.images:
+            return self.images.first().image.url
+        else:return 'No Image found'
+
+    def images_count(self):
+        return self.images.count()
 
     def __str__(self):
         return f"{self.title}"
