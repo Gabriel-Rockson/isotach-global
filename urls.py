@@ -7,7 +7,7 @@ from django.urls import include, path
 
 urlpatterns = [
     # add your own patterns here
-    path('', include('pages.urls', namespace="pages")),
+    # path('', include('pages.urls', namespace="pages")),
     path('apartments/', include('apartments.urls', namespace="apartments")),
 ] + aldryn_addons.urls.patterns() + i18n_patterns(
     # add your own i18n patterns here
