@@ -7,19 +7,31 @@
 
 <!-- HomePage banner -->
 <div class="flex bg-gray-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
-  style="background-image: url({{ homepage.banner_image.url }}); height: 540px">
+  style="background-image: url({{ homepage.banner_image.url }}); height: 600px">
 
-  <div class="self-center flex flex-col">
-    <div class="text-white text-center">
-      <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{{ homepage.banner_heading_text }}</h1>
-      <p class="text-base md:text-lg lg:text-2xl font-thin">{{ homepage.banner_sub_heading_text }}</p>
+  <div class="self-center flex flex-col md:w-4/5 xl:w-3/5 py-5">
+    <div class="text-white text-center px-2">
+      <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
+        {% if homepage.banner_heading_text %}
+          {{ homepage.banner_heading_text }}
+        {% else %}
+          Discover your future home with IsotachGlobal
+        {% endif %}
+      </h1>
+      <p class="text-base md:text-lg lg:text-2xl font-light pt-3">
+        {% if homepage.banner_sub_heading_text %}
+          {{ homepage.banner_sub_heading_text }}
+        {% else %}
+         Search for your new home right here
+        {% endif %}
+      </p>
     </div>
 
-    <div class="mt-10 px-5 lg:px-20 font-mono">
+    <div class="mt-10 px-5 font-mono">
 
       <form action="#" method="get" class="mt-5">
         <div
-          class="flex flex-col md:flex-row space-y-3 md:space-y-0 text-base uppercase font-bold justify-around md:px-10">
+          class="flex flex-col md:flex-row space-y-3 md:space-y-0 text-base uppercase font-bold justify-between">
           <!-- Add filters here -->
 
           <!-- Beds -->
@@ -51,14 +63,14 @@
             <span class="mr-2 self-center text-white">Price <i
                 class="fa-solid fa-money-bill-wave text-green-800"></i></span>
             <select name="price" id="price" class="banner-select-field">
-              <option value="200">Ghc 200.00 - Ghc 500.00</option>
-              <option value="500">Ghc 500.00 - Ghc 700.00</option>
-              <option value="700">Ghc 700.00 - Ghc 1000.00</option>
-              <option value="1000">Ghc 1000.00 - Ghc 1500.00</option>
-              <option value="1500">Ghc 1500.00 - Ghc 2000.00</option>
-              <option value="2000">Ghc 2000.00 - Ghc 3000.00</option>
-              <option value="3000">Ghc 3000.00 - Ghc 4000.00</option>
-              <option value="4000">Ghc 4000.00 - Ghc 5000.00</option>
+              <option value="200">200.00 - 500.00</option>
+              <option value="500">500.00 - 700.00</option>
+              <option value="700">700.00 - 1000.00</option>
+              <option value="1000">1000.00 - 1500.00</option>
+              <option value="1500">1500.00 - 2000.00</option>
+              <option value="2000">2000.00 - 3000.00</option>
+              <option value="3000">3000.00 - 4000.00</option>
+              <option value="4000">4000.00 - 5000.00</option>
             </select>
           </div>
 
@@ -84,28 +96,36 @@
 <section class="px-5 md:px-14 lg:px-20 mb-10">
 
   {% if featured_apartments %}
-  <!-- Featured Listings -->
-  <div>
-    <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Top Featured Apartment Listings</h1>
-    <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
+    <!-- Featured Listings -->
+    <div>
+      <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Top Featured Apartment Listings</h1>
+      <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
 
-    {% include "apartments/apartment-listings.html" with apartments=featured_apartments %}
+      {% include "apartments/apartment-listings.html" with apartments=featured_apartments %}
 
-  </div>
+    </div>
+  {% else %}
+    <h2 class="text-sky-600 text-lg text-center">No featured apartments</h2>
   {% endif %}
 
   <!-- Latest Listings -->
-  <div class="mt-5">
-    <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Latest Apartment Listings</h1>
-    <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
+  {% if latest_apartments %}
+    <div class="mt-5">
+      <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Latest Apartment Listings</h1>
+      <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
 
-    {% include "apartments/apartment-listings.html" with apartments=latest_apartments %}
+      {% include "apartments/apartment-listings.html" with apartments=latest_apartments %}
 
-  </div>
+    </div>
+  {% else %}
+    <h2 class="text-sky-600 text-lg text-center">No latest apartments</h2>
+  {% endif %}
 
 </section>
 
 <!-- The About Us Message -->
+{% if homepage.about_section %}
+
 <section class="px-5 md:px-14 lg:px-20 my-16" id="about-us">
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{homepage.about_section.first.name}}</h1>
   <div class="flex flex-col lg:flex-row">
@@ -117,7 +137,11 @@
   </div>
 </section>
 
+{% endif %}
+
 <!-- Our Services Section -->
+{% if homepage.services_section %}
+
 <section class="px-5 md:px-14 lg:px-20 my-16" id="services">
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{ homepage.services_section.first.name }}
   </h1>
@@ -129,6 +153,8 @@
       {{ homepage.services_section.first.description }}</div>
   </div>
 </section>
+
+{% endif %}
 
 
 <section class="my-16 flex flex-col-reverse lg:flex-row">
@@ -198,6 +224,8 @@
 </section>
 
 <!-- Freqeuntly Asked Questions -->
+{% if homepage.frequently_asked_questions %}
+
 <section class="px-5 md:px-14 lg:px-20 my-16" id="faq">
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">Frequently Asked Questions</h1>
 
@@ -212,5 +240,7 @@
 
   {% endfor %}
 </section>
+
+{% endif %}
 
 {% endblock content %}

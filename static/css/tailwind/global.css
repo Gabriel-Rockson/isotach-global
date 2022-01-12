@@ -467,6 +467,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-3\/5 {
   height: 60%;
 }
+.min-h-min {
+  min-height: -webkit-min-content;
+  min-height: -moz-min-content;
+  min-height: min-content;
+}
 .w-full {
   width: 100%;
 }
@@ -661,6 +666,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-5 {
   padding-left: 1.25rem;
 }
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .text-center {
   text-align: center;
 }
@@ -715,6 +723,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .font-thin {
   font-weight: 100;
+}
+.font-light {
+  font-weight: 300;
 }
 .uppercase {
   text-transform: uppercase;
@@ -801,6 +812,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+.text-sky-600 {
+  --tw-text-opacity: 1;
+  color: rgb(2 132 199 / var(--tw-text-opacity));
 }
 .shadow-md {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -1395,6 +1410,18 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-bottom: calc(0px * var(--tw-space-y-reverse));
   }
 
+  .md\:space-x-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+    margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
+  .md\:space-x-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1rem * var(--tw-space-x-reverse));
+    margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+
   .md\:rounded-r-none {
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -1521,6 +1548,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 50%;
   }
 
+  .lg\:w-3\/5 {
+    width: 60%;
+  }
+
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -1639,6 +1670,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1280px) {
+
+  .xl\:w-3\/5 {
+    width: 60%;
+  }
 
   .xl\:px-8 {
     padding-left: 2rem;
