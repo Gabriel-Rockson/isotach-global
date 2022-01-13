@@ -40,7 +40,7 @@ class HomePage(models.Model):
 
 
     def get_webp_image(self):
-        path = Path(self.banner_image.path)
+        path = Path(self.banner_image.url)
         return path.with_suffix('.webp')
 
     def __str__(self):

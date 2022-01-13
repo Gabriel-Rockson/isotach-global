@@ -7,7 +7,7 @@
 
 <!-- HomePage banner -->
 <div class="flex bg-gray-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
-  style="background-image: url({% if homepage.banner_image %}{{ homepage.banner_image.url }}{% else %}{% static 'img/bg-img.jpg' %}{% endif %}); height: 600px">
+  style="background-image: url({% if homepage.banner_image %}{{ homepage.get_webp_image }}{% else %}{% static 'img/bg-img.jpg' %}{% endif %}); height: 600px">
 
   <div class="self-center flex flex-col md:w-4/5 xl:w-3/5 py-5">
     <div class="text-white text-center px-2">
