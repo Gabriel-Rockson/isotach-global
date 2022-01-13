@@ -38,10 +38,6 @@ class HomePage(models.Model):
         default="Search nearby for apartments, and homes for rent.",
         max_length=130)
 
-    def save(self, *args, **kwargs):
-        instance = super(HomePage, self).save(*args, **kwargs)
-        convert_image_to_webp(Path(instance.banner_image.path))
-        return instance
 
     def get_webp_image(self):
         path = Path(self.banner_image.path)
@@ -49,10 +45,6 @@ class HomePage(models.Model):
 
     def __str__(self):
         return self.name
-
-
-# TODO add FAQ model and register all these as inlines under the homepage on the admin
-# TODO find a way to limit the number of homepages can be created
 
 
 class AboutSection(models.Model):
