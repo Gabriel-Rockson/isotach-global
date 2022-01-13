@@ -1,6 +1,8 @@
+from pathlib import Path
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
+from utils.image_manipulation import convert_image_to_webp
 
 
 class HomePage(models.Model):
@@ -35,6 +37,15 @@ class HomePage(models.Model):
         blank=False,
         default="Search nearby for apartments, and homes for rent.",
         max_length=130)
+
+    def save(self, *args, **kwargs):
+        instance = super(HomePage, self).save(*args, **kwargs)
+        convert_image_to_webp(Path(instance.banner_image.path))
+        return instance
+
+    def get_webp_image(self):
+        path = Path(self.banner_image.path)
+        return path.with_suffix('.webp')
 
     def __str__(self):
         return self.name
