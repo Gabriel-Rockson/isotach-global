@@ -2,7 +2,11 @@
 from pathlib import Path
 from PIL import Image, ImageEnhance
 
-# function to compress image
+
+def resize_image(source, width, height):
+    image = Image.open(source)
+    new_image = image.resize((width, height))
+    new_image.save(source, quality=75, optimize=True)
 
 
 # function to change the formt of an image
@@ -10,7 +14,7 @@ def convert_image_to_webp(source):
     """Take the source of an image and convert the image to webP"""
     destination = source.with_suffix(".webp")
     image = Image.open(source)
-    image.save(destination, format="webp")
+    image.save(destination, format="webp", quality=75)
 
 
 def change_brightness(source, factor):
