@@ -127,6 +127,18 @@ class Apartment(models.Model):
     def images_count(self):
         return self.images.count()
 
+    def get_monthly_rent_payment(self):
+        return "{:.2f}".format(self.monthly_rent_payment)
+
+    def get_total_rent_payment(self):
+        return "{:.2f}".format(self.total_rent_payment)
+
+    def get_agent_fee(self):
+        return "{:.2f}".format(self.agent_fee)
+    
+    def get_inspection_fee(self):
+        return "{:.2f}".format(self.inspection_fee)
+
     def __str__(self):
         return f"{self.title}"
 

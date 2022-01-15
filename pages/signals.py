@@ -1,5 +1,4 @@
 """Signal handlers"""
-from ctypes import resize
 from pathlib import Path
 
 from django.db.models.signals import post_save
