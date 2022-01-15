@@ -4,7 +4,6 @@ from PIL import Image, ImageEnhance
 
 # function to compress image
 
-# function to reduce the brightness of an image
 
 # function to change the formt of an image
 def convert_image_to_webp(source):
