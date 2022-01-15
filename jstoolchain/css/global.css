@@ -97,3 +97,8 @@
 .apt__info-text-1 {
   @apply text-xl text-gray-800 font-bold;
 }
+
+/* sections */
+.section-text {
+  @apply lg:w-1/2 leading-6 lg:leading-7 text-base text-gray-800 py-5 lg:py-0 lg:px-10 text-justify;
+}

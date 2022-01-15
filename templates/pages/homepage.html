@@ -129,8 +129,12 @@
 <section class="px-5 md:px-14 lg:px-20 my-16" id="about-us">
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{homepage.about_section.first.name}}</h1>
   <div class="flex flex-col lg:flex-row">
-    <img class="lg:w-1/2" src="{{homepage.about_section.first.get_webp_image_url}}" alt="About us featured image" />
-    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">
+    <picture class="lg:w-1/2">
+      <source class="object-contain" srcset="{{homepage.about_section.first.get_webp_image_url}}" type="image/webp">
+      <source class="" srcset="{{homepage.about_section.first.featured_image.url}" type="image/jpeg">
+      <img class="" src="{{homepage.about_section.first.featured_image.url}}" alt="About us featured image" />
+    </picture>
+    <div class="section-text">
       {{ homepage.about_section.first.about_company }}</div>
   </div>
 </section>
@@ -144,8 +148,12 @@
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{ homepage.services_section.first.name }}
   </h1>
   <div class="flex flex-col lg:flex-row-reverse">
-    <img class="lg:w-1/2" src="{{homepage.services_section.first.get_webp_image_url}}" alt="About us featured image" />
-    <div class="lg:w-1/2 leading-7 lg:leading-8 text-lg text-gray-900 py-5 lg:py-0 lg:px-10 text-justify">
+    <picture class="lg:w-1/2">
+      <source class="" srcset="{{homepage.services_section.first.get_webp_image_url}}" type="image/webp">
+      <source class="" srcset="{{homepage.services_section.first.featured_image.url}}" type="image/jpeg">
+      <img class="" src="{{homepage.services_section.first.featured_image.url}}" alt="About us featured image" />
+    </picture>
+    <div class="section-text">
       {{ homepage.services_section.first.description }}</div>
   </div>
 </section>
