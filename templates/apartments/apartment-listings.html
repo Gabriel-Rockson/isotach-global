@@ -6,7 +6,11 @@
     <div class="apartment-card">
       <!-- The apartment image -->
       <!-- TODO display a default image if there is no image -->
-      <img class="w-full h-64 md:h-60" src="{{ apartment.first_image_url }}" alt="Apartment Image" />
+      <picture>
+        <source class="w-full h-64 md:h-60" srcset="{{ apartment.first_image_webp_url }}" type="image/webp">
+        <source class="w-full h-64 md:h-60" srcset="{{ apartment.first_image_url }}" type="image/jpeg">
+        <img class="w-full h-64 md:h-60" src="{{ apartment.first_image_url }}" alt="Apartment Image" />
+      </picture>
 
       <!-- The apartment info -->
       <div class="px-2 py-3">
