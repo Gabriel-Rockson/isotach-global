@@ -38,10 +38,13 @@ class HomePage(models.Model):
         default="Search nearby for apartments, and homes for rent.",
         max_length=130)
 
-
-    def get_webp_image(self):
-        path = Path(self.banner_image.url)
+    def get_webp_image_path(self):
+        path = Path(self.banner_image.path)
         return path.with_suffix('.webp')
+
+    def get_webp_image_url(self):
+        url = Path(self.banner_image.url)
+        return url.with_suffix('.webp')
 
     def __str__(self):
         return self.name
