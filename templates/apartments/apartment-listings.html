@@ -21,7 +21,7 @@
         <!-- Price, monthly -->
         <p class="text-xl font-serif font-black pt-1 pb-0 mb-0">
           <i class="fa-solid fa-money-bill-wave text-green-800"></i>
-          <span class="mr-1 text-emerald-700">Ghc</span><span>{{ apartment.monthly_rent_payment|intcomma }}</span><span
+          <span class="mr-1 text-emerald-700">Ghc</span><span>{{ apartment.get_monthly_rent_payment|intcomma }}</span><span
             class="ml-2">monthly</span>
         </p>
         <p class="-pt-1 text-sm text-sky-700 text-semi-bold">
