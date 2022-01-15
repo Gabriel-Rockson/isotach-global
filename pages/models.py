@@ -80,6 +80,14 @@ class AboutSection(models.Model):
         "Enter text to tell visitors what this company is about, a little background story"
     )
 
+    def get_webp_image_path(self):
+        path = Path(self.featured_image.path)
+        return path.with_suffix('.webp')
+
+    def get_webp_image_url(self):
+        url = Path(self.featured_image.url)
+        return url.with_suffix('.webp')
+
     def __str__(self):
         return f"{self.about_company[:20]}"
 
@@ -124,6 +132,14 @@ class ServicesSection(models.Model):
         help_text=
         "Enter text to tell visitors what this company is about, a little background story"
     )
+
+    def get_webp_image_path(self):
+        path = Path(self.featured_image.path)
+        return path.with_suffix('.webp')
+
+    def get_webp_image_url(self):
+        url = Path(self.featured_image.url)
+        return url.with_suffix('.webp')
 
     def __str__(self):
         return f"{self.description[:30]}"
