@@ -146,6 +146,9 @@ class Apartment(models.Model):
     
     def get_inspection_fee(self):
         return "{:.2f}".format(self.inspection_fee)
+    
+    def get_number_of_advance_months(self):
+        return self.advance_years * 12
 
     def __str__(self):
         return f"{self.title}"
