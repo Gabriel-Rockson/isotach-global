@@ -90,15 +90,31 @@
 
 /* Apartment detail page */
 .apt__info-box {
-  @apply flex py-2 border-b border-gray-400 px-3;
+  @apply flex py-2 border-b border-gray-500 px-3;
 }
 
 .apt__info-label-1 {
   @apply text-lg text-gray-700 font-semibold;
 }
 
+.apt__info-label-2 {
+  @apply text-base text-gray-800;
+}
+
 .apt__info-text-1 {
   @apply text-xl text-gray-800 font-bold;
+}
+
+.apt__info-text-2 {
+  @apply text-lg text-gray-900 font-semibold;
+}
+
+.apt__info-yes {
+  @apply px-2 py-1 font-bold text-green-800 bg-green-200 rounded-md;
+}
+
+.apt__info-no {
+  @apply px-2 py-1 font-bold text-red-800 bg-red-200 rounded-md;
 }
 
 /* sections */
