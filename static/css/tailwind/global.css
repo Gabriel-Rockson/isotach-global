@@ -820,6 +820,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+/* input */
+
 /* custom classes */
 .nav-link-item {
   display: flex;
@@ -968,7 +970,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .contact-form-input:focus {
   --tw-border-opacity: 1;
-  border-color: rgb(234 88 12 / var(--tw-border-opacity));
+  border-color: rgb(219 39 119 / var(--tw-border-opacity));
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -1350,6 +1352,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
+.hover\:bg-red-700:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
 .hover\:text-blue-600:hover {
   --tw-text-opacity: 1;
   color: rgb(37 99 235 / var(--tw-text-opacity));
@@ -1492,6 +1498,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:relative {
     position: relative;
+  }
+
+  .lg\:my-0 {
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 
   .lg\:mt-0 {
