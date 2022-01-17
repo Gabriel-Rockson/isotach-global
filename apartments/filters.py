@@ -21,6 +21,14 @@ PRICES = (
     (4500, 'Ghc 4500.00'),
 )
 
+
+BOOL_OPTIONS = (
+    (True, "Yes"),
+    (False, "No"),
+)
+
+
+
 class ApartmentFilter(django_filters.FilterSet):
 
     major_city = django_filters.ChoiceFilter(
@@ -33,12 +41,12 @@ class ApartmentFilter(django_filters.FilterSet):
         choices=PRICES, field_name='monthly_rent_payment', lookup_expr='gt')
     monthly_rent_payment__lt = django_filters.ChoiceFilter(
         choices=PRICES, field_name='monthly_rent_payment', lookup_expr='lt')
+    verified = django_filters.ChoiceFilter(
+        choices=BOOL_OPTIONS, field_name='verified'
+    )
 
     class Meta:
         model = Apartment
         fields = {
             'location': ['icontains'],
-            # 'title': ['icontains'],
-            # 'description': ['icontains'],
-            'verified': ['exact'],
         }
