@@ -1,0 +1,232 @@
+{% extends 'base.html' %} 
+
+{% block title %}All Apartments{% endblock title %} 
+
+
+{%block content %} 
+
+{% with object_list as apartments %}
+
+<div class="mb-20">
+  <section class="px-2 md:px-4 lg:px-6 xl:px-8 mb-10">
+    <!-- Mobile responsive filtering system -->
+    <div id="filter-box" class="">
+      <div
+        id="filter-form-container"
+        class="hidden lg:block bg-gray-900 lg:bg-white h-screen lg:h-full w-4/5 sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0"
+      >
+        <div
+          class="flex lg:hidden justify-between py-4 mb-5 border-b-2 border-gray-200"
+        >
+          <h3 class="text-gray-100 text-2xl self-center font-bold">Filters</h3>
+          <h4
+            id="close-btn"
+            class="text-red-600 self-center cursor-pointer font-bold"
+          >
+            close <i class="fa-solid fa-times text-sm"></i>
+          </h4>
+        </div>
+
+        {% with filter.form as form %}
+          <form method="get" action="#" class="lg:flex lg:flex-col lg:mt-5">
+
+            <div
+              class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row"
+            >
+              <!-- Cities -->
+              <div class="filter-item-box lg:w-2/12">
+                <label for="{{ form.major_city.id_for_label }}" class="filter-item-label"
+                  >Major City</label
+                >
+                <select
+                  name="{{ form.major_city.name }}"
+                  id="{{ form.major_city.id_for_label }}"
+                  class="filter-item-select"
+                >
+                  {% for value, text in form.major_city.field.choices %}
+                    <option value="{{ value }}" {% if form.major_city.value == value %}selected{% endif %}>{{ text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <!-- Location -->
+              <div class="filter-item-box flex-col lg:w-3/12">
+                <label
+                  for="{{ form.location__icontains.id_for_label }}"
+                  class="filter-item-label"
+                  >Location</label
+                >
+                <input
+                  type="text"
+                  id="{{ form.location__icontains.id_for_label }}"
+                  name="{{ form.location__icontains.name }}"
+                  value="{% if form.location__icontains.value %}{{ form.location__icontains.value|stringformat:'s' }}{% endif %}"
+                  placeholder="Area in city"
+                  class="filter-item-input"
+                />
+              </div>
+
+              <!-- Prices -->
+              <div
+                class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row lg:w-3/12"
+              >
+                <!-- Min Price -->
+                <div class="filter-item-box lg:w-1/2">
+                  <label for="{{ form.monthly_rent_payment__gt.id_form_label }}"  class="filter-item-label">Min Price</label>
+
+                  <select
+                    name="{{ form.monthly_rent_payment__gt.name }}"
+                    id="{{ form.monthly_rent_payment__gt.id_form_label }}"
+                    class="filter-item-select lg:w-full lg:text-center"
+                  >
+                    
+                    {% for value, text in form.monthly_rent_payment__gt.field.choices %}
+                      <option value="{{ value }}" {% if form.monthly_rent_payment__gt.value == value %}selected{% endif %}>{{ text }}</option>
+                    {% endfor %}
+
+                  </select>
+                </div>
+
+                <!-- Max Price -->
+                <div class="filter-item-box lg:w-1/2">
+                  <label for="{{ form.monthly_rent_payment__lt.id_form_label }}" class="filter-item-label">Max Price</label>
+
+                  <select
+                    name="{{ form.monthly_rent_payment__lt.name }}"
+                    id="{{ form.monthly_rent_payment__lt.id_form_label }}"
+                    class="filter-item-select lg:w-full lg:text-center"
+                  >
+                    
+                    {% for value, text in form.monthly_rent_payment__lt.field.choices %}
+                      <option value="{{ value }}" {% if form.monthly_rent_payment__lt.value == value %}selected{% endif %}>{{ text }}</option>
+                    {% endfor %}
+
+                  </select>
+                </div>
+              </div>
+
+              <!-- Beds -->
+              <div class="filter-item-box lg:w-1/12">
+                <label for="{{ form.bedrooms.id_for_label }}" class="filter-item-label">Beds</label>
+                <select name="{{ form.bedrooms.name }}" id="{{ form.bedrooms.id_for_label }}" class="filter-item-select">
+                  {% for value, text in form.bedrooms.field.choices %}
+                    <option value="{{ value }}" {% if value == form.bedrooms.value %}selected{% endif %}>{{ text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <!-- Baths -->
+              <div class="filter-item-box lg:w-1/12">
+                <label for="{{ form.baths.id_for_label }}" class="filter-item-label">Baths</label>
+                <select name="{{ form.baths.name }}" id="{{ form.baths.id_for_label }}" class="filter-item-select">
+                  {% for value, text in form.baths.field.choices %}
+                    <option value="{{ value }}" {% if form.baths.value == value %}selected{% endif %}>{{ text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <!-- Years of Advanced Payment -->
+              <div class="filter-item-box lg:w-1/12">
+                <label for="{{ form.advance_years.id_for_label }}" class="filter-item-label"
+                  >Years</label
+                >
+                <select
+                  name="{{ form.advance_years.name }}"
+                  id="{{ form.advance_years.id_for_label }}"
+                  class="filter-item-select"
+                >
+                  {% for value, text in form.advance_years.field.choices %}
+                    <option value="{{ value }}" {% if form.advance_years.value == value %}selected{% endif %}>{{ text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+              <!-- Verified -->
+              <div class="filter-item-box lg:w-1/12">
+                <label for="{{ form.verified.id_for_label }}" class="filter-item-label">Verified</label>
+                <select name="{{ form.verified.name }}" id="{{ form.verified.id_for_label }}" class="filter-item-select">
+                  {% for value, text in form.verified.field.choices %}
+                    <option value="{{ value }}" {% if form.verified.value == value %}selected{% endif %}>{{ text }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <!-- Button -->
+            <div class="flex justify-around mt-5 lg:mt-2 lg:justify-start">
+              <button
+                type="submit"
+                class="py-2 px-4 bg-green-600 hover:bg-green-700 text-white"
+              >
+                Apply Filters
+              </button>
+            </div>
+          </form>
+        {% endwith %}
+      </div>
+
+      <!-- The buttons to show the filters -->
+      <div class="flex space-x-5 py-2 lg:hidden">
+        <button
+          id="filter-btn"
+          class="bg-gray-800 hover:bg-gray-700 rounded-md w-1/2 py-4 text-center text-gray-200 cursor-pointer"
+        >
+          <i class="fa-solid fa-search"></i> Filters
+        </button>
+        <div
+          class="w-1/2 bg-gray-800 rounded-md py-4 text-center text-gray-200 cursor-pointer"
+        >
+          sort
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <div class="flex justify-around md:justify-between">
+        <div class="text-sm text-gray-700">
+          {{ apartments.count }} apartments
+        </div>
+        <div class="text-gray-800 text-lg font-semi-bold hidden md:flex">
+          Apartments
+        </div>
+        <div class="hidden md:flex">
+          <i
+            class="fa-solid fa-chevron-left self-center bg-gray-300 px-2 py-1 cursor-pointer"
+          ></i>
+          <p class="px-5 text-sm self-center">Page 1 of 3</p>
+          <i
+            class="fa-solid fa-chevron-right self-center bg-gray-300 px-2 py-1 cursor-pointer"
+          ></i>
+        </div>
+      </div>
+
+      {% include "apartments/apartment-listings.html" with apartments=apartments %}
+    </div>
+  </section>
+</div>
+
+{% endwith %}
+
+{% endblock content %}
+
+
+{% block javascript %}
+<script>
+  const filter_form_container = document.getElementById(
+    "filter-form-container"
+  );
+  const filter_show_button = document.getElementById("filter-btn");
+  const filter_close_button = document.getElementById("close-btn");
+
+  function hideFilter() {
+    filter_form_container.classList.add("hidden");
+  }
+
+  function showFilter() {
+    filter_form_container.classList.toggle("hidden");
+  }
+
+  filter_show_button.addEventListener("click", showFilter);
+  filter_close_button.addEventListener("click", hideFilter);
+</script>
+{% endblock javascript %}
