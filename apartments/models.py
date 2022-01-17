@@ -34,16 +34,16 @@ class Apartment(models.Model):
         TEMA = 'TM', _("Tema")
 
     class Number(models.IntegerChoices):
-        ONE = 1, _('1')
-        TWO = 2, _('2')
-        THREE = 3, _('3')
-        FOUR = 4, _('4')
-        FIVE = 5, _('5')
-        SIX = 6, _('6')
-        SEVEN = 7, _('7')
-        EIGHT = 8, _('8')
-        NINE = 9, _('9')
-        TEN = 10, _('10')
+        ONE = 1, _('1+')
+        TWO = 2, _('2+')
+        THREE = 3, _('3+')
+        FOUR = 4, _('4+')
+        FIVE = 5, _('5+')
+        SIX = 6, _('6+')
+        SEVEN = 7, _('7+')
+        EIGHT = 8, _('8+')
+        NINE = 9, _('9+')
+        TEN = 10, _('10+')
 
     agent = models.ForeignKey(
         "agents.Agent",

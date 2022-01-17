@@ -33,10 +33,10 @@ class ApartmentFilter(django_filters.FilterSet):
 
     major_city = django_filters.ChoiceFilter(
         choices=Apartment.MajorCity.choices)
-    bedrooms = django_filters.ChoiceFilter(choices=Apartment.Number.choices)
-    baths = django_filters.ChoiceFilter(choices=Apartment.Number.choices)
+    bedrooms = django_filters.ChoiceFilter(choices=Apartment.Number.choices, lookup_expr="gte")
+    baths = django_filters.ChoiceFilter(choices=Apartment.Number.choices, lookup_expr="gte")
     advance_years = django_filters.ChoiceFilter(
-        choices=Apartment.Number.choices)
+        choices=Apartment.Number.choices, lookup_expr="gte")
     monthly_rent_payment__gt = django_filters.ChoiceFilter(
         choices=PRICES, field_name='monthly_rent_payment', lookup_expr='gt')
     monthly_rent_payment__lt = django_filters.ChoiceFilter(
