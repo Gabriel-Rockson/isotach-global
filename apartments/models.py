@@ -22,6 +22,17 @@ class ApartmentImage(models.Model):
 
 
 class Apartment(models.Model):
+
+    class MajorCity(models.TextChoices):
+        ACCRA = 'AC', _("Accra")
+        KUMASI = 'KU', _("Kumasi")
+        KOFORIDUA = 'KO', _("Koforidua")
+        SUNYANI = 'SU', _("Sunyani")
+        TAMALE = 'TA', _("TAMALE")
+        KASOA = 'KA', _("Kasoa")
+        CAPE_COAST = 'CC', _("Cape Coast")
+        TEMA = 'TM', _("Tema")
+
     agent = models.ForeignKey(
         "agents.Agent",
         verbose_name=_("Agent"),
@@ -55,7 +66,13 @@ class Apartment(models.Model):
         help_text=
         "If this apartment is featured, it is going to be displayed on the homepage and also will be at the top of apartment listings",
         default=False)
-    # TODO add major city location, like Kumasi, Accra, e.t.c
+    major_city = models.CharField(
+        verbose_name=_("Major City"),
+        help_text=
+        "Please select the major city that your apartment is located in.",
+        max_length=20,
+        choices=MajorCity.choices,
+        default=MajorCity.KUMASI)
     location = models.CharField(verbose_name=_("Location"),
                                 help_text="Where is this apartment located?",
                                 max_length=50,
@@ -103,11 +120,10 @@ class Apartment(models.Model):
         verbose_name=_("Agent's Commission ( percentage )"),
         help_text="What is the commission the agent will take, in percentage.",
         default=5)
-    agent_fee = models.FloatField(
-        verbose_name="Agent's Fee ( amount )",
-        help_text="Amount to pay to the agent.",
-        blank=True,
-        null=True)
+    agent_fee = models.FloatField(verbose_name="Agent's Fee ( amount )",
+                                  help_text="Amount to pay to the agent.",
+                                  blank=True,
+                                  null=True)
     inspection_fee = models.PositiveSmallIntegerField(
         verbose_name=_("Inspection Fee"),
         help_text=
@@ -119,18 +135,21 @@ class Apartment(models.Model):
         default=False)
 
     def get_absolute_url(self):
-        return reverse("apartments:apartment-detail", kwargs={"slug": self.slug})
+        return reverse("apartments:apartment-detail",
+                       kwargs={"slug": self.slug})
 
     def first_image_url(self):
         if self.images:
             return self.images.first().image.url
-        else:return 'No Image found'
-        
+        else:
+            return 'No Image found'
+
     def first_image_webp_url(self):
         if self.images:
             url = Path(self.images.first().image.url)
             return url.with_suffix('.webp')
-        else: return 'No Image Found'
+        else:
+            return 'No Image Found'
 
     def images_count(self):
         return self.images.count()
@@ -143,10 +162,10 @@ class Apartment(models.Model):
 
     def get_agent_fee(self):
         return "{:.2f}".format(self.agent_fee)
-    
+
     def get_inspection_fee(self):
         return "{:.2f}".format(self.inspection_fee)
-    
+
     def get_number_of_advance_months(self):
         return self.advance_years * 12
 
