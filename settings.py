@@ -54,6 +54,7 @@ INSTALLED_APPS.extend([
     'phonenumber_field',
     'livereload',
     'django_extensions',
+    'django_filters',
 
     # Developer created apps
     "users.apps.UsersConfig",
