@@ -101,7 +101,8 @@ class Apartment(models.Model):
                                 help_text="Where is this apartment located?",
                                 max_length=50,
                                 null=False,
-                                blank=False)
+                                blank=False,
+                                default="")
     bedrooms = models.PositiveSmallIntegerField(
         verbose_name=_("Number of Bedrooms"),
         help_text="What is the total number of bedrooms in this apartment?",
