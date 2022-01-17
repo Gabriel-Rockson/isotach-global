@@ -4,6 +4,7 @@ from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
 from django.utils.html import mark_safe
 from django.urls import reverse
+from pathlib import Path
 
 
 class ApartmentImage(models.Model):
@@ -54,6 +55,7 @@ class Apartment(models.Model):
         help_text=
         "If this apartment is featured, it is going to be displayed on the homepage and also will be at the top of apartment listings",
         default=False)
+    # TODO add major city location, like Kumasi, Accra, e.t.c
     location = models.CharField(verbose_name=_("Location"),
                                 help_text="Where is this apartment located?",
                                 max_length=50,
@@ -118,14 +120,35 @@ class Apartment(models.Model):
 
     def get_absolute_url(self):
         return reverse("apartments:apartment-detail", kwargs={"slug": self.slug})
-    
+
     def first_image_url(self):
         if self.images:
             return self.images.first().image.url
         else:return 'No Image found'
+        
+    def first_image_webp_url(self):
+        if self.images:
+            url = Path(self.images.first().image.url)
+            return url.with_suffix('.webp')
+        else: return 'No Image Found'
 
     def images_count(self):
         return self.images.count()
+
+    def get_monthly_rent_payment(self):
+        return "{:.2f}".format(self.monthly_rent_payment)
+
+    def get_total_rent_payment(self):
+        return "{:.2f}".format(self.total_rent_payment)
+
+    def get_agent_fee(self):
+        return "{:.2f}".format(self.agent_fee)
+    
+    def get_inspection_fee(self):
+        return "{:.2f}".format(self.inspection_fee)
+    
+    def get_number_of_advance_months(self):
+        return self.advance_years * 12
 
     def __str__(self):
         return f"{self.title}"

@@ -6,7 +6,11 @@
     <div class="apartment-card">
       <!-- The apartment image -->
       <!-- TODO display a default image if there is no image -->
-      <img class="w-full h-64 md:h-60" src="{{ apartment.first_image_url }}" alt="Apartment Image" />
+      <picture>
+        <source class="w-full h-64 md:h-60" srcset="{{ apartment.first_image_webp_url }}" type="image/webp">
+        <source class="w-full h-64 md:h-60" srcset="{{ apartment.first_image_url }}" type="image/jpeg">
+        <img class="w-full h-64 md:h-60" src="{{ apartment.first_image_url }}" alt="Apartment Image" />
+      </picture>
 
       <!-- The apartment info -->
       <div class="px-2 py-3">
@@ -21,7 +25,7 @@
         <!-- Price, monthly -->
         <p class="text-xl font-serif font-black pt-1 pb-0 mb-0">
           <i class="fa-solid fa-money-bill-wave text-green-800"></i>
-          <span class="mr-1 text-emerald-700">Ghc</span><span>{{ apartment.monthly_rent_payment|intcomma }}</span><span
+          <span class="mr-1 text-emerald-700">Ghc</span><span>{{ apartment.get_monthly_rent_payment|intcomma }}</span><span
             class="ml-2">monthly</span>
         </p>
         <p class="-pt-1 text-sm text-sky-700 text-semi-bold">

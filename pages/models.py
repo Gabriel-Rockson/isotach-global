@@ -1,6 +1,8 @@
+from pathlib import Path
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
+from utils.image_manipulation import convert_image_to_webp
 
 
 class HomePage(models.Model):
@@ -36,12 +38,16 @@ class HomePage(models.Model):
         default="Search nearby for apartments, and homes for rent.",
         max_length=130)
 
+    def get_webp_image_path(self):
+        path = Path(self.banner_image.path)
+        return path.with_suffix('.webp')
+
+    def get_webp_image_url(self):
+        url = Path(self.banner_image.url)
+        return url.with_suffix('.webp')
+
     def __str__(self):
         return self.name
-
-
-# TODO add FAQ model and register all these as inlines under the homepage on the admin
-# TODO find a way to limit the number of homepages can be created
 
 
 class AboutSection(models.Model):
@@ -73,6 +79,14 @@ class AboutSection(models.Model):
         help_text=
         "Enter text to tell visitors what this company is about, a little background story"
     )
+
+    def get_webp_image_path(self):
+        path = Path(self.featured_image.path)
+        return path.with_suffix('.webp')
+
+    def get_webp_image_url(self):
+        url = Path(self.featured_image.url)
+        return url.with_suffix('.webp')
 
     def __str__(self):
         return f"{self.about_company[:20]}"
@@ -118,6 +132,14 @@ class ServicesSection(models.Model):
         help_text=
         "Enter text to tell visitors what this company is about, a little background story"
     )
+
+    def get_webp_image_path(self):
+        path = Path(self.featured_image.path)
+        return path.with_suffix('.webp')
+
+    def get_webp_image_url(self):
+        url = Path(self.featured_image.url)
+        return url.with_suffix('.webp')
 
     def __str__(self):
         return f"{self.description[:30]}"
