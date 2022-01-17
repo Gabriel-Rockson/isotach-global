@@ -33,6 +33,18 @@ class Apartment(models.Model):
         CAPE_COAST = 'CC', _("Cape Coast")
         TEMA = 'TM', _("Tema")
 
+    class Number(models.IntegerChoices):
+        ONE = 1, _('1')
+        TWO = 2, _('2')
+        THREE = 3, _('3')
+        FOUR = 4, _('4')
+        FIVE = 5, _('5')
+        SIX = 6, _('6')
+        SEVEN = 7, _('7')
+        EIGHT = 8, _('8')
+        NINE = 9, _('9')
+        TEN = 10, _('10')
+
     agent = models.ForeignKey(
         "agents.Agent",
         verbose_name=_("Agent"),
@@ -66,6 +78,18 @@ class Apartment(models.Model):
         help_text=
         "If this apartment is featured, it is going to be displayed on the homepage and also will be at the top of apartment listings",
         default=False)
+    hall = models.BooleanField(
+        verbose_name=_("Hall"),
+        help_text="Does this apartment have a hall? Tick if yes.",
+        default=False)
+    self_contained = models.BooleanField(
+        verbose_name=_("Self Contained"),
+        help_text="Is this apartment self contained? Tick if yes.",
+        default=True)
+    verified = models.BooleanField(
+        verbose_name=_("Verified"),
+        help_text="Has this apartment been verified? Tick if Yes",
+        default=False)
     major_city = models.CharField(
         verbose_name=_("Major City"),
         help_text=
@@ -81,24 +105,20 @@ class Apartment(models.Model):
     bedrooms = models.PositiveSmallIntegerField(
         verbose_name=_("Number of Bedrooms"),
         help_text="What is the total number of bedrooms in this apartment?",
-        default=1)
+        choices=Number.choices,
+        default=Number.ONE)
     baths = models.PositiveSmallIntegerField(
         verbose_name=_("Number of Baths"),
         help_text="How many baths are in this apartment?",
-        default=1)
-    hall = models.BooleanField(
-        verbose_name=_("Hall"),
-        help_text="Does this apartment have a hall? Tick if yes.",
-        default=False)
-    self_contained = models.BooleanField(
-        verbose_name=_("Self Contained"),
-        help_text="Is this apartment self contained? Tick if yes.",
-        default=True)
+        choices=Number.choices,
+        default=Number.ONE)
+
     advance_years = models.PositiveSmallIntegerField(
         verbose_name=_("Years of Advance Payment"),
         help_text=
         "If this place is being rented out, how many years of advance payment is required?",
-        default=1)
+        choices=Number.choices,
+        default=Number.ONE)
     monthly_rent_payment = models.FloatField(
         verbose_name=_("Monthly Rent Payment"),
         help_text=
@@ -129,10 +149,6 @@ class Apartment(models.Model):
         help_text=
         "How much is this agent charging potential clients to go show them the place?",
         default=50)
-    verified = models.BooleanField(
-        verbose_name=_("Verified"),
-        help_text="Has this apartment been verified? Tick if Yes",
-        default=False)
 
     def get_absolute_url(self):
         return reverse("apartments:apartment-detail",
