@@ -6,11 +6,6 @@ from django_filters.views import FilterView
 from apartments.models import Apartment
 
 
-# class ApartmentListView(ListView):
-#     queryset = Apartment.objects.all()
-#     context_object_name= "apartments"
-#     template_name = "apartments/list-apartments.html"
-
 class ApartmentListView(FilterView):
     filterset_class = ApartmentFilter
 
