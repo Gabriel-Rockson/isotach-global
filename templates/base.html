@@ -15,7 +15,7 @@
 
   <body>
     {% comment %} Top Navbar {% endcomment %}
-    <nav class="bg-gray-50 lg:mb-2 lg:border-b-0 lg:shadow-lg">
+    <nav class="bg-gray-50 lg:border-b-0 lg:shadow-lg">
       <!-- The label -->
       <div class="flex justify-between px-5 h-20">
         <div class="self-center">
@@ -31,7 +31,7 @@
 
         <div class="flex md:space-x-5">
           <!-- The menu items -->
-          <div id="mobile-menu-items" class="hidden md:flex md:space-x-5 self-center text-lg">
+          <div id="mobile-menu-items" class="hidden md:flex md:space-x-5 self-center text-lg overflow-y-auto mb-5 md:mb-0">
             <div class="md:hidden h-20 flex border-b border-b-gray-300">
               <a href="{% url 'pages:homepage' %}" class="self-center text-2xl font-bold">IsotachGlobal</a>
             </div>
@@ -162,11 +162,11 @@
         </div>
       </div>
 
-      <div class="text-sm md:text-base flex justify-around bg-black text-white">
-        <div class="py-3">
+      <div class="text-sm flex justify-around bg-black text-white">
+        <div class="py-2 md:flex space-x-5 space-y-1 md:space-y-0">
           <!-- TODO change the 2022 and use a scipt to insert the year -->
-          <i class="fa-solid fa-copyright"></i> copyright, 2022 - Isotach Global
-          <p class="text-center text-base text-gray-300">All Rights Reserved</p>
+          <i class="fa-solid fa-copyright mr-1"></i> copyright, 2022 - Isotach Global
+          <p class="text-center text-gray-300">All Rights Reserved</p>
         </div>
       </div>
     </footer>
