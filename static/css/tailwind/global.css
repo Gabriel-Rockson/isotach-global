@@ -691,9 +691,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-5 {
   padding-left: 1.25rem;
 }
-.text-left {
-  text-align: left;
-}
 .text-center {
   text-align: center;
 }
@@ -1250,6 +1247,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-bottom: 0.625rem;
   padding-left: 0.25rem;
   padding-right: 0.25rem;
+  text-align: center;
   --tw-text-opacity: 1;
   color: rgb(31 41 55 / var(--tw-text-opacity));
   --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
@@ -1686,10 +1684,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 
-  .lg\:self-start {
-    align-self: flex-start;
-  }
-
   .lg\:border-b-0 {
     border-bottom-width: 0px;
   }
@@ -1727,11 +1721,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     text-align: center;
   }
 
-  .lg\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -1750,11 +1739,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-gray-900 {
-    --tw-text-opacity: 1;
-    color: rgb(17 24 39 / var(--tw-text-opacity));
   }
 
   .lg\:shadow-lg {

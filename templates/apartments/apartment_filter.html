@@ -31,8 +31,7 @@
           <form method="get" action="#" class="lg:flex lg:flex-col lg:mt-5">
 
             <div
-              class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row"
-            >
+              class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row">
               <!-- Cities -->
               <div class="filter-item-box lg:w-2/12">
                 <label for="{{ form.major_city.id_for_label }}" class="filter-item-label"
@@ -44,7 +43,7 @@
                   class="filter-item-select"
                 >
                   {% for value, text in form.major_city.field.choices %}
-                    <option value="{{ value }}" {% if form.major_city.value == value %}selected{% endif %}>{{ text }}</option>
+                    <option value="{{ value }}" {% if form.major_city.value == value %}selected=""{% endif %}>{{ text }}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -72,18 +71,15 @@
               >
                 <!-- Min Price -->
                 <div class="filter-item-box lg:w-1/2">
-                  <label for="{{ form.monthly_rent_payment__gt.id_form_label }}"  class="filter-item-label">Min Price</label>
-
+                  <label for="{{ form.monthly_rent_payment__gt.id_for_label }}"  class="filter-item-label">Min Price</label>
                   <select
                     name="{{ form.monthly_rent_payment__gt.name }}"
-                    id="{{ form.monthly_rent_payment__gt.id_form_label }}"
+                    id="{{ form.monthly_rent_payment__gt.id_for_label }}"
                     class="filter-item-select lg:w-full lg:text-center"
                   >
-                    
                     {% for value, text in form.monthly_rent_payment__gt.field.choices %}
-                      <option value="{{ value }}" {% if form.monthly_rent_payment__gt.value == value %}selected{% endif %}>{{ text }}</option>
+                    <option value="{{ value }}" {% if form.monthly_rent_payment__gt.value == value %}selected=""{% endif %}>{{ text }}</option>
                     {% endfor %}
-
                   </select>
                 </div>
 
@@ -98,7 +94,7 @@
                   >
                     
                     {% for value, text in form.monthly_rent_payment__lt.field.choices %}
-                      <option value="{{ value }}" {% if form.monthly_rent_payment__lt.value == value %}selected{% endif %}>{{ text }}</option>
+                      <option value="{{ value }}" {% if form.monthly_rent_payment__lt.value == value %}selected=""{% endif %}>{{ text }}</option>
                     {% endfor %}
 
                   </select>
@@ -110,7 +106,7 @@
                 <label for="{{ form.bedrooms.id_for_label }}" class="filter-item-label">Beds</label>
                 <select name="{{ form.bedrooms.name }}" id="{{ form.bedrooms.id_for_label }}" class="filter-item-select">
                   {% for value, text in form.bedrooms.field.choices %}
-                    <option value="{{ value }}" {% if value == form.bedrooms.value %}selected{% endif %}>{{ text }}</option>
+                    <option value="{{ value }}" {% if form.bedrooms.value == value %}selected=""{% endif %}>{{ text }}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -120,7 +116,7 @@
                 <label for="{{ form.baths.id_for_label }}" class="filter-item-label">Baths</label>
                 <select name="{{ form.baths.name }}" id="{{ form.baths.id_for_label }}" class="filter-item-select">
                   {% for value, text in form.baths.field.choices %}
-                    <option value="{{ value }}" {% if form.baths.value == value %}selected{% endif %}>{{ text }}</option>
+                    <option value="{{ value }}" {% if form.baths.value == value %}selected=""{% endif %}>{{ text }}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -136,7 +132,7 @@
                   class="filter-item-select"
                 >
                   {% for value, text in form.advance_years.field.choices %}
-                    <option value="{{ value }}" {% if form.advance_years.value == value %}selected{% endif %}>{{ text }}</option>
+                    <option value="{{ value }}" {% if form.advance_years.value == value %}selected=""{% endif %}>{{ text }}</option>
                   {% endfor %}
                 </select>
               </div>
@@ -146,7 +142,7 @@
                 <label for="{{ form.verified.id_for_label }}" class="filter-item-label">Verified</label>
                 <select name="{{ form.verified.name }}" id="{{ form.verified.id_for_label }}" class="filter-item-select">
                   {% for value, text in form.verified.field.choices %}
-                    <option value="{{ value }}" {% if form.verified.value == value %}selected{% endif %}>{{ text }}</option>
+                    <option value="{{ value }}" {% ifequal form.verified.data 'True' %}selected{% endifequal %}>{{ text }}</option>
                   {% endfor %}
                 </select>
               </div>
