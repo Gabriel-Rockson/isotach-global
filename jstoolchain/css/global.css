@@ -54,8 +54,12 @@
   @apply text-lg font-bold text-gray-200 md:text-xl lg:text-2xl mb-5 lg:mb-5;
 }
 
+.banner-form-label {
+  @apply text-sm font-bold text-white self-center w-1/2 md:w-max mr-1;
+}
+
 .banner-select-field {
-  @apply appearance-none px-4 py-2 text-center focus:outline-none w-full focus:outline-purple-600 bg-white text-sm sm:text-base;
+  @apply px-2 py-3 text-center focus:outline-none focus:outline-pink-600 bg-white text-sm sm:text-base w-full;
 }
 
 .listing-container {
