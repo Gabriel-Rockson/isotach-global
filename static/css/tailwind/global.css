@@ -453,6 +453,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-1 {
   margin-top: 0.25rem;
 }
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
 .block {
   display: block;
 }
@@ -479,9 +482,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-full {
   width: 100%;
-}
-.w-4\/5 {
-  width: 80%;
 }
 .w-1\/2 {
   width: 50%;
@@ -546,6 +546,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .self-center {
   align-self: center;
+}
+.overflow-y-auto {
+  overflow-y: auto;
 }
 .scroll-smooth {
   scroll-behavior: smooth;
@@ -623,6 +626,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-slate-900 {
   --tw-bg-opacity: 1;
   background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+}
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 .bg-cover {
   background-size: cover;
@@ -908,7 +919,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .mobile-menu {
-  overflow-y: scroll;
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
   padding-left: 1.25rem;
@@ -1201,7 +1211,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-/* TODO fix the text aligning to the middle for the location label on mobile */
 .filter-item-label {
   width: 50%;
   align-self: center;
@@ -1213,6 +1222,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+
 @media (min-width: 1024px) {
 
   .filter-item-label {
@@ -1305,32 +1315,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.filter-form-container {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  display: none;
-  height: 100vh;
-  width: 80%;
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 640px) {
-
-  .filter-form-container {
-    width: 60%;
-  }
-}
-
-@media (min-width: 768px) {
-
-  .filter-form-container {
-    width: 40%;
-  }
-}
 
 /* Apartment detail page */
 .apt__info-box {
@@ -1450,6 +1434,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:bg-slate-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(30 41 59 / var(--tw-bg-opacity));
+}
+.hover\:bg-gray-900:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 .hover\:text-blue-600:hover {
   --tw-text-opacity: 1;
@@ -1602,6 +1590,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 0.5rem;
   }
 
+  .lg\:mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -1713,12 +1705,32 @@ Ensure the default browser behavior of the `hidden` attribute.
     padding-right: 5rem;
   }
 
+  .lg\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  .lg\:px-5 {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .lg\:px-2 {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
   .lg\:pl-20 {
     padding-left: 5rem;
   }
 
   .lg\:text-center {
     text-align: center;
+  }
+
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .lg\:text-6xl {
@@ -1741,6 +1753,11 @@ Ensure the default browser behavior of the `hidden` attribute.
     line-height: 1.75rem;
   }
 
+  .lg\:text-gray-900 {
+    --tw-text-opacity: 1;
+    color: rgb(17 24 39 / var(--tw-text-opacity));
+  }
+
   .lg\:shadow-lg {
     --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
     --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
@@ -1756,5 +1773,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   .xl\:px-8 {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .xl\:px-56 {
+    padding-left: 14rem;
+    padding-right: 14rem;
   }
 }

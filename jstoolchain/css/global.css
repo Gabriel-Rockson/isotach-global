@@ -18,8 +18,7 @@
   z-50 
   bg-black text-white 
   px-5 space-y-5
-  text-left text-base
-  overflow-y-scroll;
+  text-left text-base;
 }
 
 .tablet-menu {
@@ -71,7 +70,6 @@
   @apply flex lg:flex-col;
 }
 
-/* TODO fix the text aligning to the middle for the location label on mobile */
 .filter-item-label {
   @apply lg:text-center text-left self-center lg:self-start font-mono lg:text-base lg:text-gray-900 text-lg font-bold text-white w-1/2 lg:w-full;
 }
@@ -84,9 +82,6 @@
   @apply appearance-none px-2 py-2.5 lg:py-2 w-full focus:outline-none border border-gray-500 focus:border focus:border-pink-600 focus:outline-pink-600;
 }
 
-.filter-form-container {
-  @apply hidden bg-gray-900 h-screen w-4/5 sm:w-3/5 md:w-2/5 fixed top-0 right-0 px-4;
-}
 
 /* Apartment detail page */
 .apt__info-box {

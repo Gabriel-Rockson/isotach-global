@@ -8,12 +8,12 @@
 {% with object_list as apartments %}
 
 <div class="mb-20">
-  <section class="px-2 md:px-4 lg:px-6 xl:px-8 mb-10">
+  <section class="px-2 md:px-4 lg:px-5 mb-10">
     <!-- Mobile responsive filtering system -->
     <div id="filter-box" class="">
       <div
         id="filter-form-container"
-        class="hidden lg:block bg-gray-900 lg:bg-white h-screen lg:h-full w-4/5 sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0"
+        class="hidden lg:block bg-gray-900 lg:bg-white h-screen lg:h-full w-full sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0 overflow-y-auto"
       >
         <div
           class="flex lg:hidden justify-between py-4 mb-5 border-b-2 border-gray-200"
@@ -28,7 +28,7 @@
         </div>
 
         {% with filter.form as form %}
-          <form method="get" action="#" class="lg:flex lg:flex-col lg:mt-5">
+          <form method="get" action="#" class="lg:flex lg:flex-col lg:mt-5 lg:px-2">
 
             <div
               class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row">
@@ -37,32 +37,17 @@
                 <label for="{{ form.major_city.id_for_label }}" class="filter-item-label"
                   >Major City</label
                 >
-                <select
-                  name="{{ form.major_city.name }}"
-                  id="{{ form.major_city.id_for_label }}"
-                  class="filter-item-select"
-                >
-                  {% for value, text in form.major_city.field.choices %}
-                    <option value="{{ value }}" {% if form.major_city.value == value %}selected=""{% endif %}>{{ text }}</option>
-                  {% endfor %}
-                </select>
+                {{ form.major_city }}
               </div>
 
               <!-- Location -->
               <div class="filter-item-box flex-col lg:w-3/12">
                 <label
                   for="{{ form.location__icontains.id_for_label }}"
-                  class="filter-item-label"
+                  class="text-white lg:text-gray-900 font-mono text-lg lg:text-base font-bold lg:text-center"
                   >Location</label
                 >
-                <input
-                  type="text"
-                  id="{{ form.location__icontains.id_for_label }}"
-                  name="{{ form.location__icontains.name }}"
-                  value="{% if form.location__icontains.value %}{{ form.location__icontains.value|stringformat:'s' }}{% endif %}"
-                  placeholder="Area in city"
-                  class="filter-item-input"
-                />
+                {{ form.location }}
               </div>
 
               <!-- Prices -->
@@ -72,53 +57,26 @@
                 <!-- Min Price -->
                 <div class="filter-item-box lg:w-1/2">
                   <label for="{{ form.monthly_rent_payment__gt.id_for_label }}"  class="filter-item-label">Min Price</label>
-                  <select
-                    name="{{ form.monthly_rent_payment__gt.name }}"
-                    id="{{ form.monthly_rent_payment__gt.id_for_label }}"
-                    class="filter-item-select lg:w-full lg:text-center"
-                  >
-                    {% for value, text in form.monthly_rent_payment__gt.field.choices %}
-                    <option value="{{ value }}" {% if form.monthly_rent_payment__gt.value == value %}selected=""{% endif %}>{{ text }}</option>
-                    {% endfor %}
-                  </select>
+                  {{ form.monthly_rent_payment__gt }}
                 </div>
 
                 <!-- Max Price -->
                 <div class="filter-item-box lg:w-1/2">
                   <label for="{{ form.monthly_rent_payment__lt.id_form_label }}" class="filter-item-label">Max Price</label>
-
-                  <select
-                    name="{{ form.monthly_rent_payment__lt.name }}"
-                    id="{{ form.monthly_rent_payment__lt.id_form_label }}"
-                    class="filter-item-select lg:w-full lg:text-center"
-                  >
-                    
-                    {% for value, text in form.monthly_rent_payment__lt.field.choices %}
-                      <option value="{{ value }}" {% if form.monthly_rent_payment__lt.value == value %}selected=""{% endif %}>{{ text }}</option>
-                    {% endfor %}
-
-                  </select>
+                  {{ form.monthly_rent_payment__lt }}
                 </div>
               </div>
 
               <!-- Beds -->
               <div class="filter-item-box lg:w-1/12">
                 <label for="{{ form.bedrooms.id_for_label }}" class="filter-item-label">Beds</label>
-                <select name="{{ form.bedrooms.name }}" id="{{ form.bedrooms.id_for_label }}" class="filter-item-select">
-                  {% for value, text in form.bedrooms.field.choices %}
-                    <option value="{{ value }}" {% if form.bedrooms.value == value %}selected=""{% endif %}>{{ text }}</option>
-                  {% endfor %}
-                </select>
+                {{ form.bedrooms }}
               </div>
 
               <!-- Baths -->
               <div class="filter-item-box lg:w-1/12">
                 <label for="{{ form.baths.id_for_label }}" class="filter-item-label">Baths</label>
-                <select name="{{ form.baths.name }}" id="{{ form.baths.id_for_label }}" class="filter-item-select">
-                  {% for value, text in form.baths.field.choices %}
-                    <option value="{{ value }}" {% if form.baths.value == value %}selected=""{% endif %}>{{ text }}</option>
-                  {% endfor %}
-                </select>
+                {{ form.baths }}
               </div>
 
               <!-- Years of Advanced Payment -->
@@ -126,25 +84,13 @@
                 <label for="{{ form.advance_years.id_for_label }}" class="filter-item-label"
                   >Years</label
                 >
-                <select
-                  name="{{ form.advance_years.name }}"
-                  id="{{ form.advance_years.id_for_label }}"
-                  class="filter-item-select"
-                >
-                  {% for value, text in form.advance_years.field.choices %}
-                    <option value="{{ value }}" {% if form.advance_years.value == value %}selected=""{% endif %}>{{ text }}</option>
-                  {% endfor %}
-                </select>
+                {{ form.advance_years }}
               </div>
 
               <!-- Verified -->
               <div class="filter-item-box lg:w-1/12">
                 <label for="{{ form.verified.id_for_label }}" class="filter-item-label">Verified</label>
-                <select name="{{ form.verified.name }}" id="{{ form.verified.id_for_label }}" class="filter-item-select">
-                  {% for value, text in form.verified.field.choices %}
-                    <option value="{{ value }}" {% ifequal form.verified.data 'True' %}selected{% endifequal %}>{{ text }}</option>
-                  {% endfor %}
-                </select>
+                {{ form.verified }}
               </div>
             </div>
 
@@ -165,12 +111,12 @@
       <div class="flex space-x-5 py-2 lg:hidden">
         <button
           id="filter-btn"
-          class="bg-gray-800 hover:bg-gray-700 rounded-md w-1/2 py-4 text-center text-gray-200 cursor-pointer"
+          class="bg-gray-800 hover:bg-gray-900 w-1/2 py-4 text-center text-gray-200 cursor-pointer"
         >
           <i class="fa-solid fa-search"></i> Filters
         </button>
         <div
-          class="w-1/2 bg-gray-800 rounded-md py-4 text-center text-gray-200 cursor-pointer"
+          class="w-1/2 bg-gray-800 py-4 text-center text-gray-200 cursor-pointer"
         >
           sort
         </div>
