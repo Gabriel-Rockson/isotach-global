@@ -16,3 +16,4 @@ Werkzeug==2.0.2
 phonenumbers==8.12.40 
 django-phonenumber-field[phonenumberslite]==6.0.0 
 django-filter==21.1 
+django-debug-toolbar==3.2.4

@@ -55,6 +55,7 @@ INSTALLED_APPS.extend([
     'livereload',
     'django_extensions',
     'django_filters',
+    # "debug_toolbar",
 
     # Developer created apps
     "users.apps.UsersConfig",
@@ -64,8 +65,12 @@ INSTALLED_APPS.extend([
 ])
 
 MIDDLEWARE.extend([
-    'livereload.middleware.LiveReloadScript',
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
 ])
+
+# update Templates
+# TEMPLATES[0].update({"APP_DIRS": True})
+
 
 # To see the settings that have been applied, use the Django diffsettings
 # management command.
@@ -92,3 +97,9 @@ MEDIA_ROOT = os.path.join('/data/media/')
 SHELL_PLUS = 'ipython'
 
 TIME_ZONE = "Africa/Accra"
+
+if DEBUG:
+    import os  # only if you haven't already imported this
+    import socket  # only if you haven't already imported this
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[:-1] + '1' for ip in ips] + ['127.0.0.1', '10.0.2.2']
