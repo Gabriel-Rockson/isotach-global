@@ -55,7 +55,7 @@ INSTALLED_APPS.extend([
     'livereload',
     'django_extensions',
     'django_filters',
-    # "debug_toolbar",
+    "debug_toolbar",
 
     # Developer created apps
     "users.apps.UsersConfig",
@@ -64,9 +64,14 @@ INSTALLED_APPS.extend([
     "agents.apps.AgentsConfig",
 ])
 
-MIDDLEWARE.extend([
-    # "debug_toolbar.middleware.DebugToolbarMiddleware",
-])
+# Django Debug Toolbar
+if DEBUG:
+
+    MIDDLEWARE.insert(
+        MIDDLEWARE.index("django.middleware.gzip.GZipMiddleware") + 1,
+        "debug_toolbar.middleware.DebugToolbarMiddleware"
+        )
+
 
 # update Templates
 # TEMPLATES[0].update({"APP_DIRS": True})
@@ -98,8 +103,7 @@ SHELL_PLUS = 'ipython'
 
 TIME_ZONE = "Africa/Accra"
 
-if DEBUG:
-    import os  # only if you haven't already imported this
-    import socket  # only if you haven't already imported this
-    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS = [ip[:-1] + '1' for ip in ips] + ['127.0.0.1', '10.0.2.2']
+def show_toolbar(request):
+    return DEBUG
+
+DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
