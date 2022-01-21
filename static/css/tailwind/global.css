@@ -1774,7 +1774,22 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 1280px) {
 
+  .xl\:w-3\/5 {
+    width: 60%;
+  }
+
   .xl\:w-4\/5 {
     width: 80%;
+  }
+}
+@media (min-width: 1536px) {
+
+  .\32xl\:w-3\/5 {
+    width: 60%;
+  }
+
+  .\32xl\:bg-red-600 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   }
 }
