@@ -1036,9 +1036,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .faq-summary {
   cursor: pointer;
   --tw-bg-opacity: 1;
-  background-color: rgb(30 41 59 / var(--tw-bg-opacity));
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  background-color: rgb(51 65 85 / var(--tw-bg-opacity));
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   font-size: 1rem;
@@ -1054,11 +1054,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 768px) {
 
   .faq-summary {
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-  }
-
-  .faq-summary {
     padding-left: 1rem;
     padding-right: 1rem;
   }
@@ -1072,8 +1067,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 @media (min-width: 1024px) {
 
   .faq-summary {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
 
   .faq-summary {
@@ -1774,10 +1769,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 @media (min-width: 1280px) {
 
-  .xl\:w-3\/5 {
-    width: 60%;
-  }
-
   .xl\:w-4\/5 {
     width: 80%;
   }
@@ -1786,10 +1777,5 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .\32xl\:w-3\/5 {
     width: 60%;
-  }
-
-  .\32xl\:bg-red-600 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(220 38 38 / var(--tw-bg-opacity));
   }
 }
