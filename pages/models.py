@@ -12,14 +12,14 @@ class HomePage(models.Model):
         null=False,
         blank=False,
         default="")
-    banner_image = models.ImageField(
-        upload_to="featured_images/homepage/",
-        verbose_name=_("Banner Image"),
-        help_text=
-        "Choose an image that will be featured on the banner of the homepage",
-        null=False,
-        blank=False,
-    )
+    # banner_image = models.ImageField(
+    #     upload_to="featured_images/homepage/",
+    #     verbose_name=_("Banner Image"),
+    #     help_text=
+    #     "Choose an image that will be featured on the banner of the homepage",
+    #     null=False,
+    #     blank=False,
+    # )
     banner_heading_text = models.CharField(
         verbose_name=_("Banner Heading Text"),
         help_text=
