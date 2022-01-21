@@ -2,7 +2,6 @@ from pathlib import Path
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from django_extensions.db.fields import AutoSlugField
-from utils.image_manipulation import convert_image_to_webp
 
 
 class HomePage(models.Model):
@@ -46,6 +45,9 @@ class HomePage(models.Model):
         url = Path(self.banner_image.url)
         return url.with_suffix('.webp')
 
+    def get_jpeg_image_url(self):
+        return self.banner_image.url
+
     def __str__(self):
         return self.name
 
@@ -87,6 +89,9 @@ class AboutSection(models.Model):
     def get_webp_image_url(self):
         url = Path(self.featured_image.url)
         return url.with_suffix('.webp')
+    
+    def get_jpeg_image_url(self):
+        return self.featured_image.url
 
     def __str__(self):
         return f"{self.about_company[:20]}"
@@ -140,6 +145,9 @@ class ServicesSection(models.Model):
     def get_webp_image_url(self):
         url = Path(self.featured_image.url)
         return url.with_suffix('.webp')
+    
+    def get_jpeg_image_url(self):
+        return self.featured_image.url
 
     def __str__(self):
         return f"{self.description[:30]}"

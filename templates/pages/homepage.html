@@ -7,7 +7,7 @@
 
 <!-- HomePage banner -->
 <div class="flex bg-gray-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
-  style="background-image: url({% if homepage.banner_image %}{{ homepage.get_webp_image_url }}{% else %}{% static 'img/bg-img.jpg' %}{% endif %}); height: 600px">
+  style="background-image: url({% if homepage.banner_image %}{{ homepage.get_jpeg_image_url }}{% else %}{% static 'img/bg-img.jpg' %}{% endif %}); height: 600px">
 
   <div class="self-center flex flex-col w-full lg:w-11/12 xl:w-4/5 2xl:3/5 py-5">
     <div class="text-white text-center px-2">
@@ -174,9 +174,9 @@
   <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{homepage.about_section.first.name}}</h1>
   <div class="flex flex-col lg:flex-row">
     <picture class="lg:w-1/2">
+      <source class="" srcset="{{homepage.about_section.first.get_jpeg_image_url}}" type="image/jpeg">
       <source class="object-contain" srcset="{{homepage.about_section.first.get_webp_image_url}}" type="image/webp">
-      <source class="" srcset="{{homepage.about_section.first.featured_image.url}" type="image/jpeg">
-      <img class="" src="{{homepage.about_section.first.featured_image.url}}" alt="About us featured image" />
+      <img class="" src="{{homepage.about_section.first.get_jpeg_image_url}}" alt="About us featured image" />
     </picture>
     <div class="section-text">
       {{ homepage.about_section.first.about_company }}</div>
@@ -193,9 +193,9 @@
   </h1>
   <div class="flex flex-col lg:flex-row-reverse">
     <picture class="lg:w-1/2">
+      <source class="" srcset="{{homepage.services_section.first.get_jpeg_image_url}}" type="image/jpeg">
       <source class="" srcset="{{homepage.services_section.first.get_webp_image_url}}" type="image/webp">
-      <source class="" srcset="{{homepage.services_section.first.featured_image.url}}" type="image/jpeg">
-      <img class="" src="{{homepage.services_section.first.featured_image.url}}" alt="About us featured image" />
+      <img class="" src="{{homepage.services_section.first.get_jpeg_image_url}}" alt="Services featured image" />
     </picture>
     <div class="section-text">
       {{ homepage.services_section.first.description }}</div>
