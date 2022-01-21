@@ -2,7 +2,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 from pages.models import HomePage
-from utils.image_manipulation import resize_image, convert_to_webp, convert_image_to_webp
+from utils.image_manipulation import resize_image, convert_image_to_webp
 
 from pathlib import Path
 
