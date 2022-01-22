@@ -28,7 +28,7 @@ class Apartment(models.Model):
         KUMASI = 'KU', _("Kumasi")
         KOFORIDUA = 'KO', _("Koforidua")
         SUNYANI = 'SU', _("Sunyani")
-        TAMALE = 'TA', _("TAMALE")
+        TAMALE = 'TA', _("Tamale")
         KASOA = 'KA', _("Kasoa")
         CAPE_COAST = 'CC', _("Cape Coast")
         TEMA = 'TM', _("Tema")
