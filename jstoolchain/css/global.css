@@ -8,7 +8,10 @@
 .nav-link-item {
   @apply 
   flex cursor-pointer 
-  md:pb-1 md:hover:border-b-2 md:hover:border-pink-600;
+}
+
+.nav-link-label {
+  @apply text-sm md:text-base self-center first-letter:capitalize md:hover:text-pink-600 md:pb-1 md:hover:border-b-2 md:hover:border-pink-600;
 }
 
 .mobile-menu {
@@ -37,9 +40,6 @@
   @apply md:hidden bg-gray-900 shadow-sm shadow-gray-900 h-10 w-10 rounded-md flex justify-around mr-2;
 }
 
-.nav-link-label {
-  @apply text-sm md:text-base self-center first-letter:capitalize md:hover:text-pink-600 ;
-}
 
 
 .contact-form-input {

@@ -878,19 +878,40 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: flex;
   cursor: pointer;
 }
+
+.nav-link-label {
+  align-self: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.nav-link-label::first-letter {
+  text-transform: capitalize;
+}
+
 @media (min-width: 768px) {
 
-  .nav-link-item {
+  .nav-link-label {
     padding-bottom: 0.25rem;
   }
 
-  .nav-link-item:hover {
+  .nav-link-label {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .nav-link-label:hover {
     border-bottom-width: 2px;
   }
 
-  .nav-link-item:hover {
+  .nav-link-label:hover {
     --tw-border-opacity: 1;
     border-color: rgb(219 39 119 / var(--tw-border-opacity));
+  }
+
+  .nav-link-label:hover {
+    --tw-text-opacity: 1;
+    color: rgb(219 39 119 / var(--tw-text-opacity));
   }
 }
 
@@ -988,28 +1009,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-.nav-link-label {
-  align-self: center;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
-.nav-link-label::first-letter {
-  text-transform: capitalize;
-}
-
-@media (min-width: 768px) {
-
-  .nav-link-label {
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
-
-  .nav-link-label:hover {
-    --tw-text-opacity: 1;
-    color: rgb(219 39 119 / var(--tw-text-opacity));
-  }
-}
 
 
 .contact-form-input {
@@ -1024,6 +1023,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
+
 
 
 .contact-form-input:focus {
