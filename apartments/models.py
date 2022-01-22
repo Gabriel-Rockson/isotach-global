@@ -75,8 +75,7 @@ class Apartment(models.Model):
         default=True)
     featured = models.BooleanField(
         verbose_name=_("Featured Listing"),
-        help_text=
-        "If this apartment is featured, it is going to be displayed on the homepage and also will be at the top of apartment listings",
+        help_text="If this apartment is featured, it is going to be displayed on the homepage and also will be at the top of apartment listings",
         default=False)
     hall = models.BooleanField(
         verbose_name=_("Hall"),
@@ -92,8 +91,7 @@ class Apartment(models.Model):
         default=False)
     major_city = models.CharField(
         verbose_name=_("Major City"),
-        help_text=
-        "Please select the major city that your apartment is located in.",
+        help_text="Please select the major city that your apartment is located in.",
         max_length=20,
         choices=MajorCity.choices,
         default=MajorCity.KUMASI)
@@ -106,36 +104,29 @@ class Apartment(models.Model):
     bedrooms = models.PositiveSmallIntegerField(
         verbose_name=_("Number of Bedrooms"),
         help_text="What is the total number of bedrooms in this apartment?",
-        choices=Number.choices,
-        default=Number.ONE)
+        default=1)
     baths = models.PositiveSmallIntegerField(
         verbose_name=_("Number of Baths"),
         help_text="How many baths are in this apartment?",
-        choices=Number.choices,
-        default=Number.ONE)
+        default=1)
 
     advance_years = models.PositiveSmallIntegerField(
         verbose_name=_("Years of Advance Payment"),
-        help_text=
-        "If this place is being rented out, how many years of advance payment is required?",
-        choices=Number.choices,
-        default=Number.ONE)
+        help_text="If this place is being rented out, how many years of advance payment is required?",
+        default=1)
     monthly_rent_payment = models.FloatField(
         verbose_name=_("Monthly Rent Payment"),
-        help_text=
-        "How much is a tenant going to pay for the place every month?",
+        help_text="How much is a tenant going to pay for the place every month?",
         blank=False,
         null=False)
     description = models.TextField(
         verbose_name=_("Extra Description"),
-        help_text=
-        "Enter any extra details the potential occupant needs to know",
+        help_text="Enter any extra details the potential occupant needs to know",
         blank=True,
         null=True)
     total_rent_payment = models.FloatField(
         verbose_name=_("Total Rent Payment"),
-        help_text=
-        "Amount tenant will pay over years of residency, monthly_payment * advance_years"
+        help_text="Amount tenant will pay over years of residency, monthly_payment * advance_years"
     )
     agent_commission = models.PositiveSmallIntegerField(
         verbose_name=_("Agent's Commission ( percentage )"),
@@ -147,8 +138,7 @@ class Apartment(models.Model):
                                   null=True)
     inspection_fee = models.PositiveSmallIntegerField(
         verbose_name=_("Inspection Fee"),
-        help_text=
-        "How much is this agent charging potential clients to go show them the place?",
+        help_text="How much is this agent charging potential clients to go show them the place?",
         default=50)
 
     def get_absolute_url(self):
