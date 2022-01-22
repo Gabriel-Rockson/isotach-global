@@ -1493,6 +1493,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 15rem;
   }
 
+  .md\:h-96 {
+    height: 24rem;
+  }
+
   .md\:w-1\/2 {
     width: 50%;
   }
