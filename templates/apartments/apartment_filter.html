@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load apartments_extras %}
 
 {% block title %}All Apartments{% endblock title %} 
 
@@ -142,27 +143,29 @@
 
         <div class="hidden md:flex self-center">
           {% if page_obj.has_previous %}
-            <a class="self-center top-pagination-link" href="?page={{ page_obj.previous_page_number }}">
+            <a class="self-center top-pagination-link" href="{% paginate_url page_obj.previous_page_number 'page' request.GET.urlencode %}">
               <i class="fa-solid fa-chevron-left self-center"></i>
             </a>
           {% endif %}
           <p class="px-5 text-sm self-center">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} </p>
           {% if page_obj.has_next %}
-            <a class="self-center top-pagination-link" href="?page={{ page_obj.next_page_number }}">
+            <a class="self-center top-pagination-link" href="{% paginate_url page_obj.next_page_number 'page' request.GET.urlencode %}">
               <i class="fa-solid fa-chevron-right"></i>
             </a>
           {% endif %}
         </div>
       </div>
 
-      {{ request.get_full_path }}
-
       {% include "apartments/apartment-listings.html" with apartments=apartments %}
 
       <div class="flex justify-around my-10">
         <div class="py-4 px-5 bg-white rounded-md shadow-slate-400 space-x-3 md:space-x-5 flex text-lg">
           {% if page_obj.has_previous %}
-            <a class="pagination-link bg-blue-600 px-2 py-1 text-white" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-chevron-left"></i> previous</a>
+            <a 
+              class="pagination-link bg-blue-600 px-2 py-1 text-white" 
+              href="{% paginate_url page_obj.previous_page_number 'page' request.GET.urlencode %}">
+              <i class="fa-solid fa-chevron-left"></i> previous
+            </a>
           {% endif %}
 
           <!-- TODO find a way to pass arguments to the get_elided_page_range -->
@@ -170,12 +173,16 @@
             {% if page_obj.number == i %}
               <a class="pagination-link bg-purple-600 text-white" href="?page={{ i }}">{{ i }}</a>
             {% else %}
-              <a class="pagination-link" href="?page={{ i }}">{{ i }}</a>
+              <a class="pagination-link" href="{% paginate_url i 'page' request.GET.urlencode %}">{{ i }}</a>
             {% endif %}
           {% endfor %}
 
           {% if page_obj.has_next %}
-            <a class="pagination-link bg-blue-600 px-2 py-1 text-white" href="?page={{ page_obj.next_page_number }}">next <i class="fa-solid fa-chevron-right"></i></a>
+            <a 
+              class="pagination-link bg-blue-600 px-2 py-1 text-white" 
+              href="{% paginate_url page_obj.next_page_number 'page' request.GET.urlencode %}">
+                next <i class="fa-solid fa-chevron-right"></i>
+              </a>
           {% endif %}
         </div>
       </div>
