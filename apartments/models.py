@@ -145,34 +145,6 @@ class Apartment(models.Model):
         return reverse("apartments:apartment-detail",
                        kwargs={"slug": self.slug})
 
-    def first_image_url(self):
-        if self.images.first():
-            return self.images.first().image.url
-        else:
-            return 'No Image found'
-
-    def first_image_webp_url(self):
-        if self.images.first():
-            url = Path(self.images.first().image.url)
-            return url.with_suffix('.webp')
-        else:
-            return 'No Image Found'
-
-
-    def apartment_thumbnail_jpeg(self):
-        if self.images.first():
-            url = Path(self.images.first().image.url)
-            return url.with_suffix('.thumbnail.jpg')
-        else:
-            return 'No Image Found'
-
-    def apartment_thumbnail_webp(self):
-        if self.images.first():
-            url = Path(self.images.first().image.url)
-            return url.with_suffix('.thumbnail.webp')
-        else:
-            return 'No Image Found'
-
     def images_count(self):
         return self.images.count()
 
@@ -197,7 +169,7 @@ class Apartment(models.Model):
     def image_tag(self):
         if self.images.first():
             return mark_safe(
-                f'<img src="{self.apartment_thumbnail_jpeg()}" style="width: 200px; height:200px;" />'
+                f'<img src="{self.images.apartment_thumbnail_jpeg()}" style="width: 200px; height:200px;" />'
             )
         else:
             return 'No Image Found'
@@ -216,3 +188,9 @@ class Apartment(models.Model):
         ordering = ("-upload_time", )
         verbose_name = "Apartment"
         verbose_name_plural = "Apartments"
+
+        indexes = [
+            models.Index(fields=['-upload_time'], name="ordering_idx"),
+            models.Index(fields=['featured', 'verified', 'major_city', 'location',
+                         'bedrooms', 'baths', 'advance_years', 'monthly_rent_payment'], name="filter_idx")
+        ]
