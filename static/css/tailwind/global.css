@@ -1738,10 +1738,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
-  .md\:h-60 {
-    height: 15rem;
-  }
-
   .md\:h-96 {
     height: 24rem;
   }
