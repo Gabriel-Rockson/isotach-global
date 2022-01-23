@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
-{% load static humanize %}
+{% load static humanize pages_extras %}
 
 {% block title %}{% endblock title %}
 
 {% block content %}
 <!-- HomePage banner -->
+{% get_section_featured_image homepage as formats %}
+
 <div class="flex bg-slate-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
-  style="background-image: url({% if homepage.banner_image %}{{ homepage.get_jpeg_image_url }}{% else %}{% static 'img/apt-img-11.jpg' %}{% endif %}); height: 600px">
+  style="background-image: url({% if homepage.banner_image %}{{ formats.jpeg }}{% else %}{% static 'img/apt-img-11.jpg' %}{% endif %}); height: 600px">
 
   <div class="self-center flex flex-col w-full lg:w-11/12 xl:w-4/5 2xl:w-3/5 py-5">
     <div class="text-white text-center px-2">
@@ -174,12 +176,13 @@
 {% if homepage.about_section %}
 
 <section class="px-5 md:px-14 lg:px-20 my-24 md:my-40" id="about-us">
+  {% get_section_featured_image homepage.about_section.first as formats %}
   <h1 class="section-heading">{{homepage.about_section.first.name}}</h1>
   <div class="flex flex-col lg:flex-row">
     <picture class="lg:w-1/2">
-      <source class="object-contain" srcset="{{homepage.about_section.first.get_webp_image_url}}" type="image/webp">
-      <source class="object-contain" srcset="{{homepage.about_section.first.get_jpeg_image_url}}" type="image/jpeg">
-      <img class="object-contain" src="{{homepage.about_section.first.get_jpeg_image_url}}" alt="About us featured image" />
+      <source class="" srcset="{{ formats.webp }}" type="image/webp">
+      <source class="" srcset="{{ formats.jpg }}" type="image/jpeg">
+      <img class="object-contain" src="{{ formats.jpg }}" alt="About us featured image" />
     </picture>
     <div class="section-text">
       {{ homepage.about_section.first.about_company }}</div>
@@ -192,13 +195,13 @@
 {% if homepage.services_section %}
 
 <section class="px-5 md:px-14 lg:px-20 mb-24 md:mb-40" id="services">
-  <h1 class="section-heading">{{ homepage.services_section.first.name }}
-  </h1>
+  {% get_section_featured_image homepage.services_section.first as formats %}
+  <h1 class="section-heading">{{ homepage.services_section.first.name }}</h1>
   <div class="flex flex-col lg:flex-row-reverse">
     <picture class="lg:w-1/2">
-      <source class="" srcset="{{homepage.services_section.first.get_webp_image_url}}" type="image/webp">
-      <source class="" srcset="{{homepage.services_section.first.get_jpeg_image_url}}" type="image/jpeg">
-      <img class="" src="{{homepage.services_section.first.get_jpeg_image_url}}" alt="Services featured image" />
+      <source class="" srcset="{{ formats.webp }}" type="image/webp">
+      <source class="" srcset="{{ formats.jpg }}" type="image/jpeg">
+      <img class="" src="{{ formats.jpg }}" alt="Services featured image" />
     </picture>
     <div class="section-text">
       {{ homepage.services_section.first.description }}</div>

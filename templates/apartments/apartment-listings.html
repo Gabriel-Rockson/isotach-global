@@ -1,14 +1,16 @@
-{% load static humanize %}
+{% load static humanize apartments_extras %}
 
 <div class="listing-container">
   {% for apartment in apartments %}
   <a href="{{ apartment.get_absolute_url }}">
     <div class="apartment-card">
       <!-- The apartment image -->
+
+      {% get_thumbnail_images apartment as thumbnails %}
       <picture>
-        <source class="w-full h-64" srcset="{{ apartment.apartment_thumbnail_webp }}" type="image/webp">
-        <source class="w-full h-64" srcset="{{ apartment.apartment_thumbnail_jpeg }}" type="image/jpeg">
-        <img class="w-full h-64" src="{{ apartment.apartment_thumbnail_jpeg }}" alt="Apartment Image" />
+        <source class="w-full h-64" srcset="{{ thumbnails.webp }}" type="image/webp">
+        <source class="w-full h-64" srcset="{{ thumbnails.jpeg }}" type="image/jpeg">
+        <img class="w-full h-64" src="{{ thumbnails.jpeg }}" alt="Apartment Image" />
       </picture>
 
       <!-- The apartment info -->
