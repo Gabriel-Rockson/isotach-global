@@ -7,12 +7,13 @@ from apartments.models import Apartment
 
 
 class ApartmentListView(FilterView):
+    queryset = Apartment.objects.all().select_related("agent").prefetch_related("images")
     filterset_class = ApartmentFilter
-    paginate_by = 4
+    paginate_by = 8
     context_object_name = "apartments"
 
 
 class ApartmentDetailView(DetailView):
-    queryset = Apartment.objects.all()
+    queryset = Apartment.objects.all().select_related("agent")
     context_object_name = "apartment"
     template_name = "apartments/detail-apartment.html"
