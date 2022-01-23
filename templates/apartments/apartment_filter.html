@@ -13,7 +13,7 @@
     <div id="filter-box" class="">
       <div
         id="filter-form-container"
-        class="hidden lg:block bg-gray-900 lg:bg-white h-screen lg:h-full w-full sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0 overflow-y-auto"
+        class="hidden z-50 lg:block bg-black-rich lg:bg-slate-200 h-screen lg:h-full w-full sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0 lg:py-2 overflow-y-auto"
       >
         <div
           class="flex lg:hidden justify-between py-4 mb-5 border-b-2 border-gray-200"
@@ -98,9 +98,9 @@
             <div class="flex justify-around mt-5 lg:mt-2 lg:justify-start">
               <button
                 type="submit"
-                class="py-2 px-4 bg-green-600 hover:bg-green-700 text-white"
+                class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
               >
-                Apply Filters
+                Apply Filters <i class="fas fa-filter    "></i>
               </button>
             </div>
           </form>
@@ -111,27 +111,29 @@
       <div class="flex space-x-5 py-2 lg:hidden">
         <button
           id="filter-btn"
-          class="bg-gray-800 hover:bg-gray-900 w-1/2 py-4 text-center text-gray-200 cursor-pointer"
+          class="bg-blue-600 hover:bg-blue-700 rounded-lg w-1/2 py-4 text-center text-gray-200 cursor-pointer"
         >
-          <i class="fa-solid fa-search"></i> Filters
+          <i class="fa-solid fa-filter"></i><span class="ml-2">filters</span>
         </button>
-        <div
-          class="w-1/2 bg-gray-800 py-4 text-center text-gray-200 cursor-pointer"
+        <button
+          class="w-1/2 bg-fuchsia-600 hover:bg-fuchsia-700 rounded-lg py-4 text-center text-gray-200 cursor-pointer"
         >
-          sort
-        </div>
+          <span class="mr-2">sort</span><i class="fa-solid fa-sort "></i>
+        </button>
       </div>
     </div>
 
     <div class="mt-10">
       <div class="flex justify-around md:justify-between">
-        <div class="text-sm text-gray-700">
+        <div class="text-sm text-slate-800 self-center">
           {{ apartments.count }} of {{ paginator.count }} apartments
         </div>
-        <div class="text-gray-800 text-lg font-bold hidden md:flex">
+
+        <div class="text-slate-900 text-xl font-bold hidden md:flex self-center">
           Apartments
         </div>
-        <div class="hidden md:flex">
+
+        <div class="hidden md:flex self-center">
           {% if page_obj.has_previous %}
             <a class="self-center" href="?page={{ page_obj.previous_page_number }}">
               <i class="fa-solid fa-chevron-left self-center bg-gray-200 text-pink-600 px-2 py-1 cursor-pointer"></i>
