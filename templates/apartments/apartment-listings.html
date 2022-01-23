@@ -5,11 +5,10 @@
   <a href="{{ apartment.get_absolute_url }}">
     <div class="apartment-card">
       <!-- The apartment image -->
-      <!-- TODO display a default image if there is no image -->
       <picture>
-        <source class="w-full h-64 md:h-60" srcset="{{ apartment.first_image_webp_url }}" type="image/webp">
-        <source class="w-full h-64 md:h-60" srcset="{{ apartment.first_image_url }}" type="image/jpeg">
-        <img class="w-full h-64 md:h-60" src="{{ apartment.first_image_url }}" alt="Apartment Image" />
+        <source class="w-full h-64" srcset="{{ apartment.apartment_thumbnail_webp }}" type="image/webp">
+        <source class="w-full h-64" srcset="{{ apartment.apartment_thumbnail_jpeg }}" type="image/jpeg">
+        <img class="w-full h-64" src="{{ apartment.apartment_thumbnail_jpeg }}" alt="Apartment Image" />
       </picture>
 
       <!-- The apartment info -->
