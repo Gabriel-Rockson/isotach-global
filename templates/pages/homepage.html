@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- HomePage banner -->
-<div class="flex bg-gray-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
+<div class="flex bg-slate-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
   style="background-image: url({% if homepage.banner_image %}{{ homepage.get_jpeg_image_url }}{% else %}{% static 'img/apt-img-11.jpg' %}{% endif %}); height: 600px">
 
   <div class="self-center flex flex-col w-full lg:w-11/12 xl:w-4/5 2xl:w-3/5 py-5">
@@ -141,27 +141,31 @@
   {% if featured_apartments %}
     <!-- Featured Listings -->
     <div>
-      <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Top Featured Apartment Listings</h1>
-      <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
+      <h1 class="text-xl md:text-3xl font-bold mt-8 md:mt-10 pb-2 text-slate-900">Our Top Featured Apartment Listings</h1>
+      <a href="{% url 'apartments:list-apartments' %}" class="link-1">
+        <i class="fa-solid fa-eye text-slate-900"></i> View all listings
+      </a>
 
       {% include "apartments/apartment-listings.html" with apartments=featured_apartments %}
 
     </div>
   {% else %}
-    <h2 class="text-sky-600 text-lg text-center">No featured apartments</h2>
+    <h2 class="text-slate-900 text-lg text-center">No featured apartments</h2>
   {% endif %}
 
   <!-- Latest Listings -->
   {% if latest_apartments %}
     <div class="mt-5">
-      <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-gray-800">Our Latest Apartment Listings</h1>
-      <a href="{% url 'apartments:list-apartments' %}" class="text-blue-500 hover:text-blue-600"><i class="fa-solid fa-eye"></i> View all listings</a>
+      <h1 class="text-xl md:text-2xl font-bold mt-8 md:mt-10 pb-2 text-slate-900">Our Latest Apartment Listings</h1>
+      <a href="{% url 'apartments:list-apartments' %}" class="link-1">
+        <i class="fa-solid fa-eye text-slate-900"></i> View all listings
+      </a>
 
       {% include "apartments/apartment-listings.html" with apartments=latest_apartments %}
 
     </div>
   {% else %}
-    <h2 class="text-sky-600 text-lg text-center">No latest apartments</h2>
+    <h2 class="text-slate-900 text-lg text-center">No latest apartments</h2>
   {% endif %}
 
 </section>
@@ -169,8 +173,8 @@
 <!-- The About Us Message -->
 {% if homepage.about_section %}
 
-<section class="px-5 md:px-14 lg:px-20 my-16" id="about-us">
-  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{homepage.about_section.first.name}}</h1>
+<section class="px-5 md:px-14 lg:px-20 my-24 md:my-40" id="about-us">
+  <h1 class="section-heading">{{homepage.about_section.first.name}}</h1>
   <div class="flex flex-col lg:flex-row">
     <picture class="lg:w-1/2">
       <source class="" srcset="{{homepage.about_section.first.get_jpeg_image_url}}" type="image/jpeg">
@@ -187,8 +191,8 @@
 <!-- Our Services Section -->
 {% if homepage.services_section %}
 
-<section class="px-5 md:px-14 lg:px-20 my-16" id="services">
-  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">{{ homepage.services_section.first.name }}
+<section class="px-5 md:px-14 lg:px-20 mb-24 md:mb-40" id="services">
+  <h1 class="section-heading">{{ homepage.services_section.first.name }}
   </h1>
   <div class="flex flex-col lg:flex-row-reverse">
     <picture class="lg:w-1/2">
@@ -204,13 +208,11 @@
 {% endif %}
 
 
-<section class="my-16 flex flex-col-reverse lg:flex-row">
+<section class="md:px-14 lg:px-20 my-24 md:my-40 flex flex-col-reverse lg:flex-row">
 
   <!-- Google Maps -->
-  <div class="lg:w-1/2 my-16 lg:my-0">
-    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700 lg:text-center">
-      Where are we
-      Located?</h1>
+  <div class="lg:w-1/2 mt-24 md:mt-40 lg:my-0">
+    <h1 class="section-heading">Location</h1>
 
     <div class="w-full h-screen lg:h-4/5">
       <iframe
@@ -221,7 +223,7 @@
 
   <!-- Contact Form -->
   <div class="lg:w-1/2" id="contact-us">
-    <h1 class="pl-5 md:pl-14 lg:pl-20 my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700 lg:text-center">
+    <h1 class="section-heading">
       Talk to Us</h1>
 
     <div class="h-3/5 w-full px-5 md:px-14 lg:px-20">
@@ -262,7 +264,7 @@
             placeholder="Type your message here"></textarea>
         </div>
 
-        <button type="submit" class="hover:bg-red-700 bg-red-600 text-white py-3 w-full">Send Message <i
+        <button type="submit" class="red-btn-1">Send Message <i
             class="fa-solid fa-location-arrow"></i></button>
       </form>
     </div>
@@ -273,8 +275,8 @@
 <!-- Freqeuntly Asked Questions -->
 {% if homepage.frequently_asked_questions %}
 
-<section class="px-5 md:px-14 lg:px-20 my-16" id="faq">
-  <h1 class="my-5 text-3xl md:text-4xl lg:text-5xl font-black text-gray-700">Frequently Asked Questions</h1>
+<section class="px-5 md:px-14 mb-24 md:mb-40 lg:px-20" id="faq">
+  <h1 class="section-heading">Frequently Asked Questions</h1>
 
   <div class="">
     {% for faq in homepage.frequently_asked_questions.all %}

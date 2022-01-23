@@ -13,17 +13,17 @@
     <title>{% block title %}{% endblock title %}</title>
   </head>
 
-  <body>
+  <body class="bg-slate-200">
     {% comment %} Top Navbar {% endcomment %}
-    <nav class="bg-gray-50 lg:border-b-0 lg:shadow-lg">
+    <nav class="bg-white lg:border-b-0 lg:shadow-lg">
       <!-- The label -->
       <div class="flex justify-between px-5 h-20">
         <div class="self-center">
           <label class="text-xl font-bold"><a href="{% url 'pages:homepage' %}">
               <div class="flex flex-col">
-                <span class="text-gray-700">Isotach</span>
+                <span class="text-blue-700">Isotach</span>
                 <hr>
-                <span class="text-gray-900">Global</span>
+                <span class="text-blue-900">Global</span>
               </div>
             </a>
           </label>
@@ -112,7 +112,7 @@
     <main>{% block content %}{% endblock content %}</main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white">
+    <footer class="bg-slate-800 text-white">
       <div class="flex flex-col-reverse lg:flex-row px-5 lg:px-20 py-10">
 
         <div class="flex flex-col md:flex-row lg:w-2/3 md:px-16">
@@ -152,9 +152,11 @@
               <input class="contact-form-input" type="email" placeholder="Enter your email address" name="email_1"
                 id="email_1" />
             </div>
-            <button type="submit" class="bg-red-600 hover:bg-red-700 text-white py-3 w-full mt-5">
-              Register
-            </button>
+            <div class="mt-2">
+              <button type="submit" class="red-btn-1">
+                Register
+              </button>
+            </div>
           </form>
           <p class="text-white text-sm py-1">
             Get notified whenever we upload new apartments
@@ -162,7 +164,7 @@
         </div>
       </div>
 
-      <div class="text-sm flex justify-around bg-black text-white">
+      <div class="text-sm flex justify-around bg-black-rich text-white">
         <div class="py-2 md:flex space-x-5 space-y-1 md:space-y-0">
           <!-- TODO change the 2022 and use a scipt to insert the year -->
           <i class="fa-solid fa-copyright mr-1"></i> copyright, 2022 - Isotach Global

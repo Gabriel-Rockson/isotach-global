@@ -126,23 +126,36 @@
     <div class="mt-10">
       <div class="flex justify-around md:justify-between">
         <div class="text-sm text-gray-700">
-          {{ apartments.count }} apartments
+          {{ apartments.count }} of {{ paginator.count }} apartments
         </div>
-        <div class="text-gray-800 text-lg font-semi-bold hidden md:flex">
+        <div class="text-gray-800 text-lg font-bold hidden md:flex">
           Apartments
         </div>
         <div class="hidden md:flex">
-          <i
-            class="fa-solid fa-chevron-left self-center bg-gray-300 px-2 py-1 cursor-pointer"
-          ></i>
-          <p class="px-5 text-sm self-center">Page 1 of 3</p>
-          <i
-            class="fa-solid fa-chevron-right self-center bg-gray-300 px-2 py-1 cursor-pointer"
-          ></i>
+          {% if page_obj.has_previous %}
+            <a class="self-center" href="?page={{ page_obj.previous_page_number }}">
+              <i class="fa-solid fa-chevron-left self-center bg-gray-200 text-pink-600 px-2 py-1 cursor-pointer"></i>
+            </a>
+          {% endif %}
+          <p class="px-5 text-sm self-center">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} </p>
+          {% if page_obj.has_next %}
+            <a class="self-center" href="?page={{ page_obj.next_page_number }}">
+              <i class="fa-solid fa-chevron-right bg-gray-200 text-pink-600 px-2 py-1 cursor-pointer"></i>
+            </a>
+          {% endif %}
         </div>
       </div>
 
       {% include "apartments/apartment-listings.html" with apartments=apartments %}
+
+      <div class="flex justify-around my-10">
+        <div class="py-2 px-2 bg-gray-200">
+          <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
+
+          <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+      </div>
+
     </div>
   </section>
 </div>

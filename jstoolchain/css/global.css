@@ -11,7 +11,7 @@
 }
 
 .nav-link-label {
-  @apply text-sm md:text-base self-center first-letter:capitalize md:hover:text-pink-600 md:pb-1 md:hover:border-b-2 md:hover:border-pink-600;
+  @apply text-sm md:text-base text-white md:text-black-eerie self-center first-letter:capitalize md:hover:text-fuchsia-600 md:pb-1 md:hover:border-b-2 md:hover:border-fuchsia-600;
 }
 
 .mobile-menu {
@@ -19,7 +19,7 @@
   fixed top-0 left-0 
   h-screen w-4/5 bottom-0 
   z-50 
-  bg-black text-white 
+  bg-black-rich text-white 
   px-5 space-y-5
   text-left text-base;
 }
@@ -27,7 +27,7 @@
 .tablet-menu {
   @apply flex flex-col 
   absolute top-20 right-4
-  z-50 bg-black shadow-md shadow-gray-200
+  z-50 bg-black-rich shadow-md shadow-gray-200
   text-white py-4 px-6 space-y-5 text-left 
   text-base mr-5;
 }
@@ -43,11 +43,11 @@
 
 
 .contact-form-input {
-  @apply border-2 border-gray-600 py-3 focus:border-pink-600 focus:outline-none w-full px-4 text-black;
+  @apply border-2 border-gray-600 py-3 focus:border-pink-600 focus:outline-none w-full px-4 text-black-rich;
 }
 
 .faq-summary {
-  @apply text-base md:text-lg lg:text-xl cursor-pointer text-gray-100 py-1 lg:py-2 px-2 md:px-4 lg:px-6 shadow-sm bg-slate-700 shadow-slate-600;
+  @apply text-base md:text-lg lg:text-xl cursor-pointer text-slate-200 py-1 lg:py-2 px-2 md:px-4 lg:px-6 shadow-sm bg-slate-800 shadow-slate-200;
 }
 
 .footer-heading {
@@ -67,7 +67,7 @@
 }
 
 .apartment-card {
-  @apply bg-slate-50 shadow-lg shadow-white w-full  border border-gray-300;
+  @apply bg-white w-full;
 }
 
 .filter-item-box {
@@ -117,6 +117,21 @@
 }
 
 /* sections */
+.section-heading {
+  @apply mb-10 text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 border-b-2 pb-2 px-16 border-slate-900 inline-flex;
+}
+
 .section-text {
-  @apply lg:w-1/2 leading-6 lg:leading-7 text-base text-gray-800 py-5 lg:py-0 lg:px-10 text-justify;
+  @apply lg:w-1/2 leading-6 lg:leading-7 text-base text-black-rich py-5 lg:py-0 lg:px-10 text-justify;
+}
+
+
+/* homepage apartment listings */
+.link-1 {
+  @apply text-link-blue hover:border-2 hover:pb-1  hover:border-b-link-blue visited:text-link-purple visited:hover:text-link-purple;
+}
+
+/* Buttons */
+.red-btn-1 {
+  @apply hover:bg-red-700 bg-red-600 text-white py-3 w-full;
 }
