@@ -95,12 +95,19 @@
             </div>
 
             <!-- Button -->
-            <div class="flex justify-around mt-5 lg:mt-2 lg:justify-start">
+            <div class="flex justify-around mt-5 lg:mt-2 lg:justify-between">
               <button
                 type="submit"
-                class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg"
+                class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg cursor-pointer"
               >
-                Apply Filters <i class="fas fa-filter    "></i>
+                <span class="mr-2">Apply Filters</span><i class="fa-solid fa-filter"></i>
+              </button>
+
+              <button
+                type="button"
+                class="bg-fuchsia-600 hover:bg-fuchsia-700 rounded-lg py-2 px-4 text-white cursor-pointer"
+              >
+                <span class="mr-2">sort</span><i class="fa-solid fa-sort "></i>
               </button>
             </div>
           </form>
@@ -129,32 +136,47 @@
           {{ apartments.count }} of {{ paginator.count }} apartments
         </div>
 
-        <div class="text-slate-900 text-xl font-bold hidden md:flex self-center">
-          Apartments
+        <div class="text-slate-900 text-xl font-bold hidden md:flex self-center uppercase">
+          Apartments 
         </div>
 
         <div class="hidden md:flex self-center">
           {% if page_obj.has_previous %}
-            <a class="self-center" href="?page={{ page_obj.previous_page_number }}">
-              <i class="fa-solid fa-chevron-left self-center bg-gray-200 text-pink-600 px-2 py-1 cursor-pointer"></i>
+            <a class="self-center top-pagination-link" href="?page={{ page_obj.previous_page_number }}">
+              <i class="fa-solid fa-chevron-left self-center"></i>
             </a>
           {% endif %}
           <p class="px-5 text-sm self-center">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} </p>
           {% if page_obj.has_next %}
-            <a class="self-center" href="?page={{ page_obj.next_page_number }}">
-              <i class="fa-solid fa-chevron-right bg-gray-200 text-pink-600 px-2 py-1 cursor-pointer"></i>
+            <a class="self-center top-pagination-link" href="?page={{ page_obj.next_page_number }}">
+              <i class="fa-solid fa-chevron-right"></i>
             </a>
           {% endif %}
         </div>
       </div>
 
+      {{ request.get_full_path }}
+
       {% include "apartments/apartment-listings.html" with apartments=apartments %}
 
       <div class="flex justify-around my-10">
-        <div class="py-2 px-2 bg-gray-200">
-          <a href="#"><i class="fa-solid fa-chevron-left"></i></a>
+        <div class="py-4 px-5 bg-white rounded-md shadow-slate-400 space-x-3 md:space-x-5 flex text-lg">
+          {% if page_obj.has_previous %}
+            <a class="pagination-link bg-blue-600 px-2 py-1 text-white" href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-chevron-left"></i> previous</a>
+          {% endif %}
 
-          <a href="#"><i class="fa-solid fa-chevron-right"></i></a>
+          <!-- TODO find a way to pass arguments to the get_elided_page_range -->
+          {% for i in paginator.get_elided_page_range %}
+            {% if page_obj.number == i %}
+              <a class="pagination-link bg-purple-600 text-white" href="?page={{ i }}">{{ i }}</a>
+            {% else %}
+              <a class="pagination-link" href="?page={{ i }}">{{ i }}</a>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <a class="pagination-link bg-blue-600 px-2 py-1 text-white" href="?page={{ page_obj.next_page_number }}">next <i class="fa-solid fa-chevron-right"></i></a>
+          {% endif %}
         </div>
       </div>
 

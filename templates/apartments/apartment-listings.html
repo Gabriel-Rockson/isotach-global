@@ -15,49 +15,49 @@
       <!-- The apartment info -->
       <div class="px-2 py-3">
         <!-- TODO add the title of the post under the image -->
-        <p class="text-sm text-gray-700"><i class="fa-solid fa-clock"></i> {{ apartment.upload_time|naturaltime }}</p>
+        <p class="text-sm text-slate-200"><i class="fa-solid fa-clock"></i> {{ apartment.upload_time|naturaltime }}</p>
 
         <!-- location -->
-        <address class="py-2 text-gray-900 font-semibold">
-          <i class="fa-solid fa-map-marker-alt text-cyan-600 mr-2"></i>{{apartment.location}}, {{ apartment.get_major_city_display }}
+        <address class="py-2 text-slate-100 font-semibold">
+          <i class="fa-solid fa-map-marker-alt text-cyan-200 mr-2"></i>{{apartment.location}}, {{ apartment.get_major_city_display }}
         </address>
 
         <!-- Price, monthly -->
         <p class="text-xl font-serif font-black pt-1 pb-0 mb-0">
-          <i class="fa-solid fa-money-bill-wave text-green-800"></i>
-          <span class="mr-1 text-emerald-700">Ghc</span><span>{{ apartment.get_monthly_rent_payment|intcomma }}</span><span
-            class="ml-2">monthly</span>
+          <i class="fa-solid fa-money-bill-wave text-emerald-200"></i>
+          <span class="mr-1 text-emerald-200">Ghc</span><span class="text-white">{{ apartment.get_monthly_rent_payment|intcomma }}</span><span
+            class="ml-2 text-white">monthly</span>
         </p>
-        <p class="-pt-1 text-sm text-sky-700 text-semi-bold">
+        <p class="-pt-1 text-sm text-sky-100 text-semi-bold">
           {{ apartment.advance_years }} year{{ apartment.advance_years|pluralize }} advance
         </p>
 
         <!-- Baths, beds and verified -->
         <div class="flex justify-between py-1">
-          <div class="self-center">
+          <div class="self-center text-gray-100">
             <span class="font-bold text-lg">{{ apartment.bedrooms }}</span>
-            <span class="text-gray-700">bed{{ apartment.bedrooms|pluralize }}</span>
+            <span class="text-slate-100">bed{{ apartment.bedrooms|pluralize }}</span>
             <i class="fa-solid fa-bed text-fuchsia-600"></i>
           </div>
-          <div class="self-center">
+          <div class="self-center text-white">
             <span class="font-bold text-lg">{{ apartment.baths }}</span>
-            <span class="text-gray-700">bath{{ apartment.baths|pluralize }}
+            <span class="text-white">bath{{ apartment.baths|pluralize }}
             </span>
             <i class="fa-solid fa-bath text-sky-500"></i>
           </div>
-          <div class="self-center">
+          <div class="self-center text-white">
             verified {% if apartment.verified %}
-            <i class="fa-solid fa-check-double text-green-600"></i>
+            <i class="fa-solid fa-check-double text-green-300"></i>
             {% else %}
-            <i class="fa-solid fa-times text-red-600"></i>
+            <i class="fa-solid fa-times text-red-300"></i>
             {% endif %}
           </div>
         </div>
 
         <!-- Agent -->
-        <p class="text-slate-800 py-1">
+        <p class="text-white py-1">
           <span class="font-bold">Agent</span>
-          <i class="fa-solid fa-user-tie text-black-rich"></i>:
+          <i class="fa-solid fa-user-tie text-white"></i>:
           {{apartment.agent.full_name}}
         </p>
       </div>
