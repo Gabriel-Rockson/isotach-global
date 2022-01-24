@@ -5,7 +5,7 @@ from PIL import Image, ImageEnhance
 
 
 # resize image
-def resize_image(image_name, width, height=None, quality=None, format="JPEG"):
+def resize_image(image_name, width, height=None, quality=85, format="JPEG"):
     with storage.open(image_name, 'rb') as m:
         im = Image.open(m)
 
