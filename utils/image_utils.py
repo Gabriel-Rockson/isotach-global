@@ -23,7 +23,7 @@ def resize_image(image_name, width, height=None, quality=85, format="JPEG"):
         im.save(bfile, format=format, quality=quality)
 
     with storage.open(image_name, 'wb') as i:
-        i.write(bfile.getvalue())
+        i.write(bfile.getbuffer())
 
 
 def resize_and_reduce_brightness(image_name, width, height=None, factor=0.4, quality=75):
@@ -46,7 +46,7 @@ def resize_and_reduce_brightness(image_name, width, height=None, factor=0.4, qua
                 optimize=True)  # optimize the image
 
     with storage.open(image_name, 'wb') as i:
-        i.write(bfile.getvalue())
+        i.write(bfile.getbuffer())
 
 
 def create_thumbnail(image_name, width, height=None, quality=75, format="JPEG"):
@@ -68,4 +68,4 @@ def create_thumbnail(image_name, width, height=None, quality=75, format="JPEG"):
     filename = f"{filepath}.thumbnail.{ext}"
 
     with storage.open(filename, 'wb') as i:
-        i.write(bfile.getvalue())
+        i.write(bfile.getbuffer())
