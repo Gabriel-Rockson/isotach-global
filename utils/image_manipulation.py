@@ -65,7 +65,7 @@ def create_thumbnail(image, image_name, new_width, new_height=None, quality=75):
         # save the original 
         original_image.save(fh, format=img.format)
 
-        # resized_image.save(webp_thumbnail, format="WEBP",
+        resized_image.save(webp_thumbnail, format="WEBP",
                            quality=quality, optimize=True)
         resized_image.save(jpeg_thumbnail, format=img.format,
                            quality=quality, optimize=True)
