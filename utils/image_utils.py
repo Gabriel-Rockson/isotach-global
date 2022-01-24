@@ -22,8 +22,17 @@ def resize_image(image_name, width, height=None, quality=85, format="JPEG"):
         bfile = BytesIO()
         im.save(bfile, format=format, quality=quality)
 
+        bfile_webp = BytesIO()
+        im.save(bfile_webp, format="WEBP", quality=quality)
+
     with storage.open(image_name, "wb") as i:
         i.write(bfile.getbuffer())
+
+    filepath, ext = image_name.split(".")
+    filename_webp = f"{filepath}.webp"
+
+    with storage.open(filename_webp, "wb") as i:
+        i.write(bfile_webp.getbuffer())
 
 
 def resize_and_reduce_brightness(
@@ -56,7 +65,7 @@ def resize_and_reduce_brightness(
 
     filepath, ext = image_name.split(".")
     filename_webp = f"{filepath}.webp"
-    
+
     with storage.open(filename_webp, "wb") as i:
         i.write(bfile_webp.getbuffer())
 

@@ -12,7 +12,6 @@ def get_section_featured_image(section):
         url = Path(section.banner_image.url)
         return {"jpeg": url.with_suffix(".jpg"), "webp": url.with_suffix(".webp")}
     elif isinstance(section, AboutSection) or isinstance(section, ServicesSection):
-        return {
-            "jpeg": section.featured_image.url,
-        }
-    return {"jpeg": "Not found"}
+        url = Path(section.featured_image.url)
+        return {"jpeg": url.with_suffix(".jpg"), "webp": url.with_suffix(".webp")}
+    return {"jpeg": "Not found", "webp": "Not Found"}
