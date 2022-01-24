@@ -61,11 +61,18 @@ def create_thumbnail(image_name, width, height=None, quality=75, format="JPEG"):
 
         im = im.resize(size, Image.ANTIALIAS)
 
-        bfile = BytesIO()
-        im.save(bfile, format=format, quality=quality)
+        bfile_jpeg = BytesIO()
+        im.save(bfile_jpeg, format=format, quality=quality)
+
+        bfile_webp = BytesIO()
+        im.save(bfile_webp, format="WEBP", quality=quality)
 
     filepath, ext = image_name.split('.')
-    filename = f"{filepath}.thumbnail.{ext}"
+    filename_jpeg = f"{filepath}.thumbnail.{ext}"
+    filename_webp = f"{filepath}.thumbnail.webp"
 
-    with storage.open(filename, 'wb') as i:
-        i.write(bfile.getbuffer())
+    with storage.open(filename_jpeg, 'wb') as i:
+        i.write(bfile_jpeg.getbuffer())
+
+    with storage.open(filename_webp, 'wb') as i:
+        i.write(bfile_webp.getbuffer())
