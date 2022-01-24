@@ -23,10 +23,8 @@ def get_thumbnail_images(apartment):
     if apartment.images:
         url = Path(apartment.images.first().image.url)
         return {
-            "webp": url.with_suffix('.thumbnail.webp'),
             "jpeg": url.with_suffix('.thumbnail.jpg'),
         }
     return {
-        "webp": "Image Not Found",
         "jpeg": "Image Not Found"
     }
