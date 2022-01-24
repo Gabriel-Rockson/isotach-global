@@ -7,3 +7,8 @@ node_modules/
 __pycache__/
 
 local_db.*
+
+docker-compose.prod.yml
+
+.env-local-prod
+.env-*

@@ -38,9 +38,7 @@ services:
       POSTGRES_HOST_AUTH_METHOD: "trust"
     volumes:
       - ".:/app:rw"
-      # - db_data_new:/var/lib/postgresql/data/
-      - db_data_s3:/var/lib/postgresql/data/
+      - db_data_new:/var/lib/postgresql/data/
 
 volumes:
   db_data_new:
-  db_data_s3:
