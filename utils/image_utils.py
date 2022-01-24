@@ -3,6 +3,8 @@ from io import BytesIO
 from django.core.files.storage import default_storage as storage
 from PIL import Image, ImageEnhance
 
+from time import time
+
 
 # resize image
 def resize_image(image_name, width, height=None, quality=85, format="JPEG"):
@@ -47,7 +49,30 @@ def resize_and_reduce_brightness(image_name, width, height=None, factor=None, qu
         i.write(bfile.getvalue())
 
 
-# reduce image quality
+def create_thumbnail(image_name, width, height=None, quality=75, format="JPEG"):
 
+    start = time()
 
-# save image
+    with storage.open(image_name, 'rb') as m:
+        im = Image.open(m)
+
+    if height is None:
+        height = int((im.height * width) / im.width)
+        size = width, height
+    else:
+        size = width, height
+
+    im = im.resize(size, Image.ANTIALIAS)
+
+    bfile = BytesIO()
+    im.save(bfile, format=format, quality=quality)
+
+    filepath, ext = image_name.split('.')
+    filename = f"{filepath}.thumbnail.{ext}"
+
+    with storage.open(filename, 'wb') as i:
+        i.write(bfile.getvalue())
+
+    end = time()
+
+    print(f"Elapsed time = {end - start} seconds")
