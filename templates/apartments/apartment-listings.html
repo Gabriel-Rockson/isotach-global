@@ -8,7 +8,6 @@
 
       {% get_thumbnail_images apartment as thumbnails %}
       <picture>
-        <source class="w-full h-64" srcset="{{ thumbnails.webp }}" type="image/webp">
         <source class="w-full h-64" srcset="{{ thumbnails.jpeg }}" type="image/jpeg">
         <img class="w-full h-64" src="{{ thumbnails.jpeg }}" alt="Apartment Image" />
       </picture>
