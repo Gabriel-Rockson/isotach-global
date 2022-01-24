@@ -167,9 +167,11 @@ class Apartment(models.Model):
         return f"{self.title}"
 
     def image_tag(self):
-        if self.images.first():
+        if self.images:
+            url = Path(self.images.first().image.url)
+            jpeg_thumbnail = url.with_suffix('.thumbnail.jpg')
             return mark_safe(
-                f'<img src="{self.images.apartment_thumbnail_jpeg()}" style="width: 200px; height:200px;" />'
+                f'<img src="{jpeg_thumbnail}" style="width: 200px; height:200px;" />'
             )
         else:
             return 'No Image Found'
