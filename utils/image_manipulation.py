@@ -1,5 +1,8 @@
+from PIL import Image
 from django.core.files.storage import default_storage as storage
 from PIL import Image, ImageEnhance
+
+from io import BytesIO, StringIO
 
 
 def resize_image(image, image_name, new_width, new_height=None):
@@ -13,9 +16,6 @@ def resize_image(image, image_name, new_width, new_height=None):
 
     resized_image = img.resize(size, Image.ANTIALIAS)
 
-    with storage.open(image_name, 'wb') as fh:
-        resized_image.save(fh, format=img.format)
-
     return resized_image
 
 
@@ -24,9 +24,7 @@ def reduce_brightness(image, image_name, factor):
     enhancer = ImageEnhance.Brightness(img)
     new_img = enhancer.enhance(factor)
 
-    with storage.open(image_name, 'wb') as fh:
-        picture_format = 'JPEG'
-        new_img.save(fh, picture_format)
+    return new_img
 
 
 def reduce_quality(image, image_name, new_width=None, quality=75):
@@ -34,14 +32,26 @@ def reduce_quality(image, image_name, new_width=None, quality=75):
 
     # Resize the image
     if new_width is None:
-        size = img.width, image.height
-        resized_image = img.resize(size, Image.ANTIALIAS)
+        resized_image = resize_image(image, image_name, img.width, img.height)
     else:
         resized_image = resize_image(image, image_name, new_width)
 
-    with storage.open(image_name, 'wb') as fh:
-        resized_image.save(fh, format=img.format,
-                           quality=quality, optimize=True)
+    bfile = BytesIO()
+    resized_image.save(bfile, format=img.format,
+                       quality=quality, optimize=True)
+    with storage.open(image_name, 'wb') as f:
+        f.write(bfile.getvalue())
+
+
+def reduce_brightness_and_quality(image, image_name, factor, new_width=None, quality=75):
+    # resize the image
+    resized_image = resize_image(image, image_name, new_width=new_width)
+    # reduce the brightness
+    reduced_brightness_image = reduce_brightness(
+        resized_image, image_name, factor=0.3)
+    # reduce the quality
+    reduce_quality(reduced_brightness_image, image_name,
+                   new_width=new_width, quality=65)
 
 
 def create_thumbnail(image, image_name, new_width, new_height=None, quality=75):
