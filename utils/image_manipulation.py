@@ -40,12 +40,12 @@ def reduce_quality(image, image_name, new_width=None, quality=75):
         resized_image = resize_image(image, image_name, new_width)
 
     with storage.open(image_name, 'wb') as fh:
-        # new_name = fh.name.split('.')[0] + '.webp'
+        new_name = fh.name.split('.')[0] + '.webp'
 
         resized_image.save(fh, format=img.format,
                            quality=quality, optimize=True)
-        # resized_image.save(new_name, format="WEBP",
-        #                    quality=quality, optimize=True)
+        resized_image.save(new_name, format="WEBP",
+                           quality=quality, optimize=True)
 
 
 def create_thumbnail(image, image_name, new_width, new_height=None, quality=75):
@@ -62,7 +62,7 @@ def create_thumbnail(image, image_name, new_width, new_height=None, quality=75):
         webp_thumbnail = fh.name.split('.')[0] + '.thumbnail.webp'
         jpeg_thumbnail = fh.name.split('.')[0] + '.thumbnail.jpg'
 
-        # save the original 
+        # save the original
         original_image.save(fh, format=img.format)
 
         resized_image.save(webp_thumbnail, format="WEBP",
