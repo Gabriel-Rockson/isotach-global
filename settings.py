@@ -56,6 +56,7 @@ INSTALLED_APPS.extend([
     'django_extensions',
     'django_filters',
     "debug_toolbar",
+    'template_timings_panel',
 
     # Developer created apps
     "users.apps.UsersConfig",
@@ -106,4 +107,14 @@ TIME_ZONE = "Africa/Accra"
 def show_toolbar(request):
     return DEBUG
 
-DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
+# DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
+
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.profiling.ProfilingPanel',
+    'template_timings_panel.panels.TemplateTimings.TemplateTimings',
+]
