@@ -12,6 +12,7 @@ class FrequentlyAskedQuestionInline(admin.StackedInline):
     extra = 1
     min_num = 1
 
+
 class AboutSectionInline(admin.StackedInline):
     model = AboutSection
     extra = 0
@@ -37,7 +38,9 @@ class ServicesSectionInline(admin.StackedInline):
 @admin.register(HomePage)
 class HomePageAdmin(admin.ModelAdmin):
     list_display = ("name", )
-    inlines = [AboutSectionInline, ServicesSectionInline, FrequentlyAskedQuestionInline]
+    save_on_top = True
+    inlines = [AboutSectionInline, ServicesSectionInline,
+               FrequentlyAskedQuestionInline]
 
     def add_view(self, request, *args, **kwargs):
         if request.method == "POST":
