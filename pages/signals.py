@@ -16,10 +16,10 @@ def resize_and_reduce_brightness_homepage_banner_image(sender, instance, **kwarg
 @receiver(post_save, sender=AboutSection)
 def reduce_quality_about_section_featured_image(sender, instance, **kwargs):
     resize_image(
-        instance.featured_image.name, width=720, quality=85)
+        instance.featured_image.name, width=1024, quality=75)
 
 
 @receiver(post_save, sender=ServicesSection)
 def reduce_quality_services_section_featured_image(sender, instance, **kwargs):
     resize_image(
-        instance.featured_image.name, width=720, quality=85)
+        instance.featured_image.name, width=1024, quality=75)
