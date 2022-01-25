@@ -45,7 +45,9 @@
 
 
 .contact-form-input {
-  @apply border-2 border-gray-600 py-3 focus:border-pink-600 focus:outline-none w-full px-4 text-black-rich;
+  @apply border-2 border-slate-300 py-3
+  focus:border-blue-600 focus:outline-none w-full px-4 
+  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg;
 }
 
 .faq-summary {
@@ -120,7 +122,11 @@
 
 /* sections */
 .section-heading {
-  @apply mb-10 text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 border-b-2 pb-2 px-16 border-slate-900 inline-flex;
+  @apply mb-10 text-4xl lg:text-5xl font-black text-slate-900 border-b-2 pb-1 border-slate-900 inline-flex;
+}
+
+.section-heading-2 {
+  @apply mb-10 text-4xl lg:text-5xl font-black text-slate-100 border-b-2 pb-1 border-slate-100 inline-flex;
 }
 
 .section-text {
@@ -136,6 +142,10 @@
 /* Buttons */
 .red-btn-1 {
   @apply hover:bg-red-700 bg-red-600 text-white py-3 w-full;
+}
+
+.blue-btn-rounded {
+  @apply hover:bg-blue-700 bg-blue-600 text-white py-3 w-full rounded-md lg:rounded-lg;
 }
 
 /* Pagination */
