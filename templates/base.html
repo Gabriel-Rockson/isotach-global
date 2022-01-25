@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="{% static 'css/tailwind/global.css' %}" />
     <link rel="stylesheet" href="{% static 'icons/all.min.css' %}" />
+    
+    <link rel="stylesheet" href="{% static 'css/aos/aos.css' %}">
 
     <title>{% block title %}{% endblock title %}</title>
   </head>
@@ -191,7 +193,10 @@
       </div>
     </footer>
 
+    <script src="{% static 'js/aos/aos.js' %}"></script>
     <script>
+      AOS.init()
+
       // HANDLE MOBILE MENU -----------------------------------------------------------------------
       const mobile_menu_icon = document.getElementById("mobile-menu-icon");
       const mobile_menu_items = document.getElementById("mobile-menu-items");
@@ -249,6 +254,7 @@
     </script>
 
     {% block javascript %}{% endblock javascript %}
+
   </body>
 
 </html>
