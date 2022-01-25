@@ -9,8 +9,8 @@
 <div class="border-t-2 border-t-gray-400 mb-20">
   <!-- Title -->
   <div class="py-2 px-2">
-    <p class="text-gray-800 text-center text-lg font-bold">{{ apartment.title }}</p>
-    <p class="text-sm text-center py-1 text-gray-700">Posted <i class="fa-solid fa-clock"></i>
+    <p class="text-slate-900 text-center text-lg font-bold">{{ apartment.title }}</p>
+    <p class="text-sm text-center py-1 text-slate-800">Posted <i class="fa-solid fa-clock"></i>
       {{apartment.upload_time|naturaltime }}</p>
   </div>
 
@@ -21,21 +21,23 @@
 
   <div class="">
     <!-- Title, Location, Price Info -->
-    <div class="apt__info-box">
+    <div class="apt__info-box md:hidden">
       <div class="w-1/2 self-center flex">
-        <i class="fa-solid fa-map-marker-alt text-cyan-600 mr-2"></i>
-        <address class="text-gray-500 font-bold">{{ apartment.location }}</address>
+        <i class="self-center fa-solid fa-map-marker-alt text-cyan-500 mr-2 text-xl"></i>
+        <address class="self-center text-gray-900 font-bold">
+          {{ apartment.get_major_city_display }}, {{ apartment.location }}
+        </address>
       </div>
 
-      <div class="w-1/2 text-right text-gray-600 font-bold text-lg self-center">
+      <div class="w-1/2 text-right text-slate-800 font-bold text-lg self-center">
         <!-- Add tooltips so people can click and know what each amount is for -->
-        <p><span class="text-sm text-gray-400">monthly rent:</span> <br/> Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</p>
-        <p><span class="text-sm text-gray-400">total_rent:</span> <br />Ghc {{ apartment.get_total_rent_payment|intcomma }}</p>
+        <p><span class="text-sm text-slate-600">total_rent:</span> <br />Ghc {{ apartment.get_total_rent_payment|intcomma }}</p>
+        <p><span class="text-sm text-slate-600">monthly rent:</span> <br/> Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</p>
       </div>
     </div>
 
     <!-- Baths, Beds and Verified -->
-    <div class="apt__info-box justify-between">
+    <div class="apt__info-box justify-between md:hidden lg">
       <div class="text-center">
         <p class="apt__info-label-1">Beds <i class="fa-solid fa-bed text-fuchsia-600"></i></p>
         <p class="apt__info-text-1">{{ apartment.bedrooms }}</p>
@@ -60,7 +62,7 @@
 
     <!-- CTA -->
     <div class="apt__info-box">
-      <div class="w-1/2 self-center text-2xl text-gray-900 font-black">
+      <div class="w-1/2 self-center text-xl text-gray-900 font-black">
         <p>IsotachGlobal</p>
       </div>
       <div class="flex flex-col w-1/2 space-y-2">
