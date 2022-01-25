@@ -138,7 +138,7 @@
 </div>
 
 <!-- Listings -->
-<section class="px-4 mb-10">
+<section class="px-4 mb-20 min-h-screen">
 
   {% if featured_apartments %}
     <!-- Featured Listings -->
@@ -172,64 +172,59 @@
 
 </section>
 
+
 <!-- The About Us Message -->
 {% if homepage.about_section %}
 
-<section class="px-4 my-24 md:my-40" id="about-us">
-  {% get_section_featured_image homepage.about_section.first as formats %}
-  <h1 class="section-heading">{{homepage.about_section.first.name}}</h1>
-  <div class="flex flex-col lg:flex-row">
-    <picture class="w-full lg:w-1/2">
-      <source class="" srcset="{{ formats.webp }}" type="image/webp">
-      <source class="" srcset="{{ formats.jpeg }}" type="image/jpeg">
-      <img class="" src="{{ formats.jpeg }}" alt="About us featured image" />
-    </picture>
-    <div class="section-text">
-      {{ homepage.about_section.first.about_company }}</div>
+<div class="px-4 min-h-screen flex bg-slate-900 py-16" id="about-us">
+  <div class="self-center">
+    {% get_section_featured_image homepage.about_section.first as formats %}
+    <h1 class="section-heading-2">{{homepage.about_section.first.name}}</h1>
+    <div class="flex flex-col lg:flex-row">
+      <picture class="w-full lg:w-1/2">
+        <source class="" srcset="{{ formats.webp }}" type="image/webp">
+        <source class="" srcset="{{ formats.jpeg }}" type="image/jpeg">
+        <img class="" src="{{ formats.jpeg }}" alt="About us featured image" />
+      </picture>
+      <div class="section-text-2">
+        {{ homepage.about_section.first.about_company }}</div>
+    </div>
   </div>
-</section>
+</div>
 
 {% endif %}
 
 <!-- Our Services Section -->
 {% if homepage.services_section %}
 
-<section class="px-4 mb-24 md:mb-40" id="services">
-  {% get_section_featured_image homepage.services_section.first as formats %}
-  <h1 class="section-heading">{{ homepage.services_section.first.name }}</h1>
-  <div class="flex flex-col lg:flex-row-reverse">
-    <picture class="lg:w-1/2">
-      <source class="" srcset="{{ formats.webp }}" type="image/webp">
-      <source class="" srcset="{{ formats.jpeg }}" type="image/jpeg">
-      <img class="" src="{{ formats.jpeg }}" alt="Services featured image" />
-    </picture>
-    <div class="section-text">
-      {{ homepage.services_section.first.description }}</div>
+<div class="px-4 flex py-16 min-h-screen bg-slate-800" id="services">
+  <div class="self-center">
+    <h1 class="section-heading-2">Our {{ homepage.services_section.first.name }}</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {% for i in "abcd" %}
+        <div class="bg-slate-900 py-10 px-5 text-white rounded-sm md:rounded-md lg:rounded-lg">
+          <div class="flex justify-around mb-5">
+            <i class="fa-solid fa-home text-5xl bg-slate-600 p-5 rounded-2xl"></i>
+          </div>
+
+          <p class="py-2 text-slate-300 text-xl uppercase">Lorem, ipsum dolor sit amet consectetur adipi</p>
+
+          <p class="">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente sequi sit 
+            beatae molestias totam deserunt minima! Ipsam illum accusantium quaerat quisquam 
+            distinctio quidem similique, natus sunt! Dolore recusandae et odio?
+          </p>
+        </div>
+      {% endfor %}
+    </div>
   </div>
-</section>
+</div>
 
 {% endif %}
 
-
-
-<!-- Google Maps -->
-<!--
-<section class="mb-24 md:mb-40">
-  <div class="">
-    <div class="px-4"><h1 class="section-heading">Location</h1></div>
-
-    <div class="h-screen w-full">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15851.631430239197!2d-1.5656912720886256!3d6.658341372969383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdb93642c30f037%3A0x7dcf1933bac0899c!2sKotei%2C%20Kumasi!5e0!3m2!1sen!2sgh!4v1641421911100!5m2!1sen!2sgh"
-        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
--->
-
 <!-- Contact Form -->
-<section 
-    class="h-screen flex justify-around px-4 mb-24 md:mb-40 img-fluid bg-no-repeat bg-center bg-cover" 
+<div 
+    class="min-h-screen md:h-screen flex justify-around px-4 img-fluid bg-no-repeat bg-center bg-cover bg-slate-800" 
     id="contact-us" 
     style="background-image: url({% static 'img/apt-img-11.jpg' %});"
   >
@@ -281,27 +276,24 @@
     </div>
 
   </div>
-</section>
+</div>
 
 
 <!-- Freqeuntly Asked Questions -->
 {% if homepage.frequently_asked_questions %}
+<div class="px-4  flex min-h-screen bg-slate-700 py-2 justify-around" id="faq">
+  <div class="self-center">
+    <h1 class="section-heading-2">Frequently Asked Questions</h1>
 
-<section class="px-4 mb-24 md:mb-40" id="faq">
-  <h1 class="section-heading">Frequently Asked Questions</h1>
-
-  <div class="">
     {% for faq in homepage.frequently_asked_questions.all %}
-    <details class="mt-5" {% if forloop.counter0 == 0 %}open{% endif %}>
-      <summary class="faq-summary">
-        {{ faq.question }}</summary>
-      <p class="text-sm md:text-base lg:text-lg px-5 mt-1">{{faq.answer}}</p>
-    </details>
+      <details class="mt-5" {% if forloop.counter0 == 0 %}open{% endif %}>
+        <summary class="faq-summary">
+          {{ faq.question }}</summary>
+        <p class="text-sm md:text-base lg:text-lg text-slate-50 px-5 mt-1">{{faq.answer}}</p>
+      </details>
+    {% endfor %}
   </div>
-
-  {% endfor %}
-</section>
-
+</div>
 {% endif %}
 
 {% endblock content %}

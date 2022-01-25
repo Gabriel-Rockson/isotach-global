@@ -54,12 +54,30 @@
               </div>
             </a>
 
+            <a href="{% url 'pages:homepage' %}#about-us">
+              <div class="nav-link-item">
+                <div class="mobile-menu-icon-box">
+                  <i class="menu-icon fa-solid fa-phone"></i>
+                </div>
+                <span class="nav-link-label">about Us</span>
+              </div>
+            </a>
+
+            <a href="{% url 'pages:homepage' %}#services">
+              <div class="nav-link-item">
+                <div class="mobile-menu-icon-box">
+                  <i class="menu-icon fa-solid fa-phone"></i>
+                </div>
+                <span class="nav-link-label">our services</span>
+              </div>
+            </a>
+
             <a href="{% url 'pages:homepage' %}#contact-us">
               <div class="nav-link-item">
                 <div class="mobile-menu-icon-box">
                   <i class="menu-icon fa-solid fa-phone"></i>
                 </div>
-                <span class="nav-link-label">contact us</span>
+                <span class="nav-link-label">contact Us</span>
               </div>
             </a>
 
@@ -112,7 +130,7 @@
     <main>{% block content %}{% endblock content %}</main>
 
     <!-- Footer -->
-    <footer class="bg-slate-800 text-white">
+    <footer class="bg-slate-900 text-slate-100">
       <div class="flex flex-col-reverse lg:flex-row px-5 lg:px-20 py-10">
 
         <div class="flex flex-col md:flex-row lg:w-2/3 md:px-16">
@@ -142,6 +160,9 @@
 
         <div class="lg:w-1/3 md:w-full">
           <h2 class="footer-heading">Join Our Newsletter</h2>
+          <p class="text-white text-sm py-1">
+            Get notified whenever we upload new apartments
+          </p>
           <form action="post">
             <!-- TODO customize the input fields on the newletter -->
             <div class="mt-2">
@@ -153,14 +174,11 @@
                 id="email_1" />
             </div>
             <div class="mt-2">
-              <button type="submit" class="red-btn-1">
+              <button type="submit" class="blue-btn-rounded">
                 Register
               </button>
             </div>
           </form>
-          <p class="text-white text-sm py-1">
-            Get notified whenever we upload new apartments
-          </p>
         </div>
       </div>
 

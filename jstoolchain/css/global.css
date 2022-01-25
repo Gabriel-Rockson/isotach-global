@@ -51,7 +51,7 @@
 }
 
 .faq-summary {
-  @apply text-base md:text-lg lg:text-xl cursor-pointer text-slate-200 py-1 lg:py-2 px-2 md:px-4 lg:px-6 shadow-sm bg-slate-800 shadow-slate-200;
+  @apply text-base md:text-lg lg:text-xl cursor-pointer bg-slate-800 text-slate-200 py-1 lg:py-2 px-2 md:px-4 lg:px-6;
 }
 
 .footer-heading {
@@ -131,6 +131,10 @@
 
 .section-text {
   @apply lg:w-1/2 leading-6 lg:leading-7 text-base text-black-rich py-5 lg:py-0 lg:px-10 text-justify;
+}
+
+.section-text-2 {
+  @apply lg:w-1/2 leading-6 lg:leading-7 text-base text-slate-100 py-5 lg:py-0 lg:px-10 text-justify;
 }
 
 
