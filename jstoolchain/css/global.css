@@ -63,7 +63,7 @@
 }
 
 .banner-select-field {
-  @apply px-2 py-3 text-center focus:outline-none focus:outline-pink-600 bg-white text-sm sm:text-base w-full;
+  @apply px-2 py-3 text-center focus:outline-none focus:outline-blue-600 bg-white text-sm sm:text-base w-full rounded-md lg:rounded-lg;
 }
 
 .listing-container {
