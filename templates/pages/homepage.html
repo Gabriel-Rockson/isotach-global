@@ -7,6 +7,7 @@
 <!-- HomePage banner -->
 {% get_section_featured_image homepage as formats %}
 
+
 <div class="flex bg-slate-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
   style="background-image: url({% if homepage.banner_image %}{{ formats.jpeg }}{% else %}{% static 'img/apt-img-11.jpg' %}{% endif %}); height: 600px">
 
@@ -172,8 +173,6 @@
 
 </section>
 
-<section class="min-h-screen">
-
 <!-- The About Us Message -->
 {% if homepage.about_section %}
 
@@ -296,7 +295,5 @@
   </div>
 </div>
 {% endif %}
-
-</section>
 
 {% endblock content %}
