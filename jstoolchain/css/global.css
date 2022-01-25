@@ -82,12 +82,24 @@
   @apply lg:text-center text-left self-center lg:self-start font-mono lg:text-base lg:text-slate-900 text-lg font-bold text-white w-1/2 lg:w-full;
 }
 
-.filter-item-select {
+.filter-item-select-1 {
   @apply text-center py-2.5 px-1 w-1/2 lg:w-full bg-white text-slate-800 border lg:border-slate-800 focus:outline-none focus:outline-pink-600;
 }
 
-.filter-item-input {
+.filter-item-select {
+  @apply border-2 border-slate-300 py-3 bg-white
+  focus:border-blue-600 focus:outline-none w-full px-4 
+  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg focus:outline-blue-600;
+}
+
+.filter-item-input-1 {
   @apply appearance-none px-2 py-2.5 lg:py-2 w-full focus:outline-none border border-slate-800 focus:border focus:border-pink-600 focus:outline-pink-600;
+}
+
+.filter-item-input {
+  @apply border-2 border-slate-300 py-2.5
+  focus:border-blue-600 focus:outline-none w-full px-4 
+  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg focus:outline-blue-600;
 }
 
 

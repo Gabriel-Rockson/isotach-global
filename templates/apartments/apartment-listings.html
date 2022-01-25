@@ -24,14 +24,15 @@
         </address>
 
         <!-- Price, monthly -->
-        <p class="text-xl font-serif font-black pt-1 pb-0 mb-0">
+        <p class="text-lg font-serif font-black  py-5">
           <i class="fa-solid fa-money-bill-wave text-emerald-200"></i>
           <span class="mr-1 text-emerald-200">Ghc</span><span class="text-white">{{ apartment.get_monthly_rent_payment|intcomma }}</span><span
             class="ml-2 text-white">monthly</span>
+          <span class="-pt-1 text-sm text-sky-100 text-semi-bold block">
+            {{ apartment.advance_years }} year{{ apartment.advance_years|pluralize }} advance payment
+          </span>
         </p>
-        <p class="-pt-1 text-sm text-sky-100 text-semi-bold">
-          {{ apartment.advance_years }} year{{ apartment.advance_years|pluralize }} advance
-        </p>
+        
 
         <!-- Baths, beds and verified -->
         <div class="flex justify-between py-1">
