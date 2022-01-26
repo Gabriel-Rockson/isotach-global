@@ -62,8 +62,11 @@
 
     <!-- CTA -->
     <div class="apt__info-box">
-      <div class="w-1/2 self-center text-xl text-gray-900 font-black">
-        <p>IsotachGlobal</p>
+      <div class="w-1/2 self-center text-xl font-black">
+        <div class="flex flex-col">
+          <span class="text-blue-700">Isotach</span>
+          <span class="text-blue-900">Global</span>
+        </div>
       </div>
       <div class="flex flex-col w-1/2 space-y-2">
         <a href="#"
@@ -76,111 +79,113 @@
       </div>
     </div>
 
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Availability:</span>
-        {% if apartment.available %}
-        <span class="apt__info-yes">available</span>
-        {% else %}
-        <span class="apt__info-no">not available</span>
-        {% endif %}
-      </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2">
+      <div class="apt__info-box">
+        <p>
+          <span class="apt__info-label-2">Availability:</span>
+          {% if apartment.available %}
+          <span class="apt__info-yes">available</span>
+          {% else %}
+          <span class="apt__info-no">not available</span>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="apt__info-box">
+        <p>
+          <span class="apt__info-label-2">Featured Listing:</span>
+          {% if apartment.featured %}
+          <span class="apt__info-yes">yes</span>
+          {% else %}
+          <span class="apt__info-no">no</span>
+          {% endif %}
+        </p>
+      </div>
+
+      {% if apartment.for_rent %}
+        <div class="apt__info-box">
+          <p>
+            <span class="apt__info-label-2">For Rent:</span>
+            <span class="apt__info-yes">yes</span>
+          </p>
+        </div>
+      {% endif %}
+
+      {% if apartment.for_sale %}
+        <div class="apt__info-box">
+          <p>
+            <span class="apt__info-label-2">For Sale:</span>
+            <span class="apt__info-yes">yes</span>
+          </p>
+        </div>
+      {% endif %}
+
+      <div class="apt__info-box">
+        <p>
+          <span class="apt__info-label-2">Hall:</span>
+          {% if apartment.hall %}
+          <span class="apt__info-yes">yes</span>
+          {% else %}
+          <span class="apt__info-no">no</span>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="apt__info-box">
+        <p>
+          <span class="apt__info-label-2">Self Contained:</span>
+          {% if apartment.self_contained %}
+          <span class="apt__info-yes">yes</span>
+          {% else %}
+          <span class="apt__info-no">no</span>
+          {% endif %}
+        </p>
+      </div>
+
+      {% if apartment.for_rent %}
+
+        <div class="apt__info-box">
+          <p>
+            <span class="apt__info-label-2">Years in Advance Payment:</span>
+            <span class="apt__info-text-2">{{ apartment.advance_years }}</span>
+          </p>
+        </div>
+
+        <div class="apt__info-box">
+          <p>
+            <span class="apt__info-label-2">Months in Advance Payment:</span>
+            <span class="apt__info-text-2">{{ apartment.get_number_of_advance_months }}</span>
+          </p>
+        </div>
+
+        <div class="apt__info-box">
+          <p>
+            <span class="apt__info-label-2">Monthly Rent Payment:</span>
+            <span class="apt__info-text-2">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
+          </p>
+        </div>
+
+        <div class="apt__info-box">
+          <p>
+            <span class="apt__info-label-2">Total Rent Payment:</span>
+            <span class="apt__info-text-2">Ghc {{ apartment.get_total_rent_payment|intcomma }}</span>
+          </p>
+        </div>
+
+        <div class="apt__info-box md:col-span-2">
+          <p>
+            <span class="apt__info-label-2">Extra Description:</span><br /><br />
+            <span class="text-base text-slate-900 text-justify">{{ apartment.description }}</span>
+          </p>
+        </div>
+
+      {% endif %}
+    
     </div>
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Featured Listing:</span>
-        {% if apartment.featured %}
-        <span class="apt__info-yes">yes</span>
-        {% else %}
-        <span class="apt__info-no">no</span>
-        {% endif %}
-      </p>
-    </div>
-
-    {% if apartment.for_rent %}
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">For Rent:</span>
-        <span class="apt__info-yes">yes</span>
-      </p>
-    </div>
-    {% endif %}
-
-    {% if apartment.for_sale %}
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">For Sale:</span>
-        <span class="apt__info-yes">yes</span>
-      </p>
-    </div>
-    {% endif %}
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Hall:</span>
-        {% if apartment.hall %}
-        <span class="apt__info-yes">yes</span>
-        {% else %}
-        <span class="apt__info-no">no</span>
-        {% endif %}
-      </p>
-    </div>
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Self Contained:</span>
-        {% if apartment.self_contained %}
-        <span class="apt__info-yes">yes</span>
-        {% else %}
-        <span class="apt__info-no">no</span>
-        {% endif %}
-      </p>
-    </div>
-
-    {% if apartment.for_rent %}
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Years in Advance Payment:</span>
-        <span class="apt__info-text-2">{{ apartment.advance_years }}</span>
-      </p>
-    </div>
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Months in Advance Payment:</span>
-        <span class="apt__info-text-2">{{ apartment.get_number_of_advance_months }}</span>
-      </p>
-    </div>
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Monthly Rent Payment:</span>
-        <span class="apt__info-text-2">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
-      </p>
-    </div>
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Total Rent Payment:</span>
-        <span class="apt__info-text-2">Ghc {{ apartment.get_total_rent_payment|intcomma }}</span>
-      </p>
-    </div>
-
-    <div class="apt__info-box">
-      <p>
-        <span class="apt__info-label-2">Extra Description:</span><br /><br />
-        <span class="text-base text-gray-800 text-justify">{{ apartment.description }}</span>
-      </p>
-    </div>
-
-
-    {% endif %}
 
     <!-- Agent's Details -->
-    <div class="my-5">
-      <h1 class="text-center text-purple-800 text-xl py-3 font-bold">Agent's Info</h1>
+    <div class="my-10 md:my-16">
+      <h1 class="text-center text-black-rich uppercase text-xl py-3 font-bold">Agent's Info</h1>
 
       <div class="border-t border-t-gray-500 apt__info-box">
         <p>
@@ -227,10 +232,10 @@
     </div>
 
     <!-- Fees and Commissions -->
-    <div>
-      <h1 class="text-center text-purple-800 text-xl py-3 font-bold">Fees and Commissions</h1>
+    <div class="my-10 md:my-16">
+      <h1 class="text-center text-black-rich uppercase text-xl py-3 font-bold">Fees and Commissions</h1>
 
-      <div class="border-t border-t-gray-500 apt__info-box">
+      <div class="border-t border-t-slate-300 apt__info-box">
         <p>
           <span class="apt__info-label-2">Inspection Fee:</span>
           <span class="apt__info-text-2">Ghc {{ apartment.get_inspection_fee|intcomma }}</span>
