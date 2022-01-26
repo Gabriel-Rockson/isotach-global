@@ -213,8 +213,8 @@
         mobile_menu_items.classList.toggle("mobile-menu");
       }
 
+      const window_width = window.innerWidth;
       function handleResizeMobile(e) {
-        const window_width = window.innerWidth;
 
         if (window_width > 767) {
           mobile_menu_items.classList.add("hidden");
@@ -241,7 +241,6 @@
       }
 
       function handleResizeTablet(e) {
-        const window_width = window.innerWidth;
 
         if (window_width <= 767 || window_width >= 1024) {
           tablet_menu_items.classList.add("md:hidden");
@@ -251,8 +250,10 @@
 
       // Close the menu when nav link items are clicked
       const nav_link_items = document.getElementsByClassName("nav-link-item");
-      for (link of nav_link_items) {
-        link.addEventListener("click", showMobileMenuItems)
+      if (window_width <= 767) {
+        for (link of nav_link_items) {
+          link.addEventListener("click", showMobileMenuItems)
+        }
       }
 
       tablet_menu_icon.addEventListener("click", showTabletMenuItems);
