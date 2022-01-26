@@ -249,6 +249,12 @@
         }
       }
 
+      // Close the menu when nav link items are clicked
+      const nav_link_items = document.getElementsByClassName("nav-link-item");
+      for (link of nav_link_items) {
+        link.addEventListener("click", showMobileMenuItems)
+      }
+
       tablet_menu_icon.addEventListener("click", showTabletMenuItems);
       window.addEventListener("resize", handleResizeTablet);
     </script>
