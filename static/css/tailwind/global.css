@@ -2203,6 +2203,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
   }
 
+  .lg\:self-center {
+    align-self: center;
+  }
+
   .lg\:rounded-lg {
     border-radius: 0.5rem;
   }
@@ -2234,6 +2238,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:py-2 {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+  }
+
+  .lg\:py-0 {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   .lg\:text-left {
