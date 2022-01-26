@@ -14,7 +14,7 @@
     <div id="filter-box" class="">
       <div
         id="filter-form-container"
-        class="hidden z-50 lg:block bg-black-rich lg:bg-slate-200 h-screen lg:h-full w-full sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0 lg:py-2 overflow-y-auto"
+        class="hidden z-50 lg:block bg-black-rich lg:bg-slate-200 h-screen lg:h-full w-full sm:w-3/5 md:w-1/2 lg:w-full fixed top-0 right-0 lg:relative px-4 lg:px-0 lg:py-2 overflow-y-scroll pb-10"
       >
         <div
           class="flex lg:hidden justify-between py-4 mb-5 border-b-2 border-gray-200"
@@ -29,7 +29,7 @@
         </div>
 
         {% with filter.form as form %}
-          <form method="get" action="#" class="lg:flex lg:flex-col lg:mt-5 ">
+          <form method="get" action="#" class="px-2 lg:flex lg:flex-col lg:mt-5 ">
 
             <div
               class="space-y-4 lg:space-y-0 lg:space-x-2 flex flex-col lg:flex-row">
