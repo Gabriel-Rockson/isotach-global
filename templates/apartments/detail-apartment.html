@@ -6,12 +6,77 @@
 
 {% block content %}
 
-<div class="border-t-2 border-t-gray-400 mb-20">
-  <!-- Title -->
-  <div class="py-2 px-2">
-    <p class="text-slate-900 text-center text-lg font-bold">{{ apartment.title }}</p>
-    <p class="text-sm text-center py-1 text-slate-800">Posted <i class="fa-solid fa-clock"></i>
-      {{apartment.upload_time|naturaltime }}</p>
+<div class="border-t-2 border-t-slate-200 mb-20">
+  <div class="py-5 px-2 md:px-10">
+    <!-- Title -->
+    <div class="">
+      <p class="text-slate-900 text-center md:text-left text-lg font-bold">{{ apartment.title }}</p>
+      <p class="text-sm text-center md:text-left py-1 text-slate-800 md:hidden">Posted: <i class="fa-solid fa-clock"></i>
+        {{apartment.upload_time|naturaltime }}</p>
+    </div>
+
+    <!-- Location, Price Info -->
+    <div class="hidden md:flex justify-between space-x-10 py-2">
+      <div class="self-center flex">
+        <i class="self-center fa-solid fa-map-marker-alt text-cyan-500 mr-2 text-xl"></i>
+        <address class="self-center text-gray-900 font-bold">
+          {{ apartment.get_major_city_display }}, {{ apartment.location }}
+        </address>
+      </div>
+
+      <div class="text-right text-slate-800 self-center flex md:hidden">
+        <!-- Add tooltips so people can click and know what each amount is for -->
+        <p class="flex">
+          <span class="self-center mr-1 text-sm text-slate-800">Total Rent:</span> 
+          <span class="self-center font-semibold">Ghc {{ apartment.get_total_rent_payment|intcomma }}</span>
+        </p>
+      </div>
+
+      <div class="flex">
+        <p class="flex">
+          <span class="self-center mr-1 text-sm text-slate-800">Monthly Rent:</span>
+          <span class="self-center font-semibold">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
+        </p>
+      </div>
+
+      <div>
+        <p class="flex">
+          <a href="#"
+            class="px-2 w-full text-center py-2 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">
+            Schedule Meeting
+          </a>
+        </p>
+      </div>
+    </div>
+
+    <!-- Baths, Beds and Verified -->
+    <div class="hidden md:flex space-x-10">
+      <div class="text-center flex space-x-2">
+        <p class="self-center apt__info-label-2">Beds:</p>
+        <p class="self-center apt__info-text-1">{{ apartment.bedrooms }}</p>
+      </div>
+
+      <div class="text-center flex space-x-2">
+        <p class="self-center apt__info-label-2">Baths:</p>
+        <p class="self-center apt__info-text-1">{{ apartment.baths }}</p>
+      </div>
+
+      <div class="text-center flex space-x-2">
+        <p class="self-center apt__info-label-2">Verified:</p>
+        <p class="self-center">
+          {% if apartment.verified %}
+          <i class="fa-solid fa-check-double text-green-600 text-xl"></i>
+          {% else %}
+          <i class="fa-solid fa-times text-red-600 text-xl"></i>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="flex space-x-2">
+        <p class="self-center apt__info-label-2">Posted:</p>
+        <p class="self-center"><i class="fa-solid fa-clock"></i> {{apartment.upload_time|naturaltime }}</p>
+      </div>
+    </div>
   </div>
 
   <!-- Create a carousel of the images, on click, user can view the full image -->
@@ -19,8 +84,8 @@
     <img class="h-72 md:h-96 w-full" src="{{ apartment.images.first.image.url }}" alt="{{ apartment.title }} Image">
   </div>
 
-  <div class="">
-    <!-- Title, Location, Price Info -->
+  <div class="md:px-10">
+    <!-- Location, Price Info -->
     <div class="apt__info-box md:hidden">
       <div class="w-1/2 self-center flex">
         <i class="self-center fa-solid fa-map-marker-alt text-cyan-500 mr-2 text-xl"></i>
@@ -31,8 +96,8 @@
 
       <div class="w-1/2 text-right text-slate-800 font-bold text-lg self-center">
         <!-- Add tooltips so people can click and know what each amount is for -->
-        <p><span class="text-sm text-slate-600">total_rent:</span> <br />Ghc {{ apartment.get_total_rent_payment|intcomma }}</p>
-        <p><span class="text-sm text-slate-600">monthly rent:</span> <br/> Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</p>
+        <p><span class="text-sm text-slate-700">Total Rent:</span> <br />Ghc {{ apartment.get_total_rent_payment|intcomma }}</p>
+        <p><span class="text-sm text-slate-700">Monthly Rent:</span> <br/> Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</p>
       </div>
     </div>
 
@@ -198,7 +263,7 @@
         <p class="flex space-x-8">
           <span class="apt__info-label-2 self-center">Photo:</span>
           <span class="">
-            <img class="shadow-sm shadow-gray-700" src="{{ apartment.agent.picture.url }}"
+            <img class="" src="{{ apartment.agent.picture.url }}"
               style="width: 250px; height:250px;" alt="{{ apartment.agent.full_name }}'s Picture" />
           </span>
         </p>
