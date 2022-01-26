@@ -35,7 +35,7 @@
       <div class="flex">
         <p class="flex">
           <span class="self-center mr-1 text-sm text-slate-800">Monthly Rent:</span>
-          <span class="self-center font-semibold">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
+          <span class="self-center font-semibold lg:text-3xl font-serif">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
         </p>
       </div>
 
@@ -144,7 +144,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
       <div class="apt__info-box">
         <p>
           <span class="apt__info-label-2">Availability:</span>
@@ -218,26 +218,26 @@
 
         <div class="apt__info-box">
           <p>
-            <span class="apt__info-label-2">Months in Advance Payment:</span>
+            <span class="apt__info-label-2">Months in Advance Payment:</span><br class="hidden lg:block xl:hidden"/>
             <span class="apt__info-text-2">{{ apartment.get_number_of_advance_months }}</span>
           </p>
         </div>
 
         <div class="apt__info-box">
           <p>
-            <span class="apt__info-label-2">Monthly Rent Payment:</span>
+            <span class="apt__info-label-2">Monthly Rent Payment:</span><br class="hidden lg:block xl:hidden"/>
             <span class="apt__info-text-2">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
           </p>
         </div>
 
         <div class="apt__info-box">
           <p>
-            <span class="apt__info-label-2">Total Rent Payment:</span>
+            <span class="apt__info-label-2">Total Rent Payment:</span><br class="hidden lg:block xl:hidden"/>
             <span class="apt__info-text-2">Ghc {{ apartment.get_total_rent_payment|intcomma }}</span>
           </p>
         </div>
 
-        <div class="apt__info-box md:col-span-2">
+        <div class="apt__info-box md:col-span-2 lg:col-span-3">
           <p>
             <span class="apt__info-label-2">Extra Description:</span><br /><br />
             <span class="text-base text-slate-900 text-justify">{{ apartment.description }}</span>
@@ -250,7 +250,7 @@
 
     <!-- Agent's Details -->
     <div class="my-10 md:my-16">
-      <h1 class="text-center text-black-rich uppercase text-xl py-3 font-bold">Agent's Info</h1>
+      <h1 class="text-center lg:text-left text-black-rich uppercase text-xl py-3 font-bold">Agent's Info</h1>
 
       <div class="border-t border-t-gray-500 apt__info-box">
         <p>
@@ -298,7 +298,7 @@
 
     <!-- Fees and Commissions -->
     <div class="my-10 md:my-16">
-      <h1 class="text-center text-black-rich uppercase text-xl py-3 font-bold">Fees and Commissions</h1>
+      <h1 class="text-center lg:text-left text-black-rich uppercase text-xl py-3 font-bold">Fees and Commissions</h1>
 
       <div class="border-t border-t-slate-300 apt__info-box">
         <p>
