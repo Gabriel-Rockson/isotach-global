@@ -125,11 +125,11 @@
 }
 
 .apt__info-yes {
-  @apply px-2 py-1 font-bold text-green-800 bg-green-200 rounded-md;
+  @apply px-2 py-1 font-bold text-green-800 bg-green-300 rounded-md;
 }
 
 .apt__info-no {
-  @apply px-2 py-1 font-bold text-red-800 bg-red-200 rounded-md;
+  @apply px-2 py-1 font-bold text-red-800 bg-red-300 rounded-md;
 }
 
 /* sections */
