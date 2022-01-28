@@ -176,7 +176,7 @@
 <!-- The About Us Message -->
 {% if homepage.about_section %}
 
-<div class="px-4 min-h-screen flex bg-slate-900 py-16" id="about-us" data-aos="fade-right" data-aos-duration="1000">
+<div class="px-4 min-h-screen flex bg-slate-900 py-16" id="about-us" data-aos="" data-aos-duration="1000">
   <div class="self-center">
     {% get_section_featured_image homepage.about_section.first as formats %}
     <h1 class="section-heading-2">{{homepage.about_section.first.name}}</h1>
@@ -200,7 +200,7 @@
 <section 
   class="px-4 flex py-16 min-h-screen bg-slate-800" 
   id="services" 
-  data-aos="fade" 
+  data-aos="" 
   data-aos-duration="1500"
 >
   <div class="self-center">
@@ -233,7 +233,7 @@
     class="min-h-screen md:h-screen flex justify-around px-4 img-fluid bg-no-repeat bg-center bg-cover bg-slate-800" 
     id="contact-us" 
     style="background-image: url({% static 'img/apt-img-11.jpg' %});"
-    data-aos="fade-right"
+    data-aos=""
     data-aos-duration="1300"
   >
   <div class="self-center">
@@ -292,7 +292,7 @@
 <section 
   class="px-4 py-16 flex min-h-screen bg-slate-700 justify-around" 
   id="faq" 
-  data-aos="fade-right" 
+  data-aos="" 
   data-aos-duration="1300">
   <div class="self-center">
     <h1 class="section-heading-2">Frequently Asked Questions</h1>
@@ -311,3 +311,4 @@
 {% endblock content %}
 
 {% comment %} BUG animate on scroll doesn't work well with in file links html {% endcomment %}
+{% comment %} TODO fix the x overflow {% endcomment %}
