@@ -172,3 +172,12 @@
 .top-pagination-link {
   @apply px-2 py-1 text-white bg-blue-600 hover:bg-blue-700 md:rounded-md lg:rounded-lg;
 }
+
+/* Detail Page */
+.dot {
+  @apply self-center w-5 h-5 bg-slate-600 hover:bg-yellow-500 rounded-full inline-block cursor-pointer;
+}
+
+.dot-active {
+  @apply self-center w-5 h-5 bg-white hover:bg-yellow-500 rounded-full inline-block cursor-pointer;
+}

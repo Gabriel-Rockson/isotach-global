@@ -18,7 +18,7 @@ function displayImg(image_no) {
   }
 
   for (let i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "")
+    dots[i].classList.replace("dot-active", "dot")
   }
 
   if (image_no > images.length) {
@@ -30,5 +30,5 @@ function displayImg(image_no) {
   }
 
   images[current_img - 1].style.display = 'block'
-  dots[current_img - 1].className += ' active'
+  dots[current_img - 1].className += ' dot-active'
 }
