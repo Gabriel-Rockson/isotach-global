@@ -2,7 +2,7 @@
 
 <div class="listing-container">
   {% for apartment in apartments %}
-  <a href="{{ apartment.get_absolute_url }}" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="800">
+  <a href="{{ apartment.get_absolute_url }}" data-aos="zoom-in" data-aos-duration="500">
     <div class="apartment-card">
       <!-- The apartment image -->
 
@@ -39,7 +39,7 @@
           <div class="self-center text-gray-100">
             <span class="font-bold text-lg">{{ apartment.bedrooms }}</span>
             <span class="text-slate-100">bed{{ apartment.bedrooms|pluralize }}</span>
-            <i class="fa-solid fa-bed text-fuchsia-600"></i>
+            <i class="fa-solid fa-bed text-sky-500"></i>
           </div>
           <div class="self-center text-white">
             <span class="font-bold text-lg">{{ apartment.baths }}</span>
