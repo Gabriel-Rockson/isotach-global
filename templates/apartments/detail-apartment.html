@@ -108,7 +108,7 @@
         >&#10095;</a>
     </div>
 
-    <div class="dots flex space-x-2 text-center absolute bottom-0 bg-black-rich bg-opacity-80 px-2 py-3 h-8">
+    <div class="dots flex flex-wrap space-x-2 text-center absolute top-0 bg-black-rich bg-opacity-80 px-2 py-3 h-8">
       {% for apartment_image in apartment.images.all %}
         <div class="dot" onclick="currentSlide({{ forloop.counter }})"></div>
       {% endfor %}

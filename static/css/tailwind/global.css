@@ -426,9 +426,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-0 {
   left: 0px;
 }
-.bottom-0 {
-  bottom: 0px;
-}
 .z-50 {
   z-index: 50;
 }
@@ -527,6 +524,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .flex-col-reverse {
   flex-direction: column-reverse;
+}
+.flex-wrap {
+  flex-wrap: wrap;
 }
 .justify-between {
   justify-content: space-between;
@@ -1903,7 +1903,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .slide-container {
   position: relative;
   margin: auto;
-  height: 50vh;
+  height: 60vh;
   width: 100%;
 }
 
@@ -1942,7 +1942,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .slide-img {
-  height: 50vh;
+  height: 60vh;
   width: 100%;
   overflow: hidden;
   -o-object-fit: contain;

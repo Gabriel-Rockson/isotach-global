@@ -183,7 +183,7 @@
 }
 
 .slide-container {
-  @apply relative w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh m-auto;
+  @apply relative w-full h-60vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh m-auto;
 }
 
 .slide {
@@ -191,7 +191,7 @@
 }
 
 .slide-img {
-  @apply w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-contain overflow-hidden;
+  @apply w-full h-60vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-contain overflow-hidden;
 }
 
 .prev-next-btn {
