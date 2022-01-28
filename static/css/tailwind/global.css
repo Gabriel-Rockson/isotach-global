@@ -896,17 +896,23 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .text-green-600 {
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 .text-slate-700 {
   --tw-text-opacity: 1;
 =======
+=======
+>>>>>>> Stashed changes
   --tw-text-opacity: 1;
   color: rgb(22 163 74 / var(--tw-text-opacity));
 }
 .text-slate-700 {
   --tw-text-opacity: 1;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
   color: rgb(51 65 85 / var(--tw-text-opacity));
 }
@@ -927,10 +933,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(248 250 252 / var(--tw-text-opacity));
 }
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 .text-sky-600 {
   --tw-text-opacity: 1;
   color: rgb(2 132 199 / var(--tw-text-opacity));
 }
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 .shadow-slate-400 {
