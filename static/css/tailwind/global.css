@@ -414,9 +414,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .absolute {
   position: absolute;
 }
-.relative {
-  position: relative;
-}
 .top-0 {
   top: 0px;
 }
@@ -438,16 +435,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .z-10 {
   z-index: 10;
 }
-.m-auto {
-  margin: auto;
-}
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-}
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 .mb-5 {
   margin-bottom: 1.25rem;
@@ -506,12 +496,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-72 {
   height: 18rem;
 }
-.h-50vh {
-  height: 50vh;
-}
-.h-10 {
-  height: 2.5rem;
-}
 .h-8 {
   height: 2rem;
 }
@@ -523,9 +507,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-1\/2 {
   width: 50%;
-}
-.w-10 {
-  width: 2.5rem;
 }
 .cursor-pointer {
   cursor: pointer;
@@ -609,9 +590,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .self-center {
   align-self: center;
 }
-.overflow-hidden {
-  overflow: hidden;
-}
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -627,11 +605,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-md {
   border-radius: 0.375rem;
 }
-.rounded-2xl {
-  border-radius: 1rem;
-}
 .rounded-sm {
   border-radius: 0.125rem;
+}
+.rounded-2xl {
+  border-radius: 1rem;
 }
 .border-b {
   border-bottom-width: 1px;
@@ -713,8 +691,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(51 65 85 / var(--tw-bg-opacity));
 }
-.bg-opacity-70 {
-  --tw-bg-opacity: 0.7;
+.bg-opacity-60 {
+  --tw-bg-opacity: 0.6;
+}
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
 }
 .bg-cover {
   background-size: cover;
@@ -724,10 +705,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .bg-no-repeat {
   background-repeat: no-repeat;
-}
-.object-fill {
-  -o-object-fit: fill;
-     object-fit: fill;
 }
 .p-5 {
   padding: 1.25rem;
@@ -790,9 +767,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-justify {
   text-align: justify;
 }
-.align-middle {
-  vertical-align: middle;
-}
 .font-serif {
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
 }
@@ -841,9 +815,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .uppercase {
   text-transform: uppercase;
-}
-.leading-10 {
-  line-height: 2.5rem;
 }
 .text-blue-700 {
   --tw-text-opacity: 1;
@@ -1900,7 +1871,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
-/* Detail Page */
+/* Detail Page Slider */
 .dot {
   display: inline-block;
   height: 1.25rem;
@@ -1930,6 +1901,105 @@ Ensure the default browser behavior of the `hidden` attribute.
 .dot-active:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
+}
+
+.slide-container {
+  position: relative;
+  margin: auto;
+  height: 50vh;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+
+  .slide-container {
+    height: 60vh;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .slide-container {
+    height: 60vh;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .slide-container {
+    height: 70vh;
+  }
+}
+
+@media (min-width: 1536px) {
+
+  .slide-container {
+    height: 80vh;
+  }
+}
+
+.slide {
+  display: none;
+}
+
+.slide-img {
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+@media (min-width: 768px) {
+
+  .slide-img {
+    height: 60vh;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  .slide-img {
+    height: 60vh;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .slide-img {
+    height: 70vh;
+  }
+}
+
+@media (min-width: 1536px) {
+
+  .slide-img {
+    height: 80vh;
+  }
+}
+
+.prev-next-btn {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  height: 2.5rem;
+  width: 2.5rem;
+  cursor: pointer;
+  border-radius: 0.75rem;
+  background-color: rgb(11 9 10 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.6;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.125rem;
+  line-height: 2.5rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 1024px) {
+
+  .prev-next-btn {
+    --tw-bg-opacity: 0.9;
+  }
 }
 
 .hover\:bg-blue-700:hover {
@@ -2015,10 +2085,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:h-96 {
     height: 24rem;
-  }
-
-  .md\:h-60vh {
-    height: 60vh;
   }
 
   .md\:h-screen {
@@ -2164,10 +2230,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:h-full {
     height: 100%;
-  }
-
-  .lg\:h-60vh {
-    height: 60vh;
   }
 
   .lg\:w-2\/3 {
@@ -2325,10 +2387,6 @@ Ensure the default browser behavior of the `hidden` attribute.
     display: none;
   }
 
-  .xl\:h-70vh {
-    height: 70vh;
-  }
-
   .xl\:w-4\/5 {
     width: 80%;
   }
@@ -2344,10 +2402,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 @media (min-width: 1536px) {
-
-  .\32xl\:h-80vh {
-    height: 80vh;
-  }
 
   .\32xl\:w-3\/5 {
     width: 60%;

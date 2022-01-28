@@ -87,56 +87,56 @@
   {% comment %} <div class="w-full h-72 md:h-96">
     <img class="h-72 md:h-96 w-full" src="{{ apartment.images.first.image.url }}" alt="{{ apartment.title }} Image">
   </div> {% endcomment %}
-  <div class="slide-container relative w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh m-auto">
-    <div class="slide hidden">
+  <div class="slide-container">
+    <div class="slide">
       <img 
-          class="w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden" 
+          class="slide-img" 
           src="{% static 'img/slide-show/apt-img-22.jpg' %}" alt=""
         >
     </div>
-    <div class="slide hidden">
+    <div class="slide">
       <img 
-          class="w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden" 
+          class="slide-img" 
           src="{% static 'img/slide-show/apt-img-24.jpg' %}" alt=""
         >
     </div>
-    <div class="slide hidden">
+    <div class="slide">
       <img 
-          class="w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden" 
+          class="slide-img" 
           src="{% static 'img/slide-show/apt-img-25.jpg' %}" alt=""
         >
     </div>
-    <div class="slide hidden">
+    <div class="slide">
       <img 
-          class="w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden" 
+          class="slide-img" 
           src="{% static 'img/slide-show/apt-img-26.jpg' %}" alt=""
         >
     </div>
-    <div class="slide hidden">
+    <div class="slide">
       <img 
-          class="w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden" 
+          class="slide-img" 
           src="{% static 'img/slide-show/apt-img-28.jpg' %}" alt=""
         >
     </div>
-    <div class="slide hidden">
+    <div class="slide">
       <img 
-          class="w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden" 
+          class="slide-img" 
           src="{% static 'img/slide-show/apt-img-38.jpg' %}" alt=""
         >
     </div>
 
     <div class="button absolute top-1/2 left-0 flex w-full justify-between z-10">
       <a 
-        class="prev h-10 leading w-10 mx-2 align-middle leading-10 text-lg bg-opacity-70 rounded-2xl text-center text-white bg-black-rich cursor-pointer" 
+        class="prev prev-next-btn" 
         onclick="nextImg(-1)" 
         >&#10094;</a>
       <a 
-        class="next h-10 leading w-10 mx-2 align-middle leading-10 text-lg bg-opacity-70 rounded-2xl text-center text-white bg-black-rich cursor-pointer" 
+        class="next prev-next-btn" 
         onclick="nextImg(1)"
         >&#10095;</a>
     </div>
 
-    <div class="dots flex space-x-2 text-center absolute bottom-0 bg-black-rich px-2 py-3 h-8">
+    <div class="dots flex space-x-2 text-center absolute bottom-0 bg-black-rich bg-opacity-80 px-2 py-3 h-8">
       <div class="dot dot-active" onclick="currentSlide(1)"></div>
       <div class="dot" onclick="currentSlide(2)"></div>
       <div class="dot" onclick="currentSlide(3)"></div>
