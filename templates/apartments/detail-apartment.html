@@ -88,42 +88,14 @@
     <img class="h-72 md:h-96 w-full" src="{{ apartment.images.first.image.url }}" alt="{{ apartment.title }} Image">
   </div> {% endcomment %}
   <div class="slide-container">
+    {% for apartment_image in apartment.images.all %}
     <div class="slide">
       <img 
           class="slide-img" 
-          src="{% static 'img/slide-show/apt-img-22.jpg' %}" alt=""
+          src="{{ apartment_image.image.url }}" alt=""
         >
     </div>
-    <div class="slide">
-      <img 
-          class="slide-img" 
-          src="{% static 'img/slide-show/apt-img-24.jpg' %}" alt=""
-        >
-    </div>
-    <div class="slide">
-      <img 
-          class="slide-img" 
-          src="{% static 'img/slide-show/apt-img-25.jpg' %}" alt=""
-        >
-    </div>
-    <div class="slide">
-      <img 
-          class="slide-img" 
-          src="{% static 'img/slide-show/apt-img-26.jpg' %}" alt=""
-        >
-    </div>
-    <div class="slide">
-      <img 
-          class="slide-img" 
-          src="{% static 'img/slide-show/apt-img-28.jpg' %}" alt=""
-        >
-    </div>
-    <div class="slide">
-      <img 
-          class="slide-img" 
-          src="{% static 'img/slide-show/apt-img-38.jpg' %}" alt=""
-        >
-    </div>
+    {% endfor %}
 
     <div class="button absolute top-1/2 left-0 flex w-full justify-between z-10">
       <a 
@@ -137,12 +109,9 @@
     </div>
 
     <div class="dots flex space-x-2 text-center absolute bottom-0 bg-black-rich bg-opacity-80 px-2 py-3 h-8">
-      <div class="dot dot-active" onclick="currentSlide(1)"></div>
-      <div class="dot" onclick="currentSlide(2)"></div>
-      <div class="dot" onclick="currentSlide(3)"></div>
-      <div class="dot" onclick="currentSlide(4)"></div>
-      <div class="dot" onclick="currentSlide(5)"></div>
-      <div class="dot" onclick="currentSlide(6)"></div>
+      {% for apartment_image in apartment.images.all %}
+        <div class="dot" onclick="currentSlide({{ forloop.counter }})"></div>
+      {% endfor %}
     </div>
   </div>
 

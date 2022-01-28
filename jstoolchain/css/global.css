@@ -195,5 +195,5 @@
 }
 
 .prev-next-btn {
-  @apply h-10 w-10 mx-2 align-middle leading-10 text-lg bg-opacity-60 lg:bg-opacity-90 rounded-xl text-center text-white bg-green-600 cursor-pointer;
+  @apply h-10 w-10 mx-2 align-middle leading-10 text-lg bg-opacity-60 lg:bg-opacity-90 rounded-xl text-center text-white bg-black-rich lg:bg-green-600 cursor-pointer;
 }
