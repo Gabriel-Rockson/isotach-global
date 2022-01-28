@@ -176,7 +176,12 @@
 <!-- The About Us Message -->
 {% if homepage.about_section %}
 
-<div class="px-4 min-h-screen flex bg-slate-900 py-16" id="about-us" data-aos="fade-right" data-aos-duration="1000">
+<div 
+    class="px-4 min-h-screen flex bg-slate-900 py-16" 
+    id="about-us" 
+    data-aos="fade" 
+    data-aos-duration="1000"
+  >
   <div class="self-center">
     {% get_section_featured_image homepage.about_section.first as formats %}
     <h1 class="section-heading-2">{{homepage.about_section.first.name}}</h1>
@@ -195,7 +200,7 @@
 {% endif %}
 
 <!-- Our Services Section -->
-{% if homepage.services_section %}
+{% if homepage.services %}
 
 <section 
   class="px-4 flex py-16 min-h-screen bg-slate-800" 
@@ -204,26 +209,22 @@
   data-aos-duration="1500"
 >
   <div class="self-center">
-    <h1 class="section-heading-2">Our {{ homepage.services_section.first.name }}</h1>
+    <h1 class="section-heading-2">Our Services</h1>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-      {% for i in "abcd" %}
+      {% for service in homepage.services.all %}
         <div 
           class="bg-slate-900 py-10 px-5 text-white rounded-sm md:rounded-md lg:rounded-lg" 
-          data-aos="flip-up" 
-          data-aos-delay="1000" 
+          data-aos="flip-right" 
+          data-aos-delay="800" 
           data-aos-duration="500"
         >
           <div class="flex justify-around mb-5">
             <i class="fa-solid fa-home text-5xl bg-slate-600 p-5 rounded-2xl"></i>
           </div>
 
-          <p class="py-2 text-slate-300 text-xl uppercase">Lorem, ipsum dolor sit amet consectetur adipi</p>
+          <p class="py-2 text-slate-300 text-xl uppercase">{{ service.name }}</p>
 
-          <p class="">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente sequi sit 
-            beatae molestias totam deserunt minima! Ipsam illum accusantium quaerat quisquam 
-            distinctio quidem similique, natus sunt! Dolore recusandae et odio?
-          </p>
+          <p class="">{{ service.description }}</p>
         </div>
       {% endfor %}
     </div>
@@ -237,7 +238,7 @@
     class="min-h-screen md:h-screen flex justify-around px-4 img-fluid bg-no-repeat bg-center bg-cover bg-slate-800" 
     id="contact-us" 
     style="background-image: url({% static 'img/apt-img-11.jpg' %});"
-    data-aos="fade-right"
+    data-aos="fade"
     data-aos-duration="1300"
   >
   <div class="self-center">
@@ -296,7 +297,7 @@
 <section 
   class="px-4 py-16 flex min-h-screen bg-slate-700 justify-around" 
   id="faq" 
-  data-aos="fade-right" 
+  data-aos="fade" 
   data-aos-duration="1300">
   <div class="self-center">
     <h1 class="section-heading-2">Frequently Asked Questions</h1>
@@ -315,3 +316,4 @@
 {% endblock content %}
 
 {% comment %} BUG animate on scroll doesn't work well with in file links html {% endcomment %}
+{% comment %} TODO fix the x overflow {% endcomment %}
