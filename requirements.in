@@ -18,3 +18,4 @@ django-phonenumber-field[phonenumberslite]==6.0.0
 django-filter==21.1 
 django-debug-toolbar==3.2.4
 django-debug-toolbar-template-timings==0.9 
+celery==5.2.3 
