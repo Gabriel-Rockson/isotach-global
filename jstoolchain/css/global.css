@@ -187,13 +187,13 @@
 }
 
 .slide {
-  @apply hidden;
+  @apply hidden bg-black-rich;
 }
 
 .slide-img {
-  @apply w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-fill overflow-hidden;
+  @apply w-full h-50vh md:h-60vh lg:h-60vh xl:h-70vh 2xl:h-80vh object-contain overflow-hidden;
 }
 
 .prev-next-btn {
-  @apply h-10 w-10 mx-2 align-middle leading-10 text-lg bg-opacity-60 lg:bg-opacity-90 rounded-xl text-center text-white bg-black-rich cursor-pointer;
+  @apply h-10 w-10 mx-2 align-middle leading-10 text-lg bg-opacity-60 lg:bg-opacity-90 rounded-xl text-center text-white bg-green-600 cursor-pointer;
 }
