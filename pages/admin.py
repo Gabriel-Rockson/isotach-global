@@ -3,14 +3,13 @@ from django.core.exceptions import ValidationError
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
-from .models import (AboutSection, FrequentlyAskedQuestion, HomePage, Service,
-                     ServicesSection)
+from .models import AboutSection, FrequentlyAskedQuestion, HomePage, Service
 
 
 class FrequentlyAskedQuestionInline(admin.StackedInline):
     model = FrequentlyAskedQuestion
-    extra = 1
     min_num = 1
+    extra = 0
 
 
 class AboutSectionInline(admin.StackedInline):
@@ -22,25 +21,16 @@ class AboutSectionInline(admin.StackedInline):
 
 class ServiceInline(admin.StackedInline):
     model = Service
-    extra = 1
     min_num = 1
-    max_num = 4
-
-
-class ServicesSectionInline(admin.StackedInline):
-    model = ServicesSection
     extra = 0
-    min_num = 1
-    max_num = 1
-    # TODO find a way to add inlines to this inline
+    max_num = 4
 
 
 @admin.register(HomePage)
 class HomePageAdmin(admin.ModelAdmin):
-    list_display = ("name", )
+    list_display = ("name",)
     save_on_top = True
-    inlines = [AboutSectionInline, ServicesSectionInline,
-               FrequentlyAskedQuestionInline]
+    inlines = [AboutSectionInline, ServiceInline, FrequentlyAskedQuestionInline]
 
     def add_view(self, request, *args, **kwargs):
         if request.method == "POST":
