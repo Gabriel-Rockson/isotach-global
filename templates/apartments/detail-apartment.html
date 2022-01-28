@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% load static humanize %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{%static 'css/custom/slide-show.css' %}">
+{% endblock extra_css %}
+
 {% block title %}{{ apartment.title }}{% endblock title %}
 
 
 {% block content %}
 
 <div class="border-t-2 border-t-slate-200 mb-20">
-  <div class="py-5 px-2 md:px-10">
+  <div class="py-3 px-2 md:px-10">
     <!-- Title -->
     <div class="">
       <p class="text-slate-900 text-center md:text-left text-lg font-bold">{{ apartment.title }}</p>
@@ -35,14 +39,14 @@
       <div class="flex">
         <p class="flex">
           <span class="self-center mr-1 text-sm text-slate-800">Monthly Rent:</span>
-          <span class="self-center font-semibold lg:text-3xl font-serif">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
+          <span class="self-center font-semibold lg:text-2xl font-serif">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
         </p>
       </div>
 
       <div>
         <p class="flex">
           <a href="#"
-            class="px-2 w-full text-center py-2 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">
+            class="px-2 w-full text-center py-1 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">
             Schedule Meeting
           </a>
         </p>
@@ -50,7 +54,7 @@
     </div>
 
     <!-- Baths, Beds and Verified -->
-    <div class="hidden md:flex space-x-10">
+    <div class="hidden md:flex space-x-10 text-base">
       <div class="text-center flex space-x-2">
         <p class="self-center apt__info-label-2">Beds:</p>
         <p class="self-center apt__info-text-1">{{ apartment.bedrooms }}</p>
@@ -80,10 +84,43 @@
   </div>
 
   <!-- Create a carousel of the images, on click, user can view the full image -->
-  <div class="w-full h-72 md:h-96">
+  {% comment %} <div class="w-full h-72 md:h-96">
     <img class="h-72 md:h-96 w-full" src="{{ apartment.images.first.image.url }}" alt="{{ apartment.title }} Image">
+  </div> {% endcomment %}
+  <div class="slide-container">
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-22.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-24.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-25.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-26.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-28.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-38.jpg' %}" alt="">
+    </div>
+
+    <div class="button">
+      <a onclick="nextImg(-1)" class="prev">&#10094;</a>
+      <a onclick="nextImg(1)" class="next">&#10095;</a>
+    </div>
+
+    <div class="dots">
+      <div class="dot" onclick="currentSlide(1)"></div>
+      <div class="dot" onclick="currentSlide(2)"></div>
+      <div class="dot" onclick="currentSlide(3)"></div>
+      <div class="dot" onclick="currentSlide(4)"></div>
+      <div class="dot" onclick="currentSlide(5)"></div>
+      <div class="dot" onclick="currentSlide(6)"></div>
+    </div>
   </div>
-  {{ apartment.images.all }}
 
   <div class="md:px-10">
     <!-- Location, Price Info -->
@@ -326,5 +363,5 @@
 
 
 {% block javascript %}
-
+<script src="{% static 'js/custom/slide-show.js' %}"></script>
 {% endblock javascript %}
