@@ -19,7 +19,14 @@ module.exports = {
         "royal-blue-dark": "#001177",
         "link-blue": "#0000FF",
         "link-purple": "#800080",
-      }
+      },
+      height: { 
+        '10vh': '10vh',
+        '50vh': '50vh',
+        '60vh': '60vh',
+        '70vh': '70vh',
+        '80vh': '80vh',
+       }
     },
   },
   plugins: [],

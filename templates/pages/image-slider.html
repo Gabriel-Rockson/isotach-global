@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{%static 'css/custom/slide-show.css' %}">
+  <title>Document</title>
+</head>
+<body>
+  <div class="slide-container">
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-22.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-24.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-25.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-26.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-28.jpg' %}" alt="">
+    </div>
+    <div class="slide">
+      <img src="{% static 'img/slide-show/apt-img-38.jpg' %}" alt="">
+    </div>
+
+    <div class="button">
+      <a onclick="nextImg(-1)" class="prev">&#10094;</a>
+      <a onclick="nextImg(1)" class="next">&#10095;</a>
+    </div>
+
+    <div class="dots">
+      <div class="dot" onclick="currentSlide(1)"></div>
+      <div class="dot" onclick="currentSlide(2)"></div>
+      <div class="dot" onclick="currentSlide(3)"></div>
+      <div class="dot" onclick="currentSlide(4)"></div>
+      <div class="dot" onclick="currentSlide(5)"></div>
+      <div class="dot" onclick="currentSlide(6)"></div>
+    </div>
+  </div>
+
+
+  <script src="{% static 'js/custom/slide-show.js' %}"></script>
+</body>
+</html>
