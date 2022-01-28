@@ -168,8 +168,10 @@ class Apartment(models.Model):
 
     def image_tag(self):
         if self.images:
-            url = Path(self.images.first().image.url)
-            jpeg_thumbnail = url.with_suffix('.thumbnail.jpg')
+            url = apartment.images.first().image.url
+            parts = url.split(".jpg")
+            jpeg_thumbnail = parts[0] + ".thumbnail.jpg"
+            webp_thumbnail = parts[0] + ".thumbnail.webp"
             return mark_safe(
                 f'<img src="{jpeg_thumbnail}" style="width: 200px; height:200px;" />'
             )
