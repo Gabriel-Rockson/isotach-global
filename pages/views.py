@@ -13,3 +13,7 @@ class HomePageView(TemplateView):
         context["featured_apartments"] = Apartment.objects.select_related("agent").prefetch_related("images").filter(featured=True)[:8]
         context["latest_apartments"] = Apartment.objects.select_related("agent").prefetch_related("images").all()[:8]
         return context
+
+
+class ImageSliderView(TemplateView):
+    template_name = "pages/image-slider.html"
