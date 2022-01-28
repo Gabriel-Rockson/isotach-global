@@ -463,6 +463,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-10 {
   margin-bottom: 2.5rem;
 }
+.mb-8 {
+  margin-bottom: 2rem;
+}
 .mt-8 {
   margin-top: 2rem;
 }
@@ -745,9 +748,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-16 {
   padding-top: 4rem;
   padding-bottom: 4rem;
-}
-.pb-10 {
-  padding-bottom: 2.5rem;
 }
 .pt-3 {
   padding-top: 0.75rem;
@@ -1365,11 +1365,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   align-self: center;
   text-align: left;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   font-weight: 700;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+@media (min-width: 768px) {
+
+  .filter-item-label {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1437,8 +1445,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
   --tw-text-opacity: 1;
@@ -1466,6 +1474,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline: 2px solid transparent;
   outline-offset: 2px;
   outline-color: #2563eb;
+}
+
+@media (min-width: 768px) {
+
+  .filter-item-select {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -1512,8 +1528,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(203 213 225 / var(--tw-border-opacity));
-  padding-top: 0.625rem;
-  padding-bottom: 0.625rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   padding-left: 1rem;
   padding-right: 1rem;
   --tw-text-opacity: 1;
@@ -1541,6 +1557,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline: 2px solid transparent;
   outline-offset: 2px;
   outline-color: #2563eb;
+}
+
+@media (min-width: 768px) {
+
+  .filter-item-input {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2222,6 +2246,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:mt-2 {
     margin-top: 0.5rem;
+  }
+
+  .lg\:mb-0 {
+    margin-bottom: 0px;
   }
 
   .lg\:block {
