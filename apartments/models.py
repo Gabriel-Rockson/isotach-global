@@ -168,7 +168,7 @@ class Apartment(models.Model):
 
     def image_tag(self):
         if self.images:
-            url = apartment.images.first().image.url
+            url = self.images.first().image.url
             parts = url.split(".jpg")
             jpeg_thumbnail = parts[0] + ".thumbnail.jpg"
             webp_thumbnail = parts[0] + ".thumbnail.webp"
