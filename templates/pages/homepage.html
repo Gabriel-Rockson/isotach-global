@@ -9,7 +9,7 @@
 
 
 <div class="flex bg-slate-900 justify-around w-full img-fluid bg-no-repeat bg-center bg-cover"
-  style="background-image: url({% if homepage.banner_image %}{{ homepage.banner_image.url }}{% else %}{% static 'img/apt-img-11.jpg' %}{% endif %}); height: 600px">
+  style="background-image: url({% if homepage.banner_image %}{{ formats.jpeg }}{% else %}{% static 'img/apt-img-11.jpg' %}{% endif %}); height: 600px">
 
   <div class="self-center flex flex-col w-full lg:w-11/12 xl:w-4/5 2xl:w-3/5 py-5">
     <div class="text-white text-center px-2">
@@ -137,11 +137,6 @@
   </div>
 
 </div>
-
-<p>{{ homepage.banner_image.url}}</p>
-<p>{{ homepage.banner_image }}</p>
-<p>{{ formats.jpeg }}</p>
-<p>{{ format.webp }}</p>
 
 <!-- Listings -->
 <section class="px-4 mb-20 min-h-screen">
