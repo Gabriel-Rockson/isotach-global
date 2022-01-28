@@ -11,10 +11,14 @@
   margin: auto;
 }
 
+.slide-container .slide {
+  display: none;
+}
+
 .slide-container .slide img {
   width: 100%;
   height: 80vh;
-  object-fit: cover;
+  object-fit: fill;
   overflow: hidden;
 }
 
@@ -63,6 +67,6 @@
   cursor: pointer;
 }
 
-.dot:hover {
+.active, .dot:hover {
   background-color: yellow;
 }
