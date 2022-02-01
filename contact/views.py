@@ -11,7 +11,8 @@ class HandleContactFormView(FormView):
     success_url = reverse_lazy("contact:contact-success")
     
     def form_valid(self, form):
-        print("Form is valid")
+        form.save()
+        # TODO Send email to the person
         return super().form_valid(form)
 
 
