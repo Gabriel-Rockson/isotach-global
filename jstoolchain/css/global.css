@@ -44,11 +44,7 @@
 
 
 
-.contact-form-input {
-  @apply border-2 border-slate-300 py-3
-  focus:border-blue-600 focus:outline-none w-full px-4 
-  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg;
-}
+
 
 .faq-summary {
   @apply text-base md:text-lg lg:text-xl cursor-pointer bg-slate-800 text-slate-200 py-1 lg:py-2 px-2 md:px-4 lg:px-6;
@@ -138,7 +134,7 @@
 }
 
 .section-heading-2 {
-  @apply mb-10 text-4xl lg:text-5xl font-black text-slate-100 border-b-2 pb-1 border-slate-100 inline-flex;
+  @apply mb-5 md:mb-10 text-4xl lg:text-5xl font-black text-slate-100 border-b-2 pb-1 border-slate-100 inline-flex;
 }
 
 .section-text {
@@ -196,4 +192,21 @@
 
 .prev-next-btn {
   @apply h-10 w-10 mx-2 align-middle leading-10 text-lg bg-opacity-60 lg:bg-opacity-90 rounded-xl text-center text-white bg-black-rich lg:bg-green-600 cursor-pointer;
+}
+
+/* Contact Form */
+.contact-form-label {
+  @apply text-white font-bold text-lg;
+}
+
+.contact-form-input {
+  @apply border-2 border-slate-300 py-3
+  focus:border-4 focus:border-blue-600 focus:outline-none w-full px-4 
+  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg;
+}
+
+.contact-form-input-1 {
+  @apply border-2 border-slate-300 py-3
+  focus:border-4 focus:border-blue-600 focus:outline-none w-full px-4 
+  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg;
 }

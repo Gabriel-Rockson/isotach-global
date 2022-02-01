@@ -235,7 +235,7 @@
 
 <!-- Contact Form -->
 <section 
-    class="min-h-screen md:h-screen flex justify-around px-4 img-fluid bg-no-repeat bg-center bg-cover bg-slate-800" 
+    class="min-h-screen flex justify-around px-4 img-fluid bg-no-repeat bg-center bg-cover bg-slate-800 py-10" 
     id="contact-us" 
     style="background-image: url({% static 'img/apt-img-11.jpg' %});"
     data-aos="fade"
@@ -243,28 +243,40 @@
   >
   <div class="self-center">
     <h1 class="section-heading-2">
-      Talk to Us</h1>
+      Contact Us</h1>
 
     <div class="w-full px-4" >
+      <p>
+        <small class="text-blue-600 bg-white py-1 px-4 font-bold">
+          <span class="text-black-rich">*</span> - this field is required
+        </small>
+      </p>
+
       <form action="{% url 'contact:handle-contact' %}" method="post" class="space-y-5">
         {% csrf_token %}
 
         <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
           <div class="md:w-1/2">
+            <label for="{{ contact_form.full_name.id_for_label }}" class="contact-form-label">
+              {% if contact_form.full_name.field.required %}*{% endif %} Full Name
+            </label>
             <input 
-              class="contact-form-input" 
+              class="contact-form-input-1" 
               type="text" 
               name="{{ contact_form.full_name.name }}"
               id="{{ contact_form.full_name.id_for_label }}"
               {% if contact_form.full_name.field.required %}required{% endif %}
               maxlength="{{ contact_form.full_name.field.max_length }}"
               {% if contact_form.full_name.value != None %}value="{{ cotact_form.full_name.value|stringformat:'s' }}"{% endif %}
-              placeholder="Your Full Name" />
+            />
           </div>
 
           <div class="md:w-1/2">
+            <label for="{{ contact_form.city.id_for_label }}" class="contact-form-label">
+              {% if contact_form.city.field.required %}*{% endif %} City / Town
+            </label>
             <input 
-              class="contact-form-input" 
+              class="contact-form-input-1" 
               list="cities" 
               type="text" 
               name="{{ contact_form.city.name }}" 
@@ -272,7 +284,7 @@
               {% if contact_form.city.field.required %}required{% endif %}
               maxlength="{{ contact_form.city.field.max_length }}"
               {% if contact_form.city.value != None %}value="{{ cotact_form.city.value|stringformat:'s' }}"{% endif %}
-              placeholder="Your City, or Town" />
+            />
             <datalist id="cities">
               <option value="Accra">Accra</option>
               <option value="Kasoa">Kasoa</option>
@@ -287,32 +299,43 @@
 
         <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
           <div class="md:w-1/2">
+            <label for="{{ contact_form.phone_number.id_for_label }}" class="contact-form-label">
+              {% if contact_form.phone_number.field.required %}*{% endif %} Phone Number 
+              <br class="md:hidden">
+              <span class="text-sm md:text-base text-sky-600">( start with +233 )</span>
+            </label>
             <input 
-              class="contact-form-input" 
+              class="contact-form-input-1" 
               type="text" 
               name="{{ contact_form.phone_number.name }}" 
               id="{{ contact_form.phone_number.id_for_label }}" 
               {% if contact_form.phone_number.field.required %}required{% endif %}
               maxlength="{{ contact_form.phone_number.field.max_length }}"
               {% if contact_form.phone_number.value != None %}value="{{ cotact_form.phone_number.value|stringformat:'s' }}"{% endif %}
-              placeholder="Your Phone" />
+            />
           </div>
           <div class="md:w-1/2">
+            <label for="{{ contact_form.email.id_for_label }}" class="contact-form-label">
+              {% if contact_form.email.field.required %}*{% endif %} Email
+            </label>
             <input 
-              class="contact-form-input" 
+              class="contact-form-input-1" 
               type="email" 
               name="{{ contact_form.email.name }}" 
               id="{{ contact_form.email.id_for_label }}" 
               {% if contact_form.email.field.required %}required{% endif %}
               maxlength="{{ contact_form.email.field.max_length }}"
               {% if contact_form.email.value != None %}value="{{ cotact_form.email.value|stringformat:'s' }}"{% endif %}
-              placeholder="Your Email Address">
+            >
           </div>
         </div>
 
         <div>
+          <label for="{{ contact_form.message.id_for_label }}" class="contact-form-label">
+            {% if contact_form.message.field.required %}*{% endif %} Message
+          </label>
           <textarea 
-            class="contact-form-input"
+            class="contact-form-input-1"
             name="{{ contact_form.message.name }}" 
             id="{{ contact_form.message.id_for_label }}"
             {% if contact_form.message.field.required %}required{% endif %}
@@ -320,11 +343,16 @@
             {% if contact_form.message.value != None %}value="{{ cotact_form.message.value|stringformat:'s' }}"{% endif %}
             cols="20" 
             rows="5"
-            placeholder="Type your message here"></textarea>
+          ></textarea>
         </div>
 
-        <button type="submit" class="blue-btn-rounded">Send Message <i
-            class="fa-solid fa-location-arrow"></i></button>
+        <button 
+          id="contact-form-submit-button" 
+          type="submit" 
+          class="blue-btn-rounded"
+        >
+          Send Message <i class="fa-solid fa-location-arrow"></i>
+        </button>
       </form>
     </div>
 
@@ -354,6 +382,3 @@
 {% endif %}
 
 {% endblock content %}
-
-{% comment %} BUG animate on scroll doesn't work well with in file links html {% endcomment %}
-{% comment %} TODO fix the x overflow {% endcomment %}
