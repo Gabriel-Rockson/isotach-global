@@ -4,7 +4,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 from django.utils.translation import gettext_lazy as _
 
 
-class ContactForm(models.Model):
+class Contact(models.Model):
     full_name = models.CharField(
         verbose_name=_("Full Name"),
         max_length=50,
