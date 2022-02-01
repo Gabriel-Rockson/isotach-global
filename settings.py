@@ -63,6 +63,7 @@ INSTALLED_APPS.extend([
     "pages.apps.PagesConfig",
     "apartments.apps.ApartmentsConfig",
     "agents.apps.AgentsConfig",
+    "contact.apps.ContactConfig",
 ])
 
 # Django Debug Toolbar
