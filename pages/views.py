@@ -2,6 +2,7 @@ from .models import HomePage
 from apartments.models import Apartment
 
 from django.views.generic import TemplateView, View, DetailView
+from contact.forms import ContactForm
 
 
 class HomePageView(TemplateView):
@@ -22,4 +23,5 @@ class HomePageView(TemplateView):
             .prefetch_related("images")
             .all()[:8]
         )
+        context["contact_form"] = ContactForm()
         return context

@@ -5,22 +5,27 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import include, path
 
-urlpatterns = [
-    # add your own patterns here
-    path('', include('pages.urls', namespace="pages")),
-    path('apartments/', include('apartments.urls', namespace="apartments")),
-] + aldryn_addons.urls.patterns() + i18n_patterns(
-    # add your own i18n patterns here
-    *aldryn_addons.urls.i18n_patterns()  # MUST be the last entry!
+urlpatterns = (
+    [
+        # add your own patterns here
+        path("", include("pages.urls", namespace="pages")),
+        path("apartments/", include("apartments.urls", namespace="apartments")),
+        path("contact/", include("contact.urls", namespace="contact")),
+    ]
+    + aldryn_addons.urls.patterns()
+    + i18n_patterns(
+        # add your own i18n patterns here
+        *aldryn_addons.urls.i18n_patterns()  # MUST be the last entry!
+    )
 )
 
 if settings.DEBUG:
-    urlpatterns.extend(
-        static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
+    urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
 
 if settings.DEBUG:
     from django.urls import include, path
     import debug_toolbar
+
     urlpatterns = [
-        path('__debug__/', include(debug_toolbar.urls)),
+        path("__debug__/", include(debug_toolbar.urls)),
     ] + urlpatterns
