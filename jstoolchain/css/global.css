@@ -75,7 +75,7 @@
 }
 
 .filter-item-label {
-  @apply lg:text-center text-left self-center lg:self-start font-mono text-base lg:text-base lg:text-slate-900 text-base md:text-lg font-bold text-white w-1/2 lg:w-full;
+  @apply lg:text-center text-left self-center lg:self-start font-mono text-base lg:text-base lg:text-slate-900 md:text-lg font-bold text-white w-1/2 lg:w-full;
 }
 
 .filter-item-select-1 {
