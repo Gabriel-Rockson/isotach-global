@@ -414,6 +414,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .absolute {
   position: absolute;
 }
+.relative {
+  position: relative;
+}
 .top-0 {
   top: 0px;
 }
@@ -425,6 +428,30 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .left-0 {
   left: 0px;
+}
+.top-4 {
+  top: 1rem;
+}
+.left-4 {
+  left: 1rem;
+}
+.bottom-8 {
+  bottom: 2rem;
+}
+.bottom-4 {
+  bottom: 1rem;
+}
+.bottom-0 {
+  bottom: 0px;
+}
+.top-8 {
+  top: 2rem;
+}
+.top-5 {
+  top: 1.25rem;
+}
+.right-4 {
+  right: 1rem;
 }
 .z-50 {
   z-index: 50;
@@ -860,6 +887,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
 }
+.text-slate-500 {
+  --tw-text-opacity: 1;
+  color: rgb(100 116 139 / var(--tw-text-opacity));
+}
 .text-slate-200 {
   --tw-text-opacity: 1;
   color: rgb(226 232 240 / var(--tw-text-opacity));
@@ -947,6 +978,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-slate-50 {
   --tw-text-opacity: 1;
   color: rgb(248 250 252 / var(--tw-text-opacity));
+}
+.text-slate-600 {
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 .shadow-slate-400 {
   --tw-shadow-color: #94a3b8;

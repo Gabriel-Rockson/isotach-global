@@ -7,10 +7,14 @@
       <!-- The apartment image -->
 
       {% get_thumbnail_images apartment as thumbnails %}
-      <picture>
+      <picture class="relative h-64">
         <source class="w-full h-64" srcset="{{ thumbnails.webp }}" type="image/jpeg">
         <source class="w-full h-64" srcset="{{ thumbnails.jpeg }}" type="image/jpeg">
         <img class="w-full h-64" src="{{ thumbnails.jpeg }}" alt="Apartment Image" />
+        <div class="absolute top-5 left-4 flex space-x-2 text-slate-200 font-bold">      
+          <span>{{ apartment.images.count }}</span>
+          <i class="fa-solid fa-camera text-black-rich text-xl"></i>
+        </div>
       </picture>
 
       <!-- The apartment info -->
