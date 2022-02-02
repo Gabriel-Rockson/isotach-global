@@ -149,7 +149,7 @@
         <i class="fa-solid fa-eye text-slate-900"></i> View all listings
       </a>
 
-      {% include "apartments/apartment-listings.html" with apartments=featured_apartments %}
+      {% include "apartments/apartment-card.html" with apartments=featured_apartments %}
 
     </div>
   {% else %}
@@ -164,7 +164,7 @@
         <i class="fa-solid fa-eye text-slate-900"></i> View all listings
       </a>
 
-      {% include "apartments/apartment-listings.html" with apartments=latest_apartments %}
+      {% include "apartments/apartment-card.html" with apartments=latest_apartments %}
 
     </div>
   {% else %}
