@@ -5,6 +5,20 @@
 
 {% block content %}
 
-<h1 class="text-4xl text-blue-600 text-center">The Form has been submitted successfully</h1>
+<div class="my-20 flex justify-around">
+  <div class="bg-slate-800 mx-5 self-center lg:w-4/5 xl:3/5 py-12 px-10">
+    <h2 class="text-2xl md:text-4xl text-white py-4 font-semibold text-center">Thank you, your message has been delivered successfully</h2>
+    <p class="text-base md:text-lg text-slate-200 py-3">Our Team will process your request in the shortest time possible and contact you with a response.</p>
+
+    <div class="">
+      <a class="contact-success-link" href="{% url 'pages:homepage' %}">
+        <i class=" self-center fa-solid fa-backward"></i><span>go back home</span>
+      </a>
+      <a class="contact-success-link mt-3" href="{% url 'apartments:list-apartments' %}">
+       <span>explore our apartments</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}
