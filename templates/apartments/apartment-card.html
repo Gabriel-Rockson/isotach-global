@@ -11,9 +11,9 @@
         <source class="w-full h-64" srcset="{{ thumbnails.webp }}" type="image/jpeg">
         <source class="w-full h-64" srcset="{{ thumbnails.jpeg }}" type="image/jpeg">
         <img class="w-full h-64" src="{{ thumbnails.jpeg }}" alt="Apartment Image" />
-        <div class="absolute top-5 left-4 flex space-x-2 text-slate-200 font-bold">      
-          <span>{{ apartment.images.count }}</span>
-          <i class="fa-solid fa-camera text-black-rich text-xl"></i>
+        <div class="absolute top-5 left-4 flex space-x-2 text-slate-200 bg-slate-900 bg-opacity-60 font-bold p-2 rounded-lg">      
+          <span class="self-center">{{ apartment.images.count }}</span>
+          <i class="self-center fa-solid fa-camera text-xl text-white"></i>
         </div>
       </picture>
 
