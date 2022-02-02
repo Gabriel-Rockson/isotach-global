@@ -1,0 +1,86 @@
+{% load static %}
+<!-- TODO fix the part of the form that hides on smaller screens -->
+<div
+  class="bg-black-eerie bg-opacity-90 min-h-screen md:h-screen w-full flex justify-around"
+>
+  <div
+    class="lg:w-3/5 xl:w-1/2 bg-white pb-10 md:self-center min-h-screen md:min-h-min md:mx-2 overflow-y-auto"
+  >
+    <div class="flex justify-between mb-2 border-b-2 border-b-slate-900 py-1">
+      <p class="text-lg self-center pl-4 font-bold">Meeting Schedule Form</p>
+      <i
+        id="schedule-meeting-form-close-btn"
+        class="fas fa-times-circle text-red-600 p-1 cursor-pointer text-2xl"
+      ></i>
+    </div>
+
+    <div class="px-5">
+      <div class="">
+        <h1 class="text-slate-900 my-1 text-xl text-center font-bold">
+          Schedule a meeting with the agent.
+        </h1>
+
+        <p class="my-2 text-sm sm:text-base text-slate-700">
+          The agent in charge of this apartment will reach out to you for all
+          further details.
+        </p>
+      </div>
+
+      <form action="#" method="POST">
+        {% csrf_token %}
+        <input
+          class="form-input-2"
+          type="text"
+          name="apartment_title"
+          id="id_apartment_title"
+          value="{{ apartment.title }}"
+          disabled
+          hidden
+        />
+        <input
+          class="form-input-2"
+          type="text"
+          name="agent_name"
+          id="id_agent_name"
+          value="{{ apartment.agent.full_name }}"
+          disabled
+          hidden
+        />
+
+        <!-- TODO customize the appearance of the date-time field -->
+        <div class="">
+          <label for="id_meeting_date" class="form-label-2"
+            >Date and Time</label
+          >
+          <input
+            type="datetime-local"
+            name="meeting_date"
+            id="id_meeting_date"
+            class="form-input-2"
+          />
+        </div>
+
+        <div class="mt-4">
+          <label class="form-label-2" for="id_email">Your Email Address</label>
+          <input class="form-input-2" type="email" name="email" id="id_email" />
+        </div>
+
+        <div class="mt-4">
+          <label class="form-label-2" for="id_phone_number"
+            >Your Phone Number</label
+          >
+          <input
+            class="form-input-2"
+            type="text"
+            name="phone_number"
+            id="id_phone_number"
+          />
+        </div>
+
+        <div class="mt-5">
+          <button class="blue-btn-rounded font-bold">Submit Schedule</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
