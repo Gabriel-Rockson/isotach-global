@@ -15,6 +15,10 @@
   {% include 'contact/ask-question-form.html' with apartment=apartment %}
 </div>
 
+<div class="fixed w-full top-0 z-50 hidden" id="schedule-meeting-popup">
+  {% include 'contact/schedule-meeting-form.html' with apartment=apartment %}
+</div>
+
 <div class="mb-20 xl:px-40">
   <div class="py-3 px-2 md:px-10">
     <!-- Title -->
@@ -50,10 +54,10 @@
 
       <div>
         <p class="flex">
-          <a href="#"
-            class="px-2 w-full text-center py-1 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">
+          <button
+            class="px-2 w-full text-center py-1 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold schedule-meeting-btn">
             Schedule Meeting
-          </a>
+          </button>
         </p>
       </div>
     </div>
@@ -171,7 +175,7 @@
       </div>
       <div class="lg:self-center flex flex-col lg:flex-row w-1/2 lg:w-2/3 space-y-2 lg:space-y-0 lg:space-x-5">
         <button
-          class="px-2 w-full  lg:self-center text-center py-2 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">Schedule
+          class="px-2 w-full  lg:self-center text-center py-2 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold schedule-meeting-btn">Schedule
           Meeting</button>
 
         <button
