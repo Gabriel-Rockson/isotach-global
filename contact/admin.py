@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact, Newsletter
+from .models import Contact, Newsletter, Inquiry
 
 
 @admin.register(Contact)
@@ -24,3 +24,10 @@ class NewsletterAdmin(admin.ModelAdmin):
     search_fields = ["full_name", "email"]
     ordering =("-signup_date",)
     readonly_fields = ["full_name", "email", "signup_date"]
+
+
+@admin.register(Inquiry)
+class InquiryAdmin(admin.ModelAdmin):
+    list_display = ["full_name", "phone_number", "email", "date_submitted"]
+    search_fields = ["full_name", "email"]
+    readonly_fields = ["full_name", "phone_number", "email", "date_submitted", "question"]
