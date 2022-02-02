@@ -10,7 +10,12 @@
 
 {% block content %}
 
-<div class="border-t-2 border-t-slate-200 mb-20 xl:px-40">
+
+<div class="fixed w-full top-0 z-50 hidden" id="ask-question-popup">
+  {% include 'contact/ask-question-form.html' with apartment=apartment %}
+</div>
+
+<div class="mb-20 xl:px-40">
   <div class="py-3 px-2 md:px-10">
     <!-- Title -->
     <div class="">
@@ -39,7 +44,7 @@
       <div class="flex">
         <p class="flex">
           <span class="self-center mr-1 text-sm text-slate-800">Monthly Rent:</span>
-          <span class="self-center font-semibold lg:text-2xl font-serif">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
+          <span class="self-center font-semibold lg:text-2xl font-sans">Ghc {{ apartment.get_monthly_rent_payment|intcomma }}</span>
         </p>
       </div>
 
@@ -165,13 +170,13 @@
         </div>
       </div>
       <div class="lg:self-center flex flex-col lg:flex-row w-1/2 lg:w-2/3 space-y-2 lg:space-y-0 lg:space-x-5">
-        <a href="#"
+        <button
           class="px-2 w-full  lg:self-center text-center py-2 rounded-md bg-blue-700 hover:bg-blue-600 text-white font-bold">Schedule
-          Meeting</a>
+          Meeting</button>
 
-        <a href="#"
-          class="px-2 w-full lg:self-center  text-center py-2 rounded-md bg-slate-900 hover:bg-slate-800 text-white font-bold">Ask a
-          Question</a>
+        <button
+          class="px-2 w-full lg:self-center  text-center py-2 rounded-md bg-slate-900 hover:bg-slate-800 text-white font-bold ask-question-btn">Ask a
+          Question</button>
       </div>
     </div>
 
@@ -356,5 +361,5 @@
 
 
 {% block javascript %}
-<script src="{% static 'js/custom/slide-show.js' %}"></script>
+<script src="{% static 'js/custom/apartments-detail.js' %}"></script>
 {% endblock javascript %}

@@ -219,3 +219,12 @@
 .contact-success-link {
   @apply text-sm md:text-base border-b border-slate-200 text-slate-300 hover:text-white capitalize flex py-1 w-max space-x-2;
 }
+
+/* Popup forms */
+.form-input-2 {
+  @apply border border-slate-900 outline-none focus:border-2 focus:border-blue-600 w-full py-1 px-2 mt-1;
+}
+
+.form-label-2 {
+  @apply text-slate-800 font-semibold text-base;
+}
