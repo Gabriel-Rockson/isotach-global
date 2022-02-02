@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static contact_extras %}
 <html lang="en" class="scroll-smooth">
 
   <head>
@@ -163,19 +163,32 @@
         </div>
 
         <div class="lg:w-1/3 md:w-full">
+          {% newsletter_form as newsletter_form %}
           <h2 class="footer-heading">Join Our Newsletter</h2>
           <p class="text-white text-sm py-1">
             Get notified whenever we upload new apartments
           </p>
-          <form action="post">
-            <!-- TODO customize the input fields on the newletter -->
+          <form action="{% url 'contact:handle-newsletter' %}" method="POST">
+            {% csrf_token %}
             <div class="mt-2">
-              <input class="contact-form-input" placeholder="Enter your full name" type="text" name="full_name_1"
-                id="full_name_1" />
+              <label for="{{ newsletter_form.full_name.id_for_label }}" class="newsletter-form-label">Your Full Name</label>
+              <input 
+                class="contact-form-input" 
+                type="text" 
+                name="{{ newsletter_form.full_name.name }}"
+                id="{{ newsletter_form.full_name.id_for_label }}" 
+                {% if newsletter_form.full_name.field.required %}required{% endif %}
+              />
             </div>
-            <div class="mt-2">
-              <input class="contact-form-input" type="email" placeholder="Enter your email address" name="email_1"
-                id="email_1" />
+            <div class="mt-5">
+              <label for="{{ newsletter_form.full_name.id_for_label }}" class="newsletter-form-label">Your Email Address</label>
+              <input 
+                class="contact-form-input" 
+                type="email" 
+                name="{{ newsletter_form.email.name }}"
+                id="{{ newsletter_form.email.id_for_label }}" 
+                {% if newsletter_form.email.field.required %}required{% endif %}
+              />
             </div>
             <div class="mt-2">
               <button type="submit" class="blue-btn-rounded">

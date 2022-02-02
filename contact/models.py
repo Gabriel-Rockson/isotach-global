@@ -38,3 +38,28 @@ class Contact(models.Model):
     class Meta:
         verbose_name = "Contact Message"
         verbose_name_plural = "Contact Messages"
+
+
+class Newsletter(models.Model):
+    full_name = models.CharField(
+        verbose_name=_("Full Name"),
+        max_length=50,
+        help_text="Enter your full name",
+        null=False,
+        blank=False,
+    )
+    email = models.EmailField(
+        verbose_name=_("Email Address"),
+        help_text="Enter your email address",
+        max_length=300,
+        blank=False,
+        null=False,
+    )
+    signup_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta:
+        verbose_name = "Newsletter Signup"
+        verbose_name_plural = "Newsletter Signups"
