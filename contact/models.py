@@ -50,3 +50,12 @@ class Newsletter(BasicContactInformation):
     class Meta:
         verbose_name = "Newsletter Signup"
         verbose_name_plural = "Newsletter Signups"
+        
+
+class Inquiry(BasicContactInformation):
+    date_submitted = models.DateTimeField(auto_now_add=True)
+    question = models.TextField(blank=False, null=False)
+
+    class Meta:
+        verbose_name = "Inquiry"
+        verbose_name_plural = "Inquiries"
