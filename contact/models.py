@@ -2,6 +2,7 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
 from django.utils.translation import gettext_lazy as _
+from apartments.models import Apartment
 
 
 class BasicContactInformation(models.Model):
@@ -50,11 +51,37 @@ class Newsletter(BasicContactInformation):
     class Meta:
         verbose_name = "Newsletter Signup"
         verbose_name_plural = "Newsletter Signups"
-        
 
-class Inquiry(BasicContactInformation):
+
+class ApartmentDetailViewFormBasicContactInformation(BasicContactInformation):
+    apartment_link = models.URLField(
+        verbose_name=_("Link to Apartment"), blank=False, null=False, default=""
+    )
+    apartment_title = models.CharField(
+        verbose_name=_("Apartment Title"),
+        null=False,
+        blank=False,
+        default="",
+        max_length=200,
+    )
+    agent_name = models.CharField(
+        verbose_name=_("Agent's Name"),
+        null=False,
+        blank=False,
+        default="",
+        max_length=50,
+    )
+
+    class Meta:
+        abstract = True
+
+
+class Inquiry(ApartmentDetailViewFormBasicContactInformation):
     date_submitted = models.DateTimeField(auto_now_add=True)
     question = models.TextField(blank=False, null=False)
+
+    def __str__(self):
+        return f"{self.full_name}'s Inquiry"
 
     class Meta:
         verbose_name = "Inquiry"
