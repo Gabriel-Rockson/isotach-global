@@ -22,12 +22,21 @@ class ContactAdmin(admin.ModelAdmin):
 class NewsletterAdmin(admin.ModelAdmin):
     list_display = ["full_name", "email", "signup_date"]
     search_fields = ["full_name", "email"]
-    ordering =("-signup_date",)
-    readonly_fields = ["full_name", "email", "signup_date"]
+    ordering = ("-signup_date",)
+    readonly_fields = ["full_name", "email", "signup_date", "phone_number"]
 
 
 @admin.register(Inquiry)
 class InquiryAdmin(admin.ModelAdmin):
-    list_display = ["full_name", "phone_number", "email", "date_submitted"]
+    list_display = ["full_name", "phone_number", "email", "date_submitted",]
     search_fields = ["full_name", "email"]
-    readonly_fields = ["full_name", "phone_number", "email", "date_submitted", "question"]
+    readonly_fields = [
+        "full_name",
+        "phone_number",
+        "email",
+        "date_submitted",
+        "question",
+        "apartment_link",
+        "apartment_title",
+        "agent_name",
+    ]
