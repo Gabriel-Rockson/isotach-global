@@ -47,7 +47,17 @@
           hidden
         />
 
-        <div>
+        <div class="">
+          <label class="form-label-2" for="id_full_name">Full Name</label>
+          <input
+            class="form-input-2"
+            type="number"
+            name="full_name"
+            id="id_full_name"
+          />
+        </div>
+
+        <div class="mt-4">
           <label class="form-label-2" for="id_email">Your Email Address</label>
           <input class="form-input-2" type="email" name="email" id="id_email" />
         </div>
@@ -65,21 +75,8 @@
         </div>
 
         <div class="mt-4">
-          <label class="form-label-2" for="id_offer_price">Can I Offer?</label>
-          <small class="text-slate-800 flex"
-            >Enter the amount you will want to pay for the place</small
-          >
-          <input
-            class="form-input-2"
-            type="number"
-            name="offer_price"
-            id="id_offer_price"
-          />
-        </div>
-
-        <div class="mt-4">
           <label for="id_question" class="form-label-2"
-            >Any Other Question</label
+            >Your Question</label
           >
           <textarea
             name="question"
