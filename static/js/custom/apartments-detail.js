@@ -60,3 +60,7 @@ schedule_meeting_form_close_button.onclick = handleScheduleMeetingButtonClick
 for (const button of schedule_meeting_buttons) {
   button.onclick = handleScheduleMeetingButtonClick
 }
+
+/* Add the href of the detail page to the apartment link */
+const apartment_link_input = document.querySelectorAll('.ask-question-apartment-link')[0]
+apartment_link_input.value = window.location.href;
