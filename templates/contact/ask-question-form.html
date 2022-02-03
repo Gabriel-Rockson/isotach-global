@@ -1,16 +1,18 @@
 {% load static %}
 <!-- TODO fix the part of the form that hides on smaller screens -->
 <div
-  class="bg-black-eerie bg-opacity-90 min-h-screen md:h-screen w-full flex justify-around"
+  class="bg-black-eerie bg-opacity-90 min-h-screen md:h-screen w-full flex justify-around overflow-y-auto"
 >
   <div
-    class="lg:w-3/5 xl:w-1/2 bg-white pb-10 md:self-center min-h-screen md:min-h-min md:mx-2 overflow-y-auto"
+    class="lg:w-3/5 xl:w-1/2 md:rounded-lg bg-white pb-10 md:self-center min-h-screen md:min-h-min md:mx-2"
   >
-    <div class="flex justify-between mb-2 border-b-2 border-b-slate-900 py-1">
-      <p class="text-lg self-center pl-4 font-bold">Inquiry Form</p>
+    <div
+      class="flex justify-between mb-2 border-b-2 border-b-slate-900 py-1 md:py-3 md:px-5"
+    >
+      <p class="text-lg self-center pl-4 md:pl-0 font-bold">Inquiry Form</p>
       <i
         id="question-form-close-btn"
-        class="fas fa-times-circle text-red-600 p-1 cursor-pointer text-2xl"
+        class="fas fa-times-circle text-red-600 p-1 cursor-pointer text-2xl md:text-4xl"
       ></i>
     </div>
 
@@ -26,64 +28,80 @@
         </p>
       </div>
 
-      <form action="#" method="POST">
+      <form action="{% url 'contact:handle-inquiry' %}" method="POST">
         {% csrf_token %}
         <input
-          class="form-input-2"
-          type="text"
-          name="apartment_title"
-          id="id_apartment_title"
-          value="{{ apartment.title }}"
-          disabled
-          hidden
+          type="hidden"
+          name="{{ ask_question_form.apartment_link.name }}"
+          id="{{ ask_question_form.apartment_link.id_for_label }}"
+          class="ask-question-apartment-link"
+          value=""
         />
         <input
-          class="form-input-2"
-          type="text"
-          name="agent_name"
-          id="id_agent_name"
+          type="hidden"
+          name="{{ ask_question_form.apartment_title.name }}"
+          id="{{ ask_question_form.apartment_title.id_for_label }}"
+          value="{{ apartment.title }}"
+        />
+        <input
+          type="hidden"
+          name="{{ ask_question_form.agent_name.name }}"
+          id="{{ ask_question_form.agent_name.id_for_label }}"
           value="{{ apartment.agent.full_name }}"
-          disabled
-          hidden
         />
 
         <div class="">
-          <label class="form-label-2" for="id_full_name">Full Name</label>
+          <label
+            class="form-label-2"
+            for="{{ ask_question_form.full_name.id_for_label }}"
+            >Full Name</label
+          >
           <input
             class="form-input-2"
-            type="number"
-            name="full_name"
-            id="id_full_name"
+            type="text"
+            name="{{ ask_question_form.full_name.name }}"
+            id="{{ ask_question_form.full_name.id_for_label }}"
+            required
           />
         </div>
 
         <div class="mt-4">
-          <label class="form-label-2" for="id_email">Your Email Address</label>
-          <input class="form-input-2" type="email" name="email" id="id_email" />
+          <label
+            class="form-label-2"
+            for="{{ ask_question_form.email.id_for_label }}"
+            >Your Email Address</label
+          >
+          <input
+            class="form-input-2"
+            type="email"
+            name="{{ ask_question_form.email.name }}"
+            id="{{ ask_question_form.email.id_for_label }}"
+          />
         </div>
 
         <div class="mt-4">
-          <label class="form-label-2" for="id_phone_number"
+          <label class="form-label-2" for="{{ ask_question_form.phone_number.id_for_label }}"
             >Your Phone Number</label
           >
           <input
             class="form-input-2"
             type="text"
-            name="phone_number"
-            id="id_phone_number"
+            name="{{ ask_question_form.phone_number.name }}"
+            id="{{ ask_question_form.phone_number.id_for_label }}"
+            placeholder="e.g: +233549223589"
+            required
           />
         </div>
 
         <div class="mt-4">
-          <label for="id_question" class="form-label-2"
-            >Your Question</label
-          >
+          <label for="{{ ask_question_form.question.id_for_label }}" class="form-label-2">Your Question</label>
           <textarea
             name="question"
-            id="id_question"
+            id="{{ ask_question_form.question.id_for_label }}"
             cols="30"
             rows="4"
             class="form-input-2"
+            required
           ></textarea>
         </div>
 
