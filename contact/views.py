@@ -3,7 +3,7 @@ from django.views.generic.edit import FormView, ModelFormMixin, View, BaseFormVi
 from django.views.generic import RedirectView
 from django.urls import reverse_lazy
 
-from .forms import ContactForm, NewsletterForm, InquiryForm
+from .forms import ContactForm, NewsletterForm, InquiryForm, ScheduleMeetingForm
 
 
 # TODO these handle form views do not handle invalid forms
@@ -52,3 +52,17 @@ class HandleInquiryFormView(FormView):
 
 class InquiryFormSuccessView(TemplateView):
     template_name = "contact/inquiry-success.html"
+
+
+class HandleScheduleMeetingFormView(FormView):
+    form_class = ScheduleMeetingForm
+    success_url = reverse_lazy("contact:schedule-meeting-success")
+    
+    def form_valid(self, form):
+        form.save()
+        # TODO send an email tot the person
+        return super().form_valid(form)
+    
+
+class ScheduleMeetingSuccessView(TemplateView):
+    template_name = "contact/schedule-meeting-success.html"

@@ -6,6 +6,8 @@ from .views import (
     NewsletterSignupFormSuccessView,
     HandleInquiryFormView,
     InquiryFormSuccessView,
+    HandleScheduleMeetingFormView,
+    ScheduleMeetingSuccessView,
 )
 
 app_name = "contact"
@@ -32,5 +34,16 @@ urlpatterns = [
         "ask-question/success/",
         InquiryFormSuccessView.as_view(),
         name="inquiry-success",
+    ),
+    # schedule meeting
+    path(
+        "schedule-meeting/",
+        HandleScheduleMeetingFormView.as_view(),
+        name="schedule-meeting",
+    ),
+    path(
+        "schedule-meeting/success/",
+        ScheduleMeetingSuccessView.as_view(),
+        name="schedule-meeting-success",
     ),
 ]
