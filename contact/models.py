@@ -54,6 +54,7 @@ class Newsletter(BasicContactInformation):
 
 
 class ApartmentDetailViewFormBasicContactInformation(BasicContactInformation):
+    submitted = models.DateTimeField(verbose_name=_("Form Submission Date and Time"), auto_now_add=True)
     apartment_link = models.URLField(
         verbose_name=_("Link to Apartment"), blank=False, null=False, default=""
     )
@@ -77,12 +78,23 @@ class ApartmentDetailViewFormBasicContactInformation(BasicContactInformation):
 
 
 class Inquiry(ApartmentDetailViewFormBasicContactInformation):
-    date_submitted = models.DateTimeField(auto_now_add=True)
     question = models.TextField(blank=False, null=False)
 
     def __str__(self):
-        return f"{self.full_name}'s Inquiry"
+        return f"{self.full_name} - Inquiry"
 
     class Meta:
         verbose_name = "Inquiry"
         verbose_name_plural = "Inquiries"
+
+
+class ScheduleMeeting(ApartmentDetailViewFormBasicContactInformation):
+    meeting_date_and_time = models.DateTimeField(null=False, blank=False)
+
+    def __str__(self):
+        return f"{self.full_name} - Scheduled Meeting"
+
+    class Meta:
+        ordering = ("-submitted",)
+        verbose_name = "Scheduled Meeting"
+        verbose_name_plural = "Scheduled Meetings"
