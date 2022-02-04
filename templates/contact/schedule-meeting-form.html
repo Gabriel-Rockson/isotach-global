@@ -6,11 +6,15 @@
   <div
     class="lg:w-3/5 xl:w-1/2 bg-white pb-10 md:self-center min-h-screen md:min-h-min md:mx-2 overflow-y-auto"
   >
-    <div class="flex justify-between mb-2 border-b-2 border-b-slate-900 py-1">
-      <p class="text-lg self-center pl-4 font-bold">Meeting Schedule Form</p>
+    <div
+      class="flex justify-between mb-2 border-b-2 border-b-slate-200 py-1 md:py-3 md:px-5"
+    >
+      <p class="text-lg self-center pl-4 md:pl-0 font-bold">
+        Meeting Schedule Form
+      </p>
       <i
         id="schedule-meeting-form-close-btn"
-        class="fas fa-times-circle text-red-600 p-1 cursor-pointer text-2xl"
+        class="fas fa-times-circle text-red-600 p-1 cursor-pointer text-2xl md:text-4xl"
       ></i>
     </div>
 
@@ -26,67 +30,85 @@
         </p>
       </div>
 
-      <form action="#" method="POST">
+      <form action="{% url 'contact:schedule-meeting' %}" method="POST">
         {% csrf_token %}
         <input
-          class="form-input-2"
-          type="text"
-          name="apartment_title"
-          id="id_apartment_title"
-          value="{{ apartment.title }}"
-          disabled
-          hidden
+          type="hidden"
+          name="{{ schedule_meeting_form.apartment_link.name }}"
+          id="{{ schedule_meeting_form.apartment_link.id_for_label }}"
+          class="schedule-meeting-apartment-link"
+          value=""
         />
         <input
-          class="form-input-2"
-          type="text"
-          name="agent_name"
-          id="id_agent_name"
+          type="hidden"
+          name="{{ schedule_meeting_form.apartment_title.name }}"
+          id="{{ schedule_meeting_form.apartment_title.id_for_label }}"
+          value="{{ apartment.title }}"
+        />
+        <input
+          type="hidden"
+          name="{{ schedule_meeting_form.agent_name.name }}"
+          id="{{ schedule_meeting_form.agent_name.id_for_label }}"
           value="{{ apartment.agent.full_name }}"
-          disabled
-          hidden
         />
 
         <!-- TODO customize the appearance of the date-time field -->
         <div class="">
-          <label for="id_meeting_date" class="form-label-2"
+          <label for="{{ schedule_meeting_form.meeting_date_and_time.id_for_label }}" class="form-label-2"
             >Date and Time</label
           >
           <input
             type="datetime-local"
-            name="meeting_date"
-            id="id_meeting_date"
+            name="{{ schedule_meeting_form.meeting_date_and_time.name }}"
+            id="{{ schedule_meeting_form.meeting_date_and_time.id_for_label }}"
             class="form-input-2"
           />
         </div>
 
         <div class="mt-4">
-          <label class="form-label-2" for="id_full_name">Full Name</label>
+          <label
+            class="form-label-2"
+            for="{{ schedule_meeting_form.full_name.id_for_label }}"
+            >Full Name</label
+          >
           <input
             class="form-input-2"
-            type="number"
-            name="full_name"
-            id="id_full_name"
+            type="text"
+            name="{{ schedule_meeting_form.full_name.name }}"
+            id="{{ schedule_meeting_form.full_name.id_for_label }}"
+            required
           />
         </div>
 
         <div class="mt-4">
-          <label class="form-label-2" for="id_email">Your Email Address</label>
-          <input class="form-input-2" type="email" name="email" id="id_email" />
+          <label
+            class="form-label-2"
+            for="{{ schedule_meeting_form.email.id_for_label }}"
+            >Your Email Address</label
+          >
+          <input
+            class="form-input-2"
+            type="email"
+            name="{{ schedule_meeting_form.email.name }}"
+            id="{{ schedule_meeting_form.email.id_for_label }}"
+          />
         </div>
 
         <div class="mt-4">
-          <label class="form-label-2" for="id_phone_number"
+          <label
+            class="form-label-2"
+            for="{{ schedule_meeting_form.phone_number.id_for_label }}"
             >Your Phone Number</label
           >
           <input
             class="form-input-2"
             type="text"
-            name="phone_number"
-            id="id_phone_number"
+            name="{{ schedule_meeting_form.phone_number.name }}"
+            id="{{ schedule_meeting_form.phone_number.id_for_label }}"
+            placeholder="e.g: +233549223589"
+            required
           />
         </div>
-
         <div class="mt-5">
           <button class="blue-btn-rounded font-bold">Submit Schedule</button>
         </div>
