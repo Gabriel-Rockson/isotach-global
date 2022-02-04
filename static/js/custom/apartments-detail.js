@@ -63,4 +63,7 @@ for (const button of schedule_meeting_buttons) {
 
 /* Add the href of the detail page to the apartment link */
 const apartment_link_input = document.querySelectorAll('.ask-question-apartment-link')[0]
+const apartment_link_input_2 = document.querySelectorAll('.schedule-meeting-apartment-link')[0]
+
 apartment_link_input.value = window.location.href;
+apartment_link_input_2.value = window.location.href;
