@@ -1,4 +1,4 @@
-from contact.forms import InquiryForm
+from contact.forms import InquiryForm, ScheduleMeetingForm
 from django.views.generic import DetailView, ListView
 from django_filters.views import FilterView
 
@@ -25,4 +25,5 @@ class ApartmentDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["ask_question_form"] = InquiryForm()
+        context["schedule_meeting_form"] = ScheduleMeetingForm()
         return context
