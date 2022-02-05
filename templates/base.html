@@ -170,27 +170,27 @@
           </p>
           <form action="{% url 'contact:handle-newsletter' %}" method="POST">
             {% csrf_token %}
-            <div class="mt-2">
+            <div class="mt-2 space-y-1">
               <label for="{{ newsletter_form.full_name.id_for_label }}" class="newsletter-form-label">Your Full Name</label>
               <input 
-                class="contact-form-input" 
+                class="contact-form-input-1" 
                 type="text" 
                 name="{{ newsletter_form.full_name.name }}"
                 id="{{ newsletter_form.full_name.id_for_label }}" 
                 {% if newsletter_form.full_name.field.required %}required{% endif %}
               />
             </div>
-            <div class="mt-5">
+            <div class="mt-4 space-y-1">
               <label for="{{ newsletter_form.full_name.id_for_label }}" class="newsletter-form-label">Your Email Address</label>
               <input 
-                class="contact-form-input" 
+                class="contact-form-input-1" 
                 type="email" 
                 name="{{ newsletter_form.email.name }}"
                 id="{{ newsletter_form.email.id_for_label }}" 
                 {% if newsletter_form.email.field.required %}required{% endif %}
               />
             </div>
-            <div class="mt-2">
+            <div class="mt-4">
               <button type="submit" class="blue-btn-rounded">
                 Register
               </button>

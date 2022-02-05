@@ -206,13 +206,13 @@
 }
 
 .contact-form-input-1 {
-  @apply border-2 border-slate-300 py-3
-  focus:border-4 focus:border-blue-600 focus:outline-none w-full px-4 
-  text-black-rich placeholder:text-black-rich rounded-md lg:rounded-lg;
+  @apply py-3
+  focus:border-2 focus:border-blue-600 focus:outline-none w-full px-4 
+  text-black-rich placeholder:text-slate-600 rounded-md;
 }
 
 .newsletter-form-label {
-  @apply text-slate-200 font-bold text-base;
+  @apply text-slate-300 font-bold text-base;
 }
 
 /* Contact Success Page */

@@ -251,109 +251,126 @@
           <span class="text-black-rich">*</span> - this field is required
         </small>
       </p>
+      {% with contact_form as form %}
+        <form action="{% url 'contact:handle-contact' %}" method="post" class="space-y-5">
+          {% csrf_token %}
 
-      <form action="{% url 'contact:handle-contact' %}" method="post" class="space-y-5">
-        {% csrf_token %}
+          <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
+            <div class="md:w-1/2">
+              <label for="{{ form.full_name.id_for_label }}" class="contact-form-label">
+                {% if form.full_name.field.required %}*{% endif %} Full Name
+              </label>
+              <input 
+                class="contact-form-input-1" 
+                type="text" 
+                name="{{ form.full_name.name }}"
+                id="{{ form.full_name.id_for_label }}"
+                {% if form.full_name.field.required %}required{% endif %}
+                maxlength="{{ form.full_name.field.max_length }}"
+                {% if form.full_name.value != None %}value="{{ cotact_form.full_name.value|stringformat:'s' }}"{% endif %}
+              />
+              {% if form.errors.full_name %}
+                <small class="font-bold text-red-600">{{ form.errors.full_name }}</small>
+              {% endif %}
+            </div>
 
-        <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
-          <div class="md:w-1/2">
-            <label for="{{ contact_form.full_name.id_for_label }}" class="contact-form-label">
-              {% if contact_form.full_name.field.required %}*{% endif %} Full Name
-            </label>
-            <input 
-              class="contact-form-input-1" 
-              type="text" 
-              name="{{ contact_form.full_name.name }}"
-              id="{{ contact_form.full_name.id_for_label }}"
-              {% if contact_form.full_name.field.required %}required{% endif %}
-              maxlength="{{ contact_form.full_name.field.max_length }}"
-              {% if contact_form.full_name.value != None %}value="{{ cotact_form.full_name.value|stringformat:'s' }}"{% endif %}
-            />
+            <div class="md:w-1/2">
+              <label for="{{ form.city.id_for_label }}" class="contact-form-label">
+                {% if form.city.field.required %}*{% endif %} City / Town
+              </label>
+              <input 
+                class="contact-form-input-1" 
+                list="cities" 
+                type="text" 
+                name="{{ form.city.name }}" 
+                id="{{ form.city.id_for_label }}"
+                {% if form.city.field.required %}required{% endif %}
+                maxlength="{{ form.city.field.max_length }}"
+                {% if form.city.value != None %}value="{{ cotact_form.city.value|stringformat:'s' }}"{% endif %}
+              />
+              {% if form.errors.city %}
+                <small class="font-bold text-red-600">{{ form.errors.city }}</small>
+              {% endif %}
+              <datalist id="cities">
+                <option value="Accra">Accra</option>
+                <option value="Kasoa">Kasoa</option>
+                <option value="Kumasi">Kumasi</option>
+                <option value="Takoradi">Takoradi</option>
+                <option value="Cape Coast">Cape Coast</option>
+                <option value="Ho">Ho</option>
+                <option value="Tema">Tema</option>
+              </datalist>
+            </div>
           </div>
 
-          <div class="md:w-1/2">
-            <label for="{{ contact_form.city.id_for_label }}" class="contact-form-label">
-              {% if contact_form.city.field.required %}*{% endif %} City / Town
-            </label>
-            <input 
-              class="contact-form-input-1" 
-              list="cities" 
-              type="text" 
-              name="{{ contact_form.city.name }}" 
-              id="{{ contact_form.city.id_for_label }}"
-              {% if contact_form.city.field.required %}required{% endif %}
-              maxlength="{{ contact_form.city.field.max_length }}"
-              {% if contact_form.city.value != None %}value="{{ cotact_form.city.value|stringformat:'s' }}"{% endif %}
-            />
-            <datalist id="cities">
-              <option value="Accra">Accra</option>
-              <option value="Kasoa">Kasoa</option>
-              <option value="Kumasi">Kumasi</option>
-              <option value="Takoradi">Takoradi</option>
-              <option value="Cape Coast">Cape Coast</option>
-              <option value="Ho">Ho</option>
-              <option value="Tema">Tema</option>
-            </datalist>
+          <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
+            <div class="md:w-1/2">
+              <label for="{{ form.phone_number.id_for_label }}" class="contact-form-label">
+                {% if form.phone_number.field.required %}*{% endif %} Phone Number 
+                <br class="md:hidden">
+                <span class="text-sm md:text-base text-sky-600">( start with +233 )</span>
+              </label>
+              <input 
+                class="contact-form-input-1" 
+                type="text" 
+                placeholder="e.g: +233554565758"
+                name="{{ form.phone_number.name }}" 
+                id="{{ form.phone_number.id_for_label }}" 
+                {% if form.phone_number.field.required %}required{% endif %}
+                maxlength="{{ form.phone_number.field.max_length }}"
+                {% if form.phone_number.value != None %}value="{{ cotact_form.phone_number.value|stringformat:'s' }}"{% endif %}
+              />
+              {% if form.errors.phone_number %}
+                <small class="font-bold text-red-600">{{ form.errors.phone_number }}</small>
+              {% endif %}
+            </div>
+            <div class="md:w-1/2">
+              <label for="{{ form.email.id_for_label }}" class="contact-form-label">
+                {% if form.email.field.required %}*{% endif %} Email
+              </label>
+              <input 
+                class="contact-form-input-1" 
+                type="email" 
+                name="{{ form.email.name }}" 
+                id="{{ form.email.id_for_label }}" 
+                {% if form.email.field.required %}required{% endif %}
+                maxlength="{{ form.email.field.max_length }}"
+                {% if form.email.value != None %}value="{{ cotact_form.email.value|stringformat:'s' }}"{% endif %}
+              >
+              {% if form.errors.email %}
+                <small class="font-bold text-red-600">{{ form.errors.email }}</small>
+              {% endif %}
+            </div>
           </div>
-        </div>
 
-        <div class="flex flex-col md:flex-row space-y-5 md:space-y-0 md:space-x-5">
-          <div class="md:w-1/2">
-            <label for="{{ contact_form.phone_number.id_for_label }}" class="contact-form-label">
-              {% if contact_form.phone_number.field.required %}*{% endif %} Phone Number 
-              <br class="md:hidden">
-              <span class="text-sm md:text-base text-sky-600">( start with +233 )</span>
+          <div>
+            <label for="{{ form.message.id_for_label }}" class="contact-form-label">
+              {% if form.message.field.required %}*{% endif %} Message
             </label>
-            <input 
-              class="contact-form-input-1" 
-              type="text" 
-              name="{{ contact_form.phone_number.name }}" 
-              id="{{ contact_form.phone_number.id_for_label }}" 
-              {% if contact_form.phone_number.field.required %}required{% endif %}
-              maxlength="{{ contact_form.phone_number.field.max_length }}"
-              {% if contact_form.phone_number.value != None %}value="{{ cotact_form.phone_number.value|stringformat:'s' }}"{% endif %}
-            />
+            <textarea 
+              class="contact-form-input-1"
+              name="{{ form.message.name }}" 
+              id="{{ form.message.id_for_label }}"
+              {% if form.message.field.required %}required{% endif %}
+              maxlength="{{ form.message.field.max_length }}"
+              {% if form.message.value != None %}value="{{ cotact_form.message.value|stringformat:'s' }}"{% endif %}
+              cols="20" 
+              rows="5"
+            ></textarea>
+            {% if form.errors.message %}
+              <small class="font-bold text-red-600">{{ form.errors.message }}</small>
+            {% endif %}
           </div>
-          <div class="md:w-1/2">
-            <label for="{{ contact_form.email.id_for_label }}" class="contact-form-label">
-              {% if contact_form.email.field.required %}*{% endif %} Email
-            </label>
-            <input 
-              class="contact-form-input-1" 
-              type="email" 
-              name="{{ contact_form.email.name }}" 
-              id="{{ contact_form.email.id_for_label }}" 
-              {% if contact_form.email.field.required %}required{% endif %}
-              maxlength="{{ contact_form.email.field.max_length }}"
-              {% if contact_form.email.value != None %}value="{{ cotact_form.email.value|stringformat:'s' }}"{% endif %}
-            >
-          </div>
-        </div>
 
-        <div>
-          <label for="{{ contact_form.message.id_for_label }}" class="contact-form-label">
-            {% if contact_form.message.field.required %}*{% endif %} Message
-          </label>
-          <textarea 
-            class="contact-form-input-1"
-            name="{{ contact_form.message.name }}" 
-            id="{{ contact_form.message.id_for_label }}"
-            {% if contact_form.message.field.required %}required{% endif %}
-            maxlength="{{ contact_form.message.field.max_length }}"
-            {% if contact_form.message.value != None %}value="{{ cotact_form.message.value|stringformat:'s' }}"{% endif %}
-            cols="20" 
-            rows="5"
-          ></textarea>
-        </div>
-
-        <button 
-          id="contact-form-submit-button" 
-          type="submit" 
-          class="blue-btn-rounded"
-        >
-          Send Message <i class="fa-solid fa-location-arrow"></i>
-        </button>
-      </form>
+          <button 
+            id="contact-form-submit-button" 
+            type="submit" 
+            class="blue-btn-rounded"
+          >
+            Send Message <i class="fa-solid fa-location-arrow"></i>
+          </button>
+        </form>
+      {% endwith %}
     </div>
 
   </div>

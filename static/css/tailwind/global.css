@@ -470,8 +470,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-2 {
   margin-top: 0.5rem;
 }
-.mt-5 {
-  margin-top: 1.25rem;
+.mt-4 {
+  margin-top: 1rem;
 }
 .mr-1 {
   margin-right: 0.25rem;
@@ -485,6 +485,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-20 {
   margin-bottom: 5rem;
 }
+.mt-5 {
+  margin-top: 1.25rem;
+}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
@@ -493,9 +496,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-.mt-4 {
-  margin-top: 1rem;
 }
 .mt-3 {
   margin-top: 0.75rem;
@@ -579,15 +579,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
 }
-.space-x-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
-}
 .space-y-1 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
   margin-top: calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(0.25rem * var(--tw-space-y-reverse));
+}
+.space-x-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
@@ -810,17 +810,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .pl-4 {
   padding-left: 1rem;
 }
-.pt-3 {
-  padding-top: 0.75rem;
-}
-.pb-2 {
-  padding-bottom: 0.5rem;
-}
 .pt-1 {
   padding-top: 0.25rem;
 }
 .pb-3 {
   padding-bottom: 0.75rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
+.pb-2 {
+  padding-bottom: 0.5rem;
 }
 .text-center {
   text-align: center;
@@ -2132,9 +2132,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .contact-form-input-1 {
   width: 100%;
   border-radius: 0.375rem;
-  border-width: 2px;
-  --tw-border-opacity: 1;
-  border-color: rgb(203 213 225 / var(--tw-border-opacity));
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   padding-left: 1rem;
@@ -2145,32 +2142,25 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .contact-form-input-1::-moz-placeholder {
   --tw-text-opacity: 1;
-  color: rgb(11 9 10 / var(--tw-text-opacity));
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .contact-form-input-1:-ms-input-placeholder {
   --tw-text-opacity: 1;
-  color: rgb(11 9 10 / var(--tw-text-opacity));
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .contact-form-input-1::placeholder {
   --tw-text-opacity: 1;
-  color: rgb(11 9 10 / var(--tw-text-opacity));
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 
 .contact-form-input-1:focus {
-  border-width: 4px;
+  border-width: 2px;
   --tw-border-opacity: 1;
   border-color: rgb(37 99 235 / var(--tw-border-opacity));
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-@media (min-width: 1024px) {
-
-  .contact-form-input-1 {
-    border-radius: 0.5rem;
-  }
 }
 
 .newsletter-form-label {
@@ -2178,7 +2168,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.5rem;
   font-weight: 700;
   --tw-text-opacity: 1;
-  color: rgb(226 232 240 / var(--tw-text-opacity));
+  color: rgb(203 213 225 / var(--tw-text-opacity));
 }
 
 /* Contact Success Page */
