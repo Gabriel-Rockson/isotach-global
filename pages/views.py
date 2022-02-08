@@ -1,5 +1,6 @@
 from .models import HomePage
 from apartments.models import Apartment
+from agents.models import Agent
 
 from django.views.generic import TemplateView, View, DetailView
 from contact.forms import ContactForm
@@ -23,5 +24,6 @@ class HomePageView(TemplateView):
             .prefetch_related("images")
             .all()[:8]
         )
+        context["agents"] = Agent.objects.all()[:8]
         context["contact_form"] = ContactForm()
         return context

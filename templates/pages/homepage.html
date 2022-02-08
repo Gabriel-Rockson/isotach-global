@@ -240,7 +240,7 @@
     style="background-image: url({% static 'img/apt-img-11.jpg' %});"
     data-aos="fade"
     data-aos-duration="1300"
-  >
+  ><i class="fas fa-check-double text-green-600 "></i>
   <div class="self-center">
     <h1 class="section-heading-2">
       Contact Us</h1>
@@ -371,6 +371,58 @@
           </button>
         </form>
       {% endwith %}
+    </div>
+
+  </div>
+</section>
+
+<!-- List of Agents -->
+<section 
+  class="min-h-screen flex px-4 py-10 lg:py-20 bg-slate-900" 
+  id="agents"
+  data-aos="fade"
+  data-aos-duration="1300">
+  <div>
+    <h1 class="section-heading-2">
+      Our Agents
+    </h1>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+      {% for agent in agents %}
+        <div 
+          class="bg-slate-700 px-4 py-6 text-white rounded-sm" 
+          data-aos="flip-right" 
+          data-aos-delay="800" 
+          data-aos-duration="500"
+        >
+          <div class="flex justify-around mb-4">
+            <picture class="relative h-64 w-full">
+              <source class="w-full h-64" srcset="{{ agent.picture.url }}" type="image/wpeg">
+              <source class="w-full h-64" srcset="{{ agent.picture.url }}" type="image/jpeg">
+              <img class="w-full h-64" src="{{ agent.picture.url }}" alt="Agent Image" />
+            </picture>
+          </div>
+
+          <p class="py-2 text-slate-100 text-xl capitalize font-bold">{{ agent.full_name }}</p>
+
+          <div class="flex flex-col space-y-2">
+            <a href="tel:{{ agent.phone_number }}"><i class="fa-solid fa-phone-square text-lg"></i> {{ agent.phone_number }}</a>
+            <a href="mailto:{{ agent.email }}"><i class="fas fa-envelope-open"></i> {{ agent.email }}</a>
+            <p>
+              <span class="text-sky-400">Verified:</span>
+              {% if agent.verified %}
+                <i class="fa-solid fa-check-double text-green-600 "></i>
+              {% else %}
+                <i class="fa-solid fa-times text-red-600 self-center"></i>
+              {% endif %}
+            </p>
+            <p>
+              <span class="text-sky-400">Apartments Posted:</span> {{ agent.apartments.count }}
+            </p>
+            <p><span class="text-sky-400">Member Since:</span> {{ agent.date_joined }}</p>
+          </div>
+        </div>
+      {% endfor %}
     </div>
 
   </div>
