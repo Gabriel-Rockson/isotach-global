@@ -106,7 +106,7 @@ SHELL_PLUS = 'ipython'
 TIME_ZONE = "Africa/Accra"
 
 def show_toolbar(request):
-    return DEBUG
+    return False
 
 # DEBUG_TOOLBAR_CONFIG = {"SHOW_TOOLBAR_CALLBACK": show_toolbar}
 
@@ -119,3 +119,13 @@ DEBUG_TOOLBAR_PANELS = [
     'debug_toolbar.panels.profiling.ProfilingPanel',
     'template_timings_panel.panels.TemplateTimings.TemplateTimings',
 ]
+
+# EMAIL CONFIGURATION
+
+# Gmail SMTP Server
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+EMAIL_HOST_USER = 'info.isotachglobal@gmail.com'
+EMAIL_HOST_PASSWORD = '4kYDjAE6YaM86RW'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
