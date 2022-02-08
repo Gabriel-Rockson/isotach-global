@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Contact, Newsletter, Inquiry, ScheduleMeeting
+from .models import Contact, Inquiry, Newsletter, ScheduleMeeting, SiteAdministrator
 
 
 @admin.register(Contact)
@@ -55,3 +55,8 @@ class ScheduleMeetingAdmin(admin.ModelAdmin):
         "apartment_title",
         "agent_name"
     ]
+    
+
+@admin.register(SiteAdministrator)
+class SiteAdministratorAdmin(admin.ModelAdmin):
+    list_display = ["full_name", "email"]
