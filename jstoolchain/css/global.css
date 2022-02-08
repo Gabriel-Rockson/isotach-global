@@ -67,7 +67,7 @@
 }
 
 .apartment-card {
-  @apply bg-slate-700 w-full hover:scale-105;
+  @apply bg-slate-700 w-full hover:scale-105 transition duration-500 ease-in-out;
 }
 
 .filter-item-box {
