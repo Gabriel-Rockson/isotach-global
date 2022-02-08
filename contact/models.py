@@ -54,7 +54,9 @@ class Newsletter(BasicContactInformation):
 
 
 class ApartmentDetailViewFormBasicContactInformation(BasicContactInformation):
-    submitted = models.DateTimeField(verbose_name=_("Form Submission Date and Time"), auto_now_add=True)
+    submitted = models.DateTimeField(
+        verbose_name=_("Form Submission Date and Time"), auto_now_add=True
+    )
     apartment_link = models.URLField(
         verbose_name=_("Link to Apartment"), blank=False, null=False, default=""
     )
@@ -98,3 +100,23 @@ class ScheduleMeeting(ApartmentDetailViewFormBasicContactInformation):
         ordering = ("-submitted",)
         verbose_name = "Scheduled Meeting"
         verbose_name_plural = "Scheduled Meetings"
+
+
+class SiteAdministrator(models.Model):
+    """Model to add site admins to the website from the admin interface"""
+
+    full_name = models.CharField(
+        verbose_name=_("Full Name"), max_length=50, null=True, blank=True
+    )
+    email = models.EmailField(
+        _("Email Address"), max_length=254, blank=False, null=False
+    )
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.full_name
+    
+    class Meta:
+        verbose_name = "Site Administrator"
+        verbose_name_plural = "Site Administrators"
+        ordering = ["created"]
