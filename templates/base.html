@@ -17,7 +17,7 @@
     <title>{% block title %}{% endblock title %}</title>
   </head>
 
-  <body class="bg-white">
+  <body class="bg-white" id="app-body">
     {% comment %} Top Navbar {% endcomment %}
     <nav class="bg-white lg:border-b-0 lg:shadow-lg">
       <!-- The label -->
@@ -213,6 +213,8 @@
       AOS.init()
 
       // HANDLE MOBILE MENU -----------------------------------------------------------------------
+      const document_body = document.querySelector("#app-body");
+
       const mobile_menu_icon = document.getElementById("mobile-menu-icon");
       const mobile_menu_items = document.getElementById("mobile-menu-items");
 
@@ -226,6 +228,8 @@
         // Handle the hiding and showing of the menu items
         mobile_menu_items.classList.toggle("hidden");
         mobile_menu_items.classList.toggle("mobile-menu");
+
+        document_body.classList.toggle('overflow-hidden')
       }
 
       const window_width = window.innerWidth;

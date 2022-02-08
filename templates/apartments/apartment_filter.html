@@ -206,10 +206,12 @@
 
   function hideFilter() {
     filter_form_container.classList.add("hidden");
+    document_body.classList.toggle('overflow-hidden')
   }
 
   function showFilter() {
     filter_form_container.classList.toggle("hidden");
+    document_body.classList.toggle('overflow-hidden')
   }
 
   filter_show_button.addEventListener("click", showFilter);

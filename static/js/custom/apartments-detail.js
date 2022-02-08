@@ -35,6 +35,7 @@ function displayImg(image_no) {
 
 
 /* Ask Question and Schedule meeting popups */
+
 const ask_question_popup = document.querySelector("#ask-question-popup");
 const ask_question_button = document.querySelector('.ask-question-btn');
 const question_form_close_button = document.querySelector('#question-form-close-btn');
@@ -45,11 +46,13 @@ const schedule_meeting_form_close_button = document.querySelector('#schedule-mee
 
 
 function handleAskQuestionButtonClick() {
-  ask_question_popup.classList.toggle('hidden')
+  ask_question_popup.classList.toggle('hidden');
+  document_body.classList.toggle('overflow-hidden')
 }
 
 function handleScheduleMeetingButtonClick() {
   schedule_meeting_popup.classList.toggle('hidden')
+  document_body.classList.toggle('overflow-hidden')
 }
 
 ask_question_button.onclick = handleAskQuestionButtonClick
