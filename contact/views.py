@@ -32,7 +32,10 @@ class HandleNewsletterSignupFormView(FormView):
 
     def form_valid(self, form):
         form.save()
-        # TODO Send an email to the person
+        
+        form.send_admins_mail()
+        form.send_mail_to_person()
+        
         return super().form_valid(form)
 
 
