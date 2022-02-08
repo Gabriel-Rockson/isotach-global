@@ -51,7 +51,7 @@
 }
 
 .footer-heading {
-  @apply text-lg font-bold text-gray-200 md:text-xl lg:text-2xl mb-5 lg:mb-5;
+  @apply text-2xl lg:text-3xl font-bold text-slate-50  mb-5 lg:mb-5;
 }
 
 .banner-form-label {
