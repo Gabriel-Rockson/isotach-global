@@ -1,0 +1,15 @@
+Hello {{ full_name|safe }},
+
+Thank you for reaching out to us, our team will get in touch with you as soon as possible.
+
+Here is a copy of your contact message:
+
+--------------------------------------------------------------------------------
+
+Full Name: {{ full_name|safe }}
+Phone Number: {{ phone_number|safe }}
+Email Address: {{ email|safe }}
+City / Town: {{ city|safe }}
+Contact Message: {{ message|safe }}
+
+---------------------------------------------------------------------------------

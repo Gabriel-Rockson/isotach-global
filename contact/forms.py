@@ -29,6 +29,28 @@ class ContactForm(forms.ModelForm):
         )
         email.send(fail_silently=False)
 
+    def send_email_to_site_visitor(self):
+        context = {
+            "full_name": self.cleaned_data.get("full_name"),
+            "phone_number": self.cleaned_data.get("phone_number"),
+            "email": self.cleaned_data.get("email"),
+            "city": self.cleaned_data.get("city"),
+            "message": self.cleaned_data.get("message"),
+        }
+
+        email_subject = "THANKS FOR CONTACTING US"
+        email_body = render_to_string(
+            "emails/contact-email-body_site-visitor.txt", context
+        )
+
+        email = EmailMessage(
+            email_subject,
+            email_body,
+            from_email=settings.DEFAULT_FROM_EMAIL,
+            to=[context["email"]],
+        )
+        email.send(fail_silently=False)
+
     class Meta:
         model = Contact
         fields = "__all__"
