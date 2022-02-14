@@ -122,10 +122,20 @@ DEBUG_TOOLBAR_PANELS = [
 
 # EMAIL CONFIGURATION
 
-# Gmail SMTP Server
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = '587'
-EMAIL_HOST_USER = 'info.isotachglobal@gmail.com'
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+    EMAIL_FILE_PATH = '/tmp/app-messages'
+    EMAIL_FILE_PATH = os.path.join('development_emails')
+    EMAIL_HOST_USER = 'info.isotachglobal@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+else:
+    # Gmail SMTP Server
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_PORT = '587'
+    EMAIL_HOST_USER = 'info.isotachglobal@gmail.com'
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+    EMAIL_USE_TLS = True
+    DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+    
+# TODO research - OSError: [Errno 99] Cannot assign requested address in sending email django

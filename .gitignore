@@ -14,3 +14,5 @@ docker-compose.prod.yml
 .env-*
 
 Pipfile*
+
+/development_emails
