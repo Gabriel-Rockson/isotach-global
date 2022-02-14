@@ -1,0 +1,16 @@
+Hello Admin,
+
+{{ full_name|safe }} has sent a contact message using the email - {{ email|safe }}
+
+--------------------------------------------------------------------------------
+
+Full Name: {{ full_name|safe }}
+Phone Number: {{ phone_number|safe }}
+Email Address: {{ email|safe }}
+City / Town: {{ city|safe }}
+Contact Message: {{ message|safe }}
+
+---------------------------------------------------------------------------------
+
+Please respond to them as soon as possible.
+Thank you.

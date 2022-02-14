@@ -18,7 +18,7 @@ class HandleContactFormView(FormView):
 
     def form_valid(self, form):
         form.save()
-        # TODO Send email to the admins
+        form.send_mail_to_admins()
         return super().form_valid(form)
 
 
