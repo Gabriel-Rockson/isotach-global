@@ -1,0 +1,8 @@
+Hello {{ full_name|safe }},
+
+Thank you for signing up to our newsletter.
+
+You will receive a periodic emails on our latest apartments.
+
+
+IsotachGlobal

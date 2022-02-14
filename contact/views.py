@@ -18,7 +18,7 @@ class HandleContactFormView(FormView):
 
     def form_valid(self, form):
         form.save()
-        form.send_mail_to_admins()
+        form.send_email_to_admins()
         form.send_email_to_site_visitor()
         return super().form_valid(form)
 
@@ -33,10 +33,8 @@ class HandleNewsletterSignupFormView(FormView):
 
     def form_valid(self, form):
         form.save()
-        
-        form.send_admins_mail()
-        form.send_mail_to_person()
-        
+        form.send_email_to_admins()
+        form.send_email_to_site_visitor()
         return super().form_valid(form)
 
 

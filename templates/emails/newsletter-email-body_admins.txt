@@ -1,0 +1,12 @@
+Hello Admin,
+
+{{ full_name|safe }} has just signed up for our newsletter.
+Please add them to the newsletter email recipients so they receive regular updates
+on the latest apartments.
+
+----------------------------------------------------------
+Details
+Full Name: {{ full_name|safe }}
+Email Address: {{ email|safe }}
+
+Thank you.
